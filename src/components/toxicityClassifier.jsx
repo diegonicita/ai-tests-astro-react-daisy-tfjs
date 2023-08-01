@@ -27,15 +27,15 @@ export const ToxicityClassifier = () => {
   }, [])
 
   return (
-    <div>
+    <div className="bg-color-red">
       <h1>Toxicity Classifier</h1>
       <div> text1: {text1} </div>
       <div> text2: {text2} </div>
-      <div>  
+      <div>
         {response &&
           response.map((item, index) => (
             <div key={index}>
-              <p style={{fontWeight: 'bold'}}> {item.label} </p>
+              <p style={{ fontWeight: 'bold' }}> {item.label} </p>
               <div> text1: {JSON.stringify(item.results[0])}</div>
               <div> text2: {JSON.stringify(item.results[1])}</div>
             </div>

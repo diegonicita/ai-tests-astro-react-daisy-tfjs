@@ -1,23 +1,8 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro'
 import { ToxicityClassifier } from '../components/toxicityClassifier.jsx'
 ---
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <script
-      is:inline
-      src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/2.7.0/tf.min.js"
-    ></script>
-
-    <script
-      is:inline
-      src="https://cdn.jsdelivr.net/npm/@tensorflow-models/toxicity@1.2.2"
-    ></script>
-    <title> Toxicity Classifier Test </title>
-  </head>
-
-  <body>   
-    <ToxicityClassifier client:load />
-  </body>
-</html>
+<BaseLayout title="Toxicity" toxicity={true}>
+  <ToxicityClassifier client:load />
+</BaseLayout>
