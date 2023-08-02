@@ -1,24 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import Navbar from '../components/navbar.astro'
 ---
 
-<BaseLayout title="IA">
-  <div class="container mx-auto">
-    <Navbar />
-    <div class="hero min-h-screen bg-base-200">
+<BaseLayout title="IA">  
+    <div class="hero items-start min-h-screen pt-8">
       <div class="hero-content text-center">
         <div class="max-w-md">
-          <h1 class="text-2xl text-primary mb-1">
-            Disculpa, mi sitio anterior no esta disponible.
+          <h1 class="text-3xl text-primary mb-1">
+            Bienvenido
           </h1>
-          <p class="mb-8">Estamos haciendo unas pruebas con tensorflow.js</p>
-          <h1 class="text-xl text-primary mb-2">Tests disponibles</h1>
+          <p class="mb-8 text-md">Estamos restructurando el sitio</p>
+          <h1 class="text-2xl text-primary mb-4">Contenido disponible:</h1>
           <a class="btn btn-neutral btn-sm" href="toxicity">
-            Toxicity Classifier</a
+            Toxicity Classifier (Tensorflow.js)</a
+          >
+          <a class="btn btn-neutral btn-sm mt-2" href="clearence">
+            Clearence de Creatinina</a
           >
         </div>
-      </div>
-    </div>
+      </div>   
   </div>
 </BaseLayout>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Table } from '../components/table'
+import { Table } from './table'
+import { GradientTitle } from './gradientTitle'
 
 export const ToxicityClassifier = () => {
   const [response, setResponse] = useState(undefined)
@@ -28,20 +29,14 @@ export const ToxicityClassifier = () => {
   }, [])
 
   return (
-    <div className="bg-gray-100 flex flex-col">
-      <h1 class="ml-2 mb-4 text-2xl font-extrabold text-gray-900 dark:text-white md:text-3xl lg:text-4xl">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">
-          Toxicity Classifier
-        </span>{' '}
-        Test
-      </h1>
+    <>
       <div className="ml-2 mb-4 text-md">
         <span className="font-extrabold">text1 (T1):</span> {text1}{' '}
       </div>
       <div className="ml-2 mb-4 text-md">
         <span className="font-extrabold">text2 (T2):</span> {text2}{' '}
-      </div>      
-        <Table data={response} /> 
-    </div>
+      </div>
+      <Table data={response} />
+    </>
   )
 }
