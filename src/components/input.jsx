@@ -2,13 +2,15 @@ export const Input = ({
   label,
   altLabel,
   example,
-  error,
+  errors,
   name,
-  formData,
-  setFormData,
+  values,
+  setValues,
 }) => {
-  const handleChange = (event) => {     
-    setFormData(event.target.value)
+  const handleChange = (event) => {
+    const obj = { ...values, [name]: event.target.value }
+    setValues(obj)
+    console.log(obj)
   }
 
   return (
@@ -24,10 +26,10 @@ export const Input = ({
         placeholder={example}
         className="input input-bordered w-full max-w-xs shadow"
         onChange={handleChange}
-        value={formData}
+        value={values[name]}
       />
       <label className="label">
-        <span className="label-text-alt text-error invisible">{error}</span>
+        <span className="label-text-alt text-error">{errors[name]}</span>
       </label>
     </>
   )
