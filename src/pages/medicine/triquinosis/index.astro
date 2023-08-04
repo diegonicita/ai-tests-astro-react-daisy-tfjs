@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import { GradientTitle } from '../../../components/gradientTitle'
+import { Content as Banner } from '../../../content/triquinosis.mdx'
+---
+<BaseLayout title="Clearence de Creatinina">
+    <div class="container mx-auto">
+    <div class="min-h-screen p-8">
+      <GradientTitle withColor={'Triquinosis: '} withoutColor={'Resumen'} />      
+    <Banner />
+    </div>
+  </div>
+</BaseLayout>
