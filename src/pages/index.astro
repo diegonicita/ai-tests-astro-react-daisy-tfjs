@@ -1,25 +1,27 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import Title from '../components/title.astro'
+import Button from '../components/button.astro'
 ---
 
 <BaseLayout title="Webapp.ar">
-  <div class="hero items-start min-h-screen pt-8">
+  <div class="hero items-start min-h-screen">
     <div class="hero-content text-center">
       <div class="max-w-md">
-        <h1 class="text-3xl mb-1">Bienvenido</h1>
-        <p class="mb-8 text-md">Estamos restructurando el sitio</p>
-        <h1 class="text-2xl mb-4">Contenido disponible:</h1>
-        <a class="btn btn-accent btn-sm" href="toxicity">
-          Toxicity Classifier (Tensorflow.js)</a
-        >
-        <a class="btn btn-accent btn-sm mt-2" href="clearence">
-          Clearence de Creatinina</a
-        >
-        <a class="btn btn-accent btn-sm mt-2" href="medicine/triquinosis">
-          Triquinosis
-        </a>
-        <a class="btn btn-accent btn-sm mt-2" href="login"> Login</a>
-        <a class="btn btn-accent btn-sm mt-2" href="register"> Register</a>
+        <Title add="mt-0 mb-4 text-2xl">Bienvenido a mi sitio web</Title>
+        <h1 class="text-sm mb-0">
+          Mi nombre es Diego Nicita, soy un medico y programador. Aqui podras
+          encontrar cosas utiles para ambas profesiones.
+        </h1>
+        <Button add="btn-primary" to="toxicity">Mi Curriculum</Button>
+        <Title>Componentes</Title>
+        <Button to="login">Login</Button>
+        <Button to="register">Register</Button>
+        <Title>Tensorflow.js</Title>
+        <Button to="toxicity">Toxicity Classifier (Tensorflow.js)</Button>
+        <Title>Medicina</Title>
+        <Button to="clearence">Clearence de Creatinina</Button>
+        <Button to="medicine/triquinosis">Triquinosis</Button>
       </div>
     </div>
   </div>
