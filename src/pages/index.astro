@@ -9,19 +9,21 @@ import Button from '../components/button.astro'
     <div class="hero-content text-center">
       <div class="max-w-md">
         <Title add="mt-0 mb-4 text-2xl">Bienvenido a mi sitio web</Title>
-        <h1 class="text-sm mb-0">
-          Mi nombre es Diego Nicita, soy un medico y programador. Aqui podras
-          encontrar cosas utiles para ambas profesiones.
+        <h1>
+          Mi nombre es Diego Nicita, soy un medico y programador.
         </h1>
-        <Button add="btn-primary" to="toxicity">Mi Curriculum</Button>
-        <Title>Componentes</Title>
-        <Button to="login">Login</Button>
-        <Button to="register">Register</Button>
-        <Title>Tensorflow.js</Title>
-        <Button to="toxicity">Toxicity Classifier (Tensorflow.js)</Button>
-        <Title>Medicina</Title>
-        <Button to="clearence">Clearence de Creatinina</Button>
-        <Button to="medicine/triquinosis">Triquinosis</Button>
+        <h1 class="mbt-4">Aqui podras encontrar cosas utiles para ambas profesiones.</h1>
+        <Button add="btn-primary" to="curriculum">Mi Curriculum</Button>
+        <Title>Componentes y Ejemplos para tu sitio web</Title>
+        <Button to="examples/login">Login</Button>
+        <Button to="examples/register">Register</Button>
+        <Title>Mis Pruebas con Tensorflow.js</Title>
+        <Button to="tensorflow/toxicity">
+          Toxicity Classifier (Tensorflow.js)
+        </Button>
+        <Title>Calculadora y Clases de Medicina </Title>
+        <Button to="medicine/calcs/clearence">Clearence de Creatinina</Button>
+        <Button to="medicine/diseases/triquinosis">Triquinosis</Button>
       </div>
     </div>
   </div>
