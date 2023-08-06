@@ -8,7 +8,7 @@ export const RegisterJSX = () => (
           id nisi.
         </p>
       </div>
-      <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-secondary">
+      <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-300">
         <div className="card-body">
           <div className="form-control">
             <label className="label">
@@ -41,7 +41,7 @@ export const RegisterJSX = () => (
             />            
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-accent">Register</button>
+            <button className="btn btn-neutral">Register</button>
           </div>
         </div>
       </div>

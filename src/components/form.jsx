@@ -73,7 +73,7 @@ export const Form = () => {
           values={values}
           name="peso"
         />
-        <button type="submit" className="btn btn-accent">
+        <button type="submit" className="btn btn-neutral">
           Calcular
         </button>
       </form>
