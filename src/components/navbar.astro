@@ -1,8 +1,68 @@
+<script>
+  function toggleTheme(e) {
+    console.log(e.target.name)
+    document.documentElement.setAttribute('data-theme', e.target.name)
+    localStorage.setItem('theme', e.target.name)
+  }
+  const buttons = document.querySelectorAll('button.theme')
+  buttons.forEach((button) => {
+    button.addEventListener('click', (e) => toggleTheme(e))
+  })
+</script>
+
 <div class="navbar bg-base-100">
-  <div class="avatar">
+  <div class="navbar-start">
+    <div class="dropdown">
+      <label tabindex="0" class="btn btn-ghost lg:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h8m-8 6h16"></path></svg
+        >
+      </label>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+      >
+        <!-- <li><a>Item 1</a></li> -->
+        <li>
+          <a>Theme</a>
+          <ul class="p-2">
+            <li><button class="theme" name="dark">Dark</button></li>
+            <li><button class="theme" name="light">Light</button></li>
+            <li><button class="theme" name="cupcake">Cupcake</button></li>
+            <li><button class="theme" name="cyberpunk">Cyberpunk</button></li>
+          </ul>
+        </li>
+        <!-- <li><a>Item 3</a></li> -->
+      </ul>
+    </div>
     <div class="w-16 rounded ml-8">
       <img src="/logo.png" />
     </div>
+    <a class="btn btn-ghost normal-case text-xl" href="/">Webapp</a>
   </div>
-  <a href="/" class="btn btn-ghost normal-case text-xl">Webapp</a>
+  <div class="navbar-end hidden lg:flex pr-8">
+    <ul class="menu menu-horizontal px-1">
+      <!-- <li><a>Item 1</a></li> -->
+      <li tabindex="0">
+        <details>
+          <summary>Themes</summary>
+          <ul class="p-2">
+            <li><button class="theme" name="dark">Dark</button></li>
+            <li><button class="theme" name="light">Light</button></li>
+            <li><button class="theme" name="cupcake">Cupcake</button></li>
+            <li><button class="theme" name="cyberpunk">Cyberpunk</button></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </div>
 </div>
