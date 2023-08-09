@@ -3,32 +3,50 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import Title from '../../components/title.astro'
 import Button from '../../components/button.astro'
 import { GradientTitle } from '../../components/gradientTitle'
+import Proyecto from '../../components/proyecto.astro'
 ---
 
 <BaseLayout title="Curriculum">
   <div class="hero items-start min-h-screen">
     <div class="hero-content">
       <div class="max-w-lg">
-        <GradientTitle withColor={'Curriculum Vitae'} withoutColor={''} />       
-        <h1 class="text-lg mb-4">
-          Mi nombre es Diego Nicita, soy un medico y programador.
-        </h1>
-        <div>Uso el stack MERN, react native y C# con Unity.</div>
-        <h1 class="text-lg mt-4 mb-4">Proyectos</h1>
-        <div>Webapp</div>
-        <div>(Freelance, Astro/Reactjs/Tailwind/DaisyUI)</div>
-        <div>Solocalzados</div>
-        <div>(HTML/Node/Express/MYSQL, en equipo en Digital House)</div>
-        <div>Mercado</div>
-        <div>(HTML/Node/Express/MYSQL, en equipo en Digital House)</div>
-        <div>Alcance WebApp </div>
-        <div>Cinema, React Native Android App</div>
-        <div>Cafe Store WebApp</div>
-        <div>Cafe Store WebApp</div>
-        <div>Infootball</div>
-        <div>(Freelance, React Native)</div>
-        <div>Singer (Freelance, Astro/Reactjs)</div>
-        <div>(Freelance, Astro/Reactjs)</div>
+        <GradientTitle withColor={'C. V.'} withoutColor={'Diego Nicita'} />
+        <div> Github y Linkedin </div>        
+        <div>
+          <span class="font-bold"
+            >Desarrollador Frontend y Mobile</span
+          >. Uso <span class="font-bold"> React y React Native</span>. <div>Tambien
+          realizo proyectos usando Nodejs, Express, MySQL y videojuegos con Unity.<div></div>
+        </div>
+        <br />
+        <h1 class="text-lg mt-4 mb-4 font-bold">Proyectos</h1>
+        <Proyecto
+          title="Webapp.ar"
+          description="sitio web personal alojado en un Vultr (VPN Ubuntu) donde instale Ngnix, MySQL server y Nodejs entre otras herramientas utiles"
+          tools="Astro/React/TailwindCss/DaisyUI/Tensorflow"
+        />
+        <Proyecto
+          title="Solocalzados"
+          description="Ecommerce sobre una tienda de calzados"
+          tools="HTML/CSS/NodeJS/Express/MYSQL"
+        />
+        <Proyecto
+          title="Mercado (antes Mercadoliebre)"
+          description="Ecommerce sobre una tienda online similar a Mercadolibre o Amazon"
+          tools="HTML/CSS/NodeJS/Express/MYSQL"
+        />
+
+        <Proyecto
+          title="Infootball"
+          description="Proyecto sobre Scouting de Jugadores de Futbol"
+          tools="React Native"
+        />       
+
+        <Proyecto
+          title="Smart Shop"
+          description="Proyecto sobre Escaneo de Codigos QR de un Ecommerce para evitar las filas al pagar"
+          tools="React Native"
+        />        
       </div>
     </div>
   </div>
