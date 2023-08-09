@@ -4,6 +4,7 @@ import Title from '../../components/title.astro'
 import Button from '../../components/button.astro'
 import { GradientTitle } from '../../components/gradientTitle'
 import Proyecto from '../../components/proyecto.astro'
+import { Github } from '../../components/github.jsx'
 ---
 
 <BaseLayout title="Curriculum">
@@ -11,42 +12,47 @@ import Proyecto from '../../components/proyecto.astro'
     <div class="hero-content">
       <div class="max-w-lg">
         <GradientTitle withColor={'C. V.'} withoutColor={'Diego Nicita'} />
-        <div> Github y Linkedin </div>        
+        <div>Github y Linkedin</div>
+        <Github client:load />
         <div>
-          <span class="font-bold"
-            >Desarrollador Frontend y Mobile</span
-          >. Uso <span class="font-bold"> React y React Native</span>. <div>Tambien
-          realizo proyectos usando Nodejs, Express, MySQL y videojuegos con Unity.<div></div>
+          <span class="font-bold">Desarrollador Frontend y Mobile</span>. Uso <span
+            class="font-bold"
+          >
+            React y React Native</span
+          >. <div>
+            Tambien realizo proyectos usando Nodejs, Express, MySQL y
+            videojuegos con Unity.<div></div>
+          </div>
+          <br />
+          <h1 class="text-lg mt-4 mb-4 font-bold">Proyectos</h1>
+          <Proyecto
+            title="Webapp.ar"
+            description="sitio web personal alojado en un Vultr (VPN Ubuntu) donde instale Ngnix, MySQL server y Nodejs entre otras herramientas utiles"
+            tools="Astro/React/TailwindCss/DaisyUI/Tensorflow"
+          />
+          <Proyecto
+            title="Solocalzados"
+            description="Ecommerce sobre una tienda de calzados"
+            tools="HTML/CSS/NodeJS/Express/MYSQL"
+          />
+          <Proyecto
+            title="Mercado (antes Mercadoliebre)"
+            description="Ecommerce sobre una tienda online similar a Mercadolibre o Amazon"
+            tools="HTML/CSS/NodeJS/Express/MYSQL"
+          />
+
+          <Proyecto
+            title="Infootball"
+            description="Proyecto sobre Scouting de Jugadores de Futbol"
+            tools="React Native"
+          />
+
+          <Proyecto
+            title="Smart Shop"
+            description="Proyecto sobre Escaneo de Codigos QR de un Ecommerce para evitar las filas al pagar"
+            tools="React Native"
+          />
         </div>
-        <br />
-        <h1 class="text-lg mt-4 mb-4 font-bold">Proyectos</h1>
-        <Proyecto
-          title="Webapp.ar"
-          description="sitio web personal alojado en un Vultr (VPN Ubuntu) donde instale Ngnix, MySQL server y Nodejs entre otras herramientas utiles"
-          tools="Astro/React/TailwindCss/DaisyUI/Tensorflow"
-        />
-        <Proyecto
-          title="Solocalzados"
-          description="Ecommerce sobre una tienda de calzados"
-          tools="HTML/CSS/NodeJS/Express/MYSQL"
-        />
-        <Proyecto
-          title="Mercado (antes Mercadoliebre)"
-          description="Ecommerce sobre una tienda online similar a Mercadolibre o Amazon"
-          tools="HTML/CSS/NodeJS/Express/MYSQL"
-        />
-
-        <Proyecto
-          title="Infootball"
-          description="Proyecto sobre Scouting de Jugadores de Futbol"
-          tools="React Native"
-        />       
-
-        <Proyecto
-          title="Smart Shop"
-          description="Proyecto sobre Escaneo de Codigos QR de un Ecommerce para evitar las filas al pagar"
-          tools="React Native"
-        />        
       </div>
     </div>
   </div>
