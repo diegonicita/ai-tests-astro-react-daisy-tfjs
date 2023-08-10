@@ -36,7 +36,12 @@ export const ToxicityClassifier = () => {
       <div className="ml-2 mb-4 text-md">
         <span className="font-extrabold">text2 (T2):</span> {text2}{' '}
       </div>
-      <Table data={response} />
+      {!response && (
+        <div className="text-center">
+          <span className="loading loading-lg"></span>
+        </div>
+      )}
+      {response && <Table data={response} />}
     </>
   )
 }
