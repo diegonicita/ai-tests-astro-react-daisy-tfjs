@@ -1,18 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useStore } from '../store/store.js'
+import { useStore } from '@nanostores/react'
+import { counter } from '../store/store'
 
 export const Github = () => {
   const miElementoRef = useRef(null)
   const [color, setColor] = useState(undefined)
-
-  const state = useStore((state) => state)
+  const $counter = useStore(counter)
 
   let add = () => {
-    state.inc()
+    counter.set($counter + 1)
   }
 
   let subtract = () => {
-    state.dec()
+    counter.set($counter - 1)
   }
 
   useEffect(() => {
@@ -34,14 +34,20 @@ export const Github = () => {
     <>
       <div ref={miElementoRef} className="text-accent">
         <div>
-          <div class="stat">
-          <div class="stat-title">React Count:</div>
-          <div class="stat-value">{state.count}</div>          
-        </div>
-          
+          <div className="stat">
+            <div className="stat-title">React Count:</div>
+            <div className="stat-value">{$counter}</div>
+          </div>
+
           <br />
-          <button className="btn btn-lg" onClick={subtract}> Menos </button>
-          <button className="btn btn-lg" onClick={add}> Mas </button>
+          <button className="btn btn-lg" onClick={subtract}>
+            {' '}
+            Menos{' '}
+          </button>
+          <button className="btn btn-lg" onClick={add}>
+            {' '}
+            Mas{' '}
+          </button>
         </div>
       </div>
       <svg
