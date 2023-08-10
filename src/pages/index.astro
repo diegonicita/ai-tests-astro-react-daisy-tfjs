@@ -2,13 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Title from '../components/title.astro'
 import Button from '../components/button.astro'
+import { GradientTitle } from '../components/gradientTitle';
 ---
 
 <BaseLayout title="Webapp">
   <div class="hero items-start min-h-screen">
     <div class="hero-content text-center">
       <div class="max-w-md">
-        <Title add="mt-0 mb-4 text-2xl">Bienvenido a mi sitio web</Title>
+        <GradientTitle withColor={'Bienvenido'} withoutColor={''} />        
         <h1>
           Mi nombre es Diego Nicita, soy un medico y programador. Aqui podras
           encontrar cosas utiles para ambas profesiones.

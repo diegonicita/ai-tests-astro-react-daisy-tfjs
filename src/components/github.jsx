@@ -2,18 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useStore } from '@nanostores/react'
 import { counter } from '../store/store'
 
-export const Github = () => {
+export const Github = ({title}) => {
   const miElementoRef = useRef(null)
   const [color, setColor] = useState(undefined)
   const $counter = useStore(counter)
-
-  let add = () => {
-    counter.set(parseInt($counter) + 1)
-  }
-
-  let subtract = () => {
-    counter.set(parseInt($counter) - 1)
-  }
 
   useEffect(() => {
     const miElemento = miElementoRef.current
@@ -33,27 +25,13 @@ export const Github = () => {
   return (
     <>
       <div ref={miElementoRef} className="text-accent">
-        <div>
-          <div className="stat">
-            <div className="stat-title">React Count:</div>
-            <div className="stat-value">{$counter}</div>
-          </div>
-
-          <br />
-          <button className="btn btn-lg" onClick={subtract}>
-            {' '}
-            Menos{' '}
-          </button>
-          <button className="btn btn-lg" onClick={add}>
-            {' '}
-            Mas{' '}
-          </button>
-        </div>
       </div>
+      <div className='flex flex-row gap-1 p-2'>
       <svg
         id="Layer_1"
         data-name="Layer 1"
         viewBox="0 0 72.32 70.39"
+        width={25}        
         version="1.1"
       >
         <defs id="defs124"></defs>
@@ -65,6 +43,8 @@ export const Github = () => {
           style={{ fill: color ? color : '#ffffff' }}
         ></path>
       </svg>
+      <div>{title}</div>
+      </div>
     </>
   )
 }
