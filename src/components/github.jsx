@@ -8,11 +8,11 @@ export const Github = () => {
   const $counter = useStore(counter)
 
   let add = () => {
-    counter.set($counter + 1)
+    counter.set(parseInt($counter) + 1)
   }
 
   let subtract = () => {
-    counter.set($counter - 1)
+    counter.set(parseInt($counter) - 1)
   }
 
   useEffect(() => {
