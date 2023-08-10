@@ -54,14 +54,15 @@
     </ul>
   </div>
 </div>
-<script is:inline>
-function toggleTheme(e) {
-  console.log(e.target.name)
-  document.documentElement.setAttribute('data-theme', e.target.name)
-  localStorage.setItem('theme', e.target.name)
-}
-const buttons = document.querySelectorAll('button.theme')
-buttons.forEach((button) => {
-  button.addEventListener('click', (e) => toggleTheme(e))
-})
+<script>
+  import { themeAtom } from '../store/store'
+  function toggleTheme(e) {
+    document.documentElement.setAttribute('data-theme', e.target.name)
+    localStorage.setItem('theme', e.target.name)
+    themeAtom.set(e.target.name)
+  }
+  const buttons = document.querySelectorAll('button.theme')
+  buttons.forEach((button) => {
+    button.addEventListener('click', (e) => toggleTheme(e))
+  })
 </script>

@@ -1,11 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useStore } from '@nanostores/react'
-import { counter } from '../store/store'
+import { themeAtom } from '../store/store'
 
 export const SocialLogo = ({ title }) => {
   const miElementoRef = useRef(null)
   const [color, setColor] = useState(undefined)
-  const $counter = useStore(counter)
+  const $themeAtom = useStore(themeAtom)
+
+  // console.log($themeAtom)
 
   useEffect(() => {
     const miElemento = miElementoRef.current
@@ -19,8 +21,8 @@ export const SocialLogo = ({ title }) => {
       .map((component) => parseInt(component).toString(16).padStart(2, '0'))
       .join('') // Esto mostrará el valor del color en formato RGB, por ejemplo "rgb(59, 130, 246)"
     setColor('#' + colorHex)
-    console.log('#' + colorHex)
-  }, [])
+    // console.log('#' + colorHex)
+  }, [$themeAtom])
 
   return (
     <>
