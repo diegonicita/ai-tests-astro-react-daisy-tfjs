@@ -26,7 +26,7 @@ export const SocialLogo = ({ title }) => {
 
   return (
     <>
-      <div ref={miElementoRef} className="text-primary"></div>
+      <div ref={miElementoRef} className="text-accent"></div>
       <div className="flex flex-row gap-1 p-2">
         {title == 'Github' && (
           <>

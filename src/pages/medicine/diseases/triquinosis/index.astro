@@ -6,7 +6,11 @@ import { GradientTitle } from '../../../../components/gradientTitle'
 <BaseLayout title="Triquinosis">
   <div class="container mx-auto">
     <div class="min-h-screen p-8">
-      <GradientTitle withColor={'Triquinosis: '} withoutColor={'Resumen'} />
+      <GradientTitle
+        client:only
+        withColor={'Triquinosis: '}
+        withoutColor={'Resumen'}
+      />
       <h1 class="font-bold text-xl mt-8 mb-4">Introducción</h1>
       <div>
         Los parasitos que afectan al ser humano pueden ser protozarios,
@@ -135,7 +139,9 @@ import { GradientTitle } from '../../../../components/gradientTitle'
       <div>2- Se libera en el estomago por accion del jugo gastrico.</div>
       <div>3- Las larvas ingresan al intestino delgado donde maduran.</div>
       <div>4- Los adultos viven en el intestino.</div>
-      <div>4- Se liberan larvas recien nacidas al torrente sanguieno y linfatico.</div>
+      <div>
+        4- Se liberan larvas recien nacidas al torrente sanguieno y linfatico.
+      </div>
       <div>5- Las larvas ingresan al musculo esquelitico.</div>
       <div>6- Se forma la celula nodriza.</div>
     </div>
