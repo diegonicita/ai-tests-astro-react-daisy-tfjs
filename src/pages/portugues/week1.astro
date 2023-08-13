@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { GradientTitle } from '../../components/gradientTitle'
+---
+
+<BaseLayout title="Login">
+  <div class="wrapper px-12">
+    <div class="one bg-base-200 p-2 font-bold">Semana 1</div>
+    <div class="two bg-base-300 px-4 py-2">
+      <div class="font-bold">Ejemplo de presentacion:</div>
+      Meu nome é Julia Peres, sou casada, tenho um filho, moro na Argentina. Tenho
+      formação na área de Comunicação e Publicidade, tenho conhecimentos em Programação
+      Web e aplicativos com Python. Trabalho como professora de idiomas e conteúdos
+      para aulas de idiomas. Meus objetivos são continuar preparando profissionais
+      de diversas áreas na área de idiomas, com Inglês e Português, também com a
+      criação de conteúdos interativos
+    </div>
+    <div class="three bg-base-300 px-4 py-2">
+      <div class="font-bold">Temas:</div>
+      <div>* Abecedario.</div>
+      <div>* Pronunciar Siglas</div>
+      <div>* Como me apresentar em portugues de Brasil.</div>
+      <div>* Verbos Ser y Estar </div>
+      <div>* Como preparar el CV y las cartas de presentacion</div>
+      <div>* Personas y Verbos </div>
+      <div>* 1 al 100 </div>
+      <div></div>
+    </div>
+    <div class="four bg-primary p-2">4. Mis Pruebas con Tensorflow.</div>
+    <div class="five bg-secondary p-2">
+      5. Calculadora y Clases de Medicina.
+    </div>
+    <div class="six bg-neutral p-2">6. Proximamente.</div>
+    <div class="seven bg-accent p-2">7. Proximamente.</div>
+  </div>
+</BaseLayout>
+
+<style>
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+  }
+  .one {
+    grid-column: 1 / 2;
+    grid-row: 1;
+  }
+  .two {
+    grid-column: 2 / 4;
+    grid-row: 1 / 3;
+  }
+  .three {
+    grid-column: 1;
+    grid-row: 2 / 5;
+  }
+  .four {
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .five {
+    grid-column: 2;
+    grid-row: 4;
+  }
+  .six {
+    grid-column: 3;
+    grid-row: 4;
+  }
+  .seven {
+    grid-column: 2;
+    grid-row: 3;
+  }
+</style>
