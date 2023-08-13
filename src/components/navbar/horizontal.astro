@@ -1,0 +1,38 @@
+---
+import Themes from './horizontalThemes.astro'
+import Languages from './horizontalLanguages.astro'
+---
+
+<div class="navbar-end hidden lg:flex pr-8">
+  <ul class="menu menu-horizontal gap-1">
+    <!-- <Themes />
+    <Languages /> -->
+    <div class="dropdown dropdown-end items-center">
+      <label tabindex="0" class="btn btn-primary btn-group-horizontal btn-sm">
+        Themes</label
+      >
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content z-[1] pt-2 shadow bg-base-100 rounded-box w-auto items-end"
+      >
+        <li><button class="theme" name="dark">Oscuro</button></li>
+        <li><button class="theme" name="light">Claro</button></li>
+        <li><button class="theme" name="cupcake">Cupcake</button></li>
+        <li><button class="theme" name="cyberpunk">Cyberpunk</button></li>
+      </ul>
+    </div>
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="btn btn-primary btn-group-horizontal btn-sm">
+        Idiomas</label
+      >
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-auto items-end"
+      >
+        <li><button class="theme" name="dark">Español</button></li>
+        <li><button class="theme" name="light">Portugues</button></li>
+        <li><button class="theme" name="cupcake">Ingles</button></li>
+      </ul>
+    </div>
+  </ul>
+</div>
