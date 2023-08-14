@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { GradientTitle } from '../../components/gradientTitle'
+---
+
+<BaseLayout title="Login">
+  <div class="wrapper px-12">
+    <div class="one bg-base-200 p-2 font-bold">Semana 2</div>
+    <div class="two bg-base-300 px-4 py-2">
+      <div class="font-bold">Explicacion de un projecto que hice:</div>
+      <div>
+        Recentemente, concluí um projeto envolvendo a criação de uma loja de
+        café utilizando as tecnologias React e Node JS. Neste projeto,
+        desenvolvi uma plataforma que permite aos usuários explorar diferentes
+        tipos de café, fazer pedidos e até mesmo personalizar suas bebidas de
+        acordo com suas preferências. Utilizei React para criar uma interface de
+        usuário interativa e responsiva, enquanto o Node JS foi empregado para
+        construir o backend que gerencia os pedidos, estoque e interações com os
+        clientes. Estou muito satisfeito com o resultado alcançado e com as
+        habilidades que adquiri ao longo desse processo
+      </div>
+    </div>
+    <div class="three bg-base-300 px-4 py-2">
+      <div class="font-bold">Temas:</div>
+      <div>* Mas e Mais.</div>
+      <div>* Verbos irregulares</div>
+      <div>* Comenzar a preparar un video sobre el trabajo remoto.</div>     
+    </div>
+    <div class="four bg-primary p-2">4. Mis Pruebas con Tensorflow.</div>
+    <div class="five bg-secondary p-2">
+      5. Calculadora y Clases de Medicina.
+    </div>
+    <div class="six bg-neutral p-2">6. Proximamente.</div>
+    <div class="seven bg-accent p-2">7. Proximamente.</div>
+  </div>
+</BaseLayout>
+
+<style>
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+  }
+  .one {
+    grid-column: 1 / 2;
+    grid-row: 1;
+  }
+  .two {
+    grid-column: 2 / 4;
+    grid-row: 1 / 3;
+  }
+  .three {
+    grid-column: 1;
+    grid-row: 2 / 5;
+  }
+  .four {
+    grid-column: 3;
+    grid-row: 3;
+  }
+  .five {
+    grid-column: 2;
+    grid-row: 4;
+  }
+  .six {
+    grid-column: 3;
+    grid-row: 4;
+  }
+  .seven {
+    grid-column: 2;
+    grid-row: 3;
+  }
+</style>

@@ -16,7 +16,21 @@ export function addListItemListeners() {
   const dropdownContent = document.querySelectorAll('.dropdown-content>li')
   dropdownContent.forEach((element) => {
     element.addEventListener('click', () => {
-      document.activeElement.blur()
+      // document.activeElement.blur()
+      document.body.focus()
+    })
+  })
+}
+
+export function addLabelListeners() {
+  let focusedLabel = null // Almacena el label con enfoque
+  const labels = document.querySelectorAll('.btn-group-horizontal')
+  labels.forEach((label) => {
+    label.addEventListener('mouseover', () => {
+      if (focusedLabel) {
+        focusedLabel.blur()
+      }
+      focusedLabel = label
     })
   })
 }

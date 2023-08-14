@@ -3,10 +3,16 @@ import Horizontal from './horizontal.astro'
 import Vertical from './vertical.astro'
 ---
 
+
 <script>
-  import { addButtonsListeners, addListItemListeners } from './toggleTheme.js'
+  import {
+    addButtonsListeners,
+    addListItemListeners,
+    addLabelListeners,
+  } from './toggleTheme.js'
   addButtonsListeners()
   addListItemListeners()
+  addLabelListeners()
 </script>
 
 <div class="navbar bg-base-100">
