@@ -11,3 +11,12 @@ export function addButtonsListeners() {
     button.addEventListener('click', (e) => toggleTheme(e))
   })
 }
+
+export function addListItemListeners() {
+  const dropdownContent = document.querySelectorAll('.dropdown-content>li')
+  dropdownContent.forEach((element) => {
+    element.addEventListener('click', () => {
+      document.activeElement.blur()
+    })
+  })
+}
