@@ -29,22 +29,6 @@ module.exports = {
           marginTop: theme('spacing.2'),
           lineHeight: theme('lineHeight.7'),          
         },
-        ul: {
-          marginTop: theme('spacing.4'),                              
-          listStyleType: 'disc',
-          marginLeft: theme('spacing.4'),
-        },
-        ol: {
-          marginTop: theme('spacing.4'),                              
-          listStyleType: 'decimal',
-          marginLeft: theme('spacing.4'),
-        },
-        li: {
-          marginBottom: theme('spacing.2'),
-        },
-        '.markdown p + p': {
-          marginTop: theme('spacing.4'), 
-        },
       })
     }),
     require('daisyui')],
