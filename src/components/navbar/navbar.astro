@@ -3,16 +3,19 @@ import Horizontal from './horizontal.astro'
 import Vertical from './vertical.astro'
 ---
 
-
 <script>
   import {
-    addButtonsListeners,
-    addListItemListeners,
-    addLabelListeners,
-  } from './toggleTheme.js'
-  addButtonsListeners()
-  addListItemListeners()
-  addLabelListeners()
+    setListItemToLostFocusOnClick,
+    setButtonGroupHorizontalLostFocusOnMouseOver,
+  } from './js/focus.js'
+  import { setThemeButtonsListeners } from './js/themes.js'
+  import { setFontButtonsListeners } from './js/fonts.js'
+  import { setLanguageButtonsListeners } from './js/language.js'
+  setListItemToLostFocusOnClick()
+  setButtonGroupHorizontalLostFocusOnMouseOver()
+  setThemeButtonsListeners()
+  setFontButtonsListeners()
+  setLanguageButtonsListeners()
 </script>
 
 <div class="navbar bg-base-100">
