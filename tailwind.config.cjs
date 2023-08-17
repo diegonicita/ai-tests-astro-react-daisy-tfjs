@@ -25,10 +25,10 @@ module.exports = {
           fontSize: theme('fontSize.lg'),
           marginTop: theme('spacing.4'),                                        
         },
-        p: {
-          marginTop: theme('spacing.2'),
-          lineHeight: theme('lineHeight.7'),          
-        },
+        p: {     
+           marginTop: theme('spacing.4'),
+           lineHeight: theme('lineHeight.7'),          
+         },
       })
     }),
     require('daisyui')],

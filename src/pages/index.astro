@@ -8,27 +8,26 @@ import { GradientTitle } from '../components/gradientTitle'
 <BaseLayout title="Webapp">
   <div class="hero items-start min-h-screen">
     <div class="hero-content text-center">
-      <div class="max-w-md">
+      <div class="max-w-lg">
         <GradientTitle client:only withColor={'Bienvenido'} withoutColor={''} />
-        <div>
-          Mi nombre es Diego Nicita, soy medico y programador. Aqui podras
-          encontrar cosas utiles para ambas profesiones.
-        </div>
-        <Button add="btn-primary" to="curriculum">Mi Curriculum</Button>
-        <Title>Curso de Portugues Urgente</Title> 
+        <div style="text-wrap: balance;">Mi nombre es Diego Nicita, soy medico y programador. </div>        
+        <div style="text-wrap: balance;" class="mb-2">Aqui podras encontrar cosas utiles para ambas profesiones.</div>        
+        <Button add="btn-primary" to="curriculum">Curriculum Vitae</Button>
+        <Title>Curso de Portugues</Title> 
         <Button to="portugues/week1">Semana 1</Button>  
         <Button to="portugues/week2">Semana 2</Button>       
-        <Title>Componentes y Ejemplos para tu sitio web</Title>
+        <Title>Componentes y Ejemplos</Title>
         <Button to="examples/login">Login</Button>
         <Button to="examples/register">Register</Button>
         <Button to="examples/grid">Grid</Button>
-        <Title>Mis Pruebas con Tensorflow.js</Title>
+        <Title>Pruebas con Tensorflow.js</Title>
         <Button to="tensorflow/toxicity">
           Toxicity Classifier (Tensorflow.js)
         </Button>
-        <Title>Calculadora y Clases de Medicina</Title>
+        <Title>Calculadora y Clases</Title>
         <Button to="medicine/calcs/clearence">Clearence de Creatinina</Button>
         <Button to="medicine/diseases/triquinosis">Triquinosis</Button>
+        <Button to="javascript/arrays">Arrays</Button>
       </div>
     </div>
   </div>

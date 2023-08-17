@@ -1,0 +1,25 @@
+<style>
+    .enfoco:focus,
+    .enfoco:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px; /* Ajusta este valor según tu preferencia */
+      text-decoration-skip-ink: none;
+    }
+  </style>
+  
+  <div class="dropdown dropdown-end dropdown-hover items-center">
+    <label
+      tabindex="0"
+      class="enfoco btn btn-link decoration-transparent btn-group-horizontal text-base-content"
+    >
+      Fonts</label
+    >
+    <ul
+      class="menu menu-sm dropdown-content z-[1] pt-2 shadow bg-base-100 rounded-box w-auto items-end"
+    >
+      <li><button class="theme" name="dark">Sans</button></li>
+      <li><button class="theme" name="light">Serif</button></li>
+      <li><button class="theme" name="cupcake">Mono</button></li>      
+    </ul>
+  </div>
