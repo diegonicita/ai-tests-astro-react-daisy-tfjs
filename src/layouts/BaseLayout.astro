@@ -6,16 +6,25 @@ import Footer from '../components/footer.astro'
 ---
 
 <script is:inline>
-  // ☝️ This script prevent the FART effect.
-  if (localStorage.getItem("theme") === null) {
-    document.documentElement.setAttribute("data-theme", "light");
-  } else
-  document.documentElement.setAttribute("data-theme",localStorage.getItem("theme"));
-  // "theme" LocalStorage value is set by the package to remember user preference.
-  // The value is checked and applyed before rendering anything.
+// ☝️ This script prevent the FART effect.
+if (localStorage.getItem('theme') === null) {
+  document.documentElement.setAttribute('data-theme', 'light')
+} else
+  document.documentElement.setAttribute(
+    'data-theme',
+    localStorage.getItem('theme'),
+  )
+// "theme" LocalStorage value is set by the package to remember user preference.
+// The value is checked and applyed before rendering anything.
+if (localStorage.getItem('themeAtom') === null) {
+  document.body.classList.add('font-mono')
+}
+
+if (document.body.classList.lenght > 0)
+  document.body.classList.add('font-' + localStorage.getItem('themeAtom'))
 </script>
 
-<html lang="en" class="bg-base-100" data-theme="cupcake"> 
+<html lang="en" class="bg-base-100" data-theme="cupcake">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />

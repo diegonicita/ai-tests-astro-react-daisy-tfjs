@@ -1,26 +1,40 @@
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import Code from './code.astro'
+import Box from './caja.astro'
 
 <BaseLayout>
 <div class="text-sm sm:px-48 sm:text-lg">
 
-# **Arrays**
-<div class="mt-4 mockup-window border bg-base-300">
-  <div class="px-4 pt-4 bg-base-200">En programación, un **arreglo** (también conocido como **array**) es una estructura de datos que se utiliza para almacenar y organizar una colección de elementos del mismo tipo. </div>
-  <div class="px-4 py-4 bg-base-200">Los arreglos son extremadamente útiles porque te permiten trabajar con conjuntos de datos relacionados y acceder a ellos de forma eficiente.</div>
-</div>
+# **Curso de Javascript: Arrays o arreglos**
+
+<Box>
+En programación, un **arreglo** (también conocido como **array**) es una estructura de datos que se utiliza para almacenar y organizar una colección de elementos del mismo tipo.
+
+Los arreglos son extremadamente útiles porque te permiten trabajar con conjuntos de datos relacionados y acceder a ellos de forma eficiente.
+</Box>
 
 
 
-En JavaScript, un arreglo es una secuencia ordenada de elementos que pueden ser de cualquier tipo de dato, como números, cadenas de texto, booleanos, objetos e incluso otros arreglos. 
+En **JavaScript**, un arreglo es una secuencia ordenada de elementos que pueden ser de cualquier tipo de dato, como números, cadenas de texto, booleanos, objetos e incluso otros arreglos. 
 
-Los elementos se almacenan en posiciones numeradas llamadas `índices`, comenzando desde el índice `0` para el primer elemento, luego el índice `1` para el segundo, y así sucesivamente.
+Los elementos se almacenan en posiciones numeradas llamadas **índices**, comenzando desde el índice `0` para el primer elemento, luego el índice `1` para el segundo, y así sucesivamente.
 
 Puedes imaginar un arreglo como una fila de "pequeñas cajas" contiguas colocadas una al lado de la otra, cada una con una posición numérica. Esta analogía puede ayudarte a visualizar cómo se almacenan y organizan los elementos dentro de un arreglo.
 
-**Imagina que tienes un arreglo de números:** <Code>[10, 20, 30, 40, 50]</Code>
+**Imagina que tienes un arreglo de números:**
+<Box>
+[10, 20, 30, 40, 50]
+</Box>
 
-Puedes visualizarlo de la siguiente manera: cada número representa un elemento del arreglo, y la posición numérica debajo de cada caja representa el índice correspondiente. Por ejemplo, el número "10" está en la posición "0", el número "20" está en la posición "1", y así sucesivamente.
+**Puedes visualizarlo de la siguiente manera:**
+
+<Box>
+  const a = [10, 20, 30, 40]
+  
+  const total = a[0] +  a[1] + a[2] + a[3]
+</Box>
+
+Cada número representa un elemento del arreglo, y la posición numérica debajo de cada caja representa el índice correspondiente. Por ejemplo, el número "10" está en la posición "0", el número "20" está en la posición "1", y así sucesivamente.
 
 La principal ventaja de los arreglos es que te permiten acceder a los elementos de manera rápida y eficiente utilizando su índice. Por ejemplo, si tienes un arreglo de nombres, puedes acceder a un nombre específico utilizando el índice correspondiente. Esto facilita la manipulación y el procesamiento de grandes cantidades de datos.
 
@@ -30,22 +44,34 @@ Aquí tienes algunos conceptos clave relacionados con los arreglos en JavaScript
 
 Puedes declarar un arreglo utilizando corchetes “[]” y separando los elementos con comas ",".
 
-Por ejemplo:
-<Code>[10, 20, 30, 40, 50]</Code>
+**Por ejemplo:**
+<Box>
+  var miArreglo = [10, 20, 30, 40, 50];
+  
+  var arregloNombre = ['Juan', 'María', 'Carlos'];
+</Box>
 
-Otra forma de crear un arreglo es con el constructor `Array`.
+Aún no hemos hablado de asignaciones de variables, pero lo que se encuentra después del operador de asignación "=" son los arreglos. Estos mismos están asignados a variables que son "miArreglo" y "arregloNombres". Hablaremos con detalles de las variables más adelante.
 
-Hay varias formas de utilizar el constructor "Array" para crear arreglos:
+Otra forma de crear un arreglo es con el constructor **Array**.
 
-- Utilizando el operador "new" junto con el constructor "Array":
-<Code>const miArreglo = new Array();</Code>
+Hay varias formas de utilizar el constructor **Array** para crear arreglos:
+
+- Utilizando el operador **new** junto con el constructor **Array**:
+<Box>
+const miArreglo = new Array();
+</Box>
 
 - Especificando la longitud del arreglo al crearlo:
 
-<Code>const miArreglo = new Array(5);</Code>
+<Box>
+const miArreglo = new Array(5);
+</Box>
 
-- Pasando los elementos iniciales del arreglo como argumentos al constructor "Array":
-<Code>const miArreglo = new Array(10, 20, 30, 40, 50);</Code>
+- Pasando los elementos iniciales del arreglo como argumentos al constructor **Array**:
+<Box>
+const miArreglo = new Array(10, 20, 30, 40, 50);
+</Box>
 
 Sin embargo, es importante tener en cuenta que crear un arreglo utilizando la notación de corchetes "[]" es la forma más común y recomendada de crear arreglos en JavaScript, ya que es más concisa y legible.
 
@@ -55,10 +81,11 @@ Puedes acceder a los elementos de un arreglo utilizando su índice.
 
 Veamos un ejemplo con uno de los arreglos anteriores:
 
-<div class="mockup-code bg-neutral text-neutral-content p-4 my-4">
-<pre><code> const miArreglo = [10, 20, 30, 40, 50]; </code></pre>
-<pre><code> const primerElemento = miArreglo[0]; // Esto devuelve el valor 10 </code></pre>
-</div>
+<Box>
+const miArreglo = [10, 20, 30, 40, 50];
+
+const primerElemento = miArreglo[0]; // Esto devuelve el valor 10
+</Box>
 
 # Modificación de elementos:
 
@@ -66,10 +93,11 @@ Puedes modificar los elementos de un arreglo asignando un nuevo valor a un índi
 
 Por ejemplo:
 
-<div class="mockup-code bg-neutral text-neutral-content p-4 my-4">
-<pre><code> const miArreglo = [10, 20, 30, 40, 50];</code></pre>
-<pre><code> miArreglo[1] = 2;</code></pre>
-</div>
+<Box> 
+const miArreglo = [10, 20, 30, 40, 50];
+
+miArreglo[1] = 2;
+</Box>
 
 # Propiedad length:
 
@@ -77,17 +105,25 @@ La propiedad "length" en un arreglo es una propiedad que te permite obtener la c
 
 Por ejemplo, supongamos que tienes el siguiente arreglo:
 
-<Code>const miArreglo = [10, 20, 30, 40, 50];</Code>
+<Box>
+const miArreglo = [10, 20, 30, 40, 50];
+</Box>
 
 Puedes obtener la longitud del arreglo usando la propiedad length de la siguiente manera:
 
-<Code>const longitud = miArreglo.length; // Esto devuelve 5</Code>
+<Box>
+const longitud = miArreglo.length; // Esto devuelve 5
+</Box>
 
-Es importante tener en cuenta que la propiedad "length" es una propiedad de solo lectura, lo que significa que no debes intentar asignar un nuevo valor a esta propiedad para cambiar la longitud del arreglo. 
+Es importante tener en cuenta que la propiedad **length** es una propiedad de solo lectura, lo que significa que no debes intentar asignar un nuevo valor a esta propiedad para cambiar la longitud del arreglo. 
 
-Si deseas agregar o eliminar elementos de un arreglo, debes usar métodos específicos como "push()", "pop()", "shift()", "unshift()", "splice()", etc. Estos métodos los conoceremos a continuación.
+Si deseas agregar o eliminar elementos de un arreglo, debes usar métodos específicos como: **push()**, **pop()**, **shift()**, **unshift()**, **splice()**, etc. Estos métodos los conoceremos a continuación.
 
+<Box> 
 Los arreglos son una parte fundamental de la programación y te permiten trabajar con colecciones de datos de manera eficiente. Conocer y comprender cómo utilizar los arreglos en JavaScript es crucial para desarrollar aplicaciones efectivas y resolver problemas de manera efectiva.
+</Box>
+
+Para conocer más de los Arreglos pueden visitar la página oficial de **mdn web docs**.
 
 </div>
 </BaseLayout>
