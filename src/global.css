@@ -1,20 +1,35 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Liberation+Mono&display=swap');
+@font-face {
+  font-family: 'font-roboto';
+  src: url('../src/fonts/Roboto-Regular.ttf') format('truetype');  
+}
 
-body {
-  font-family: 'Liberation Mono', monospace;
-} */
+@font-face {
+  font-family: 'font-lato';
+  src: url('../src/fonts/Lato-Regular.ttf') format('truetype'); 
+}
 
+@font-face {
+  font-family: 'font-montserrat';
+  src: url('../src/fonts/Montserrat-Regular.ttf') format('truetype'); 
+}
 
+@font-face {
+  font-family: 'font-open-sans';
+  src: url('../src/fonts/OpenSans-Regular.ttf') format('truetype'); 
+}
 
+.font-roboto {
+  font-family: 'font-roboto'
+}
 
+.font-lato {
+  font-family: 'font-lato'
+}
 
+.font-montserrat {
+  font-family: 'font-montserrat'
+}
 
-
-
-
-
-
-
-
-
-
+.font-open-sans {
+  font-family: 'font-open-sans'
+}
