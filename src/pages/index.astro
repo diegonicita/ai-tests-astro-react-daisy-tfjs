@@ -5,17 +5,37 @@ import Button from '../components/button.astro'
 import { GradientTitle } from '../components/gradientTitle'
 ---
 
-<BaseLayout title="Webapp">
+<BaseLayout title="Webapp"> 
+  <div class="hero bg-base-400">
+    <div class="hero-content flex-col lg:flex-row-reverse">
+      <img src="logo.png" class="w-full" />
+      <div class="w-full">
+        <h1 class="text-7xl font-bold">Marketing website done With Astro</h1>
+        <p class="text-xl">
+          Astroship is a starter template for startups, marketing websites &
+          landing pages. Built with Astro.build and TailwindCSS. You can quickly
+          create any website with this starter.
+        </p>
+        <button class="mt-6 btn btn-primary">Download for Free</button>
+        <button class="mt-6 btn btn-primary">Github Repo</button>
+      </div>
+    </div>
+  </div>
+
   <div class="hero items-start min-h-screen">
     <div class="hero-content text-center">
       <div class="max-w-lg">
-        <GradientTitle client:only withColor={'Bienvenido'} withoutColor={''} />        
-        <div style="text-wrap: balance;">Mi nombre es Diego Nicita, soy medico y programador. </div>        
-        <div style="text-wrap: balance;" class="mb-2">Aqui podras encontrar cosas utiles para ambas profesiones.</div>        
+        <!-- <GradientTitle client:only withColor={'Bienvenido'} withoutColor={''} /> -->
+        <div style="text-wrap: balance;">
+          Mi nombre es Diego Nicita, soy medico y programador.
+        </div>
+        <div style="text-wrap: balance;" class="mb-2">
+          Aqui podras encontrar cosas utiles para ambas profesiones.
+        </div>
         <Button add="btn-primary" to="curriculum">Curriculum Vitae</Button>
-        <Title>Curso de Portugues</Title> 
-        <Button to="portugues/week1">Semana 1</Button>  
-        <Button to="portugues/week2">Semana 2</Button>       
+        <Title>Curso de Portugues</Title>
+        <Button to="portugues/week1">Semana 1</Button>
+        <Button to="portugues/week2">Semana 2</Button>
         <Title>Componentes y Ejemplos</Title>
         <Button to="examples/login">Login</Button>
         <Button to="examples/register">Register</Button>
