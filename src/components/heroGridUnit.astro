@@ -1,0 +1,14 @@
+---
+import Title from './title.astro'
+const { title, description } = Astro.props
+---
+
+<div class="flex gap-4 items-start flex-col">
+  <div>
+    <Title>{title}</Title>
+    <p class="text-slate-500 mt-2 leading-relaxed">
+      {description}
+    </p>
+    <slot />
+  </div>
+</div>

@@ -5,6 +5,7 @@ import Button from '../components/button.astro'
 import { GradientTitle } from '../components/gradientTitle'
 import Hero from '../components/hero.astro'
 import HeroGrid from '../components/heroGrid.astro'
+import HeroGridUnit from '../components/heroGridUnit.astro'
 ---
 
 <BaseLayout title="Webapp">
@@ -16,75 +17,56 @@ import HeroGrid from '../components/heroGrid.astro'
       <div>
         <div class="mt-16 md:mt-0">
           <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-            La entrada es libre y gratuita
+            Mis trabajos y proyectos
           </h2>
           <p class="text-lg mt-4 text-slate-600">
-            Aqui puedes encontrar diferentes cosas relacionadas con la programacion web y/o la medicina en los que estoy trabajando
+            Aqui puedes encontrar diferentes cosas relacionadas con la
+            programacion web y/o la medicina en los que estoy trabajando
           </p>
         </div>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
-          <div class="flex gap-4 items-start flex-col">
-            <div>
-              <Title>Sobre Mi</Title>
-              <p class="text-slate-500 mt-2 leading-relaxed">
-                Aqui puedes encontrar diferentes cosas relacionadas con la programacion web y/o la medicina en los que estoy trabajando.
-              </p>
-              <Button add="btn-primary" to="curriculum">
-                Curriculum Vitae
-              </Button>
-            </div>
-          </div>
-          <div class="flex gap-4 items-start">
-            <div>
-              <Title>Curso de Portugues</Title>
-              <p class="text-slate-500 mt-2 leading-relaxed">
-                Aqui puedes encontrar diferentes cosas relacionadas con la programacion web y/o la medicina en los que estoy trabajando
-              </p>
-              <Button to="portugues/week1">Semana 1</Button>
-              <Button to="portugues/week2">Semana 2</Button>
-            </div>
-          </div>
-          <div class="flex gap-4 items-start">
-            <div>
-              <Title>Componentes y Ejemplos</Title>
-              <p class="text-slate-500 mt-2 leading-relaxed">
-                Aqui puedes encontrar diferentes cosas relacionadas con la programacion web y/o la medicina en los que estoy trabajando
-              </p>
-              <Button to="examples/login">Login</Button>
-              <Button to="examples/register">Register</Button>
-              <Button to="examples/grid">Grid</Button>
-            </div>
-          </div>
-          <div class="flex gap-4 items-start">
-            <div>
-              <Title>Tensorflow.js</Title>
-              <p class="text-slate-500 mt-2 leading-relaxed">
-                Aqui puedes encontrar diferentes cosas relacionadas con la programacion web y/o la medicina en los que estoy trabajando
-              </p>
-              <Button to="tensorflow/toxicity">Toxicity Classifier</Button>
-            </div>
-          </div>
-          <div class="flex gap-4 items-start">
-            <div>
-              <Title>Calculadora</Title>
-              <p class="text-slate-500 mt-2 leading-relaxed">
-                Aqui puedes encontrar diferentes cosas relacionadas con la programacion web y/o la medicina en los que estoy trabajando
-              </p>
-              <Button to="medicine/calcs/clearence">
-                Clearence de Creatinina
-              </Button>
-            </div>
-          </div>
-          <div class="flex gap-4 items-start">
-            <div>
-              <Title>Clases</Title>
-              <p class="text-slate-500 mt-2 leading-relaxed">
-                Aqui puedes encontrar diferentes cosas relacionadas con la programacion web y/o la medicina en los que estoy trabajando
-              </p>
-              <Button to="medicine/diseases/triquinosis">Triquinosis</Button>
-              <Button to="javascript/arrays">Arrays</Button>
-            </div>
-          </div>
+          <HeroGridUnit
+            title="Sobre Mi"
+            description="Aqui puedes encontrar diferentes cosas relacionadas con la programacion web y/o la medicina en los que estoy trabajando."
+          >
+            <Button to="curriculum">Curriculum Vitae</Button>
+          </HeroGridUnit>
+          <HeroGridUnit
+            title="Curso de Portugues"
+            description="Aqui puedes encontrar diferentes cosas relacionadas con la programacion web y/o la medicina en los que estoy trabajando."
+          >
+            <Button to="portugues/week1">Semana 1</Button>
+            <Button to="portugues/week2">Semana 2</Button>
+          </HeroGridUnit>
+          <HeroGridUnit
+            title="Componentes y Ejemplos"
+            description="Aqui puedes encontrar diferentes cosas relacionadas con la programacion web y/o la medicina en los que estoy trabajando."
+          >
+            <Button to="examples/login">Login</Button>
+            <Button to="examples/register">Register</Button>
+            <Button to="examples/grid">Grid</Button>
+          </HeroGridUnit>
+          <HeroGridUnit
+            title="Tensorflow.js"
+            description="Aqui puedes encontrar diferentes cosas relacionadas con la programacion web y/o la medicina en los que estoy trabajando."
+          >
+            <Button to="tensorflow/toxicity">Toxicity Classifier</Button>
+          </HeroGridUnit>
+          <HeroGridUnit
+            title="Calculadora"
+            description="Aqui puedes encontrar diferentes cosas relacionadas con la programacion web y/o la medicina en los que estoy trabajando."
+          >
+            <Button to="medicine/calcs/clearence">
+              Clearence de Creatinina
+            </Button>
+          </HeroGridUnit>
+          <HeroGridUnit
+            title="Clases"
+            description="Aqui puedes encontrar diferentes cosas relacionadas con la programacion web y/o la medicina en los que estoy trabajando."
+          >
+            <Button to="medicine/diseases/triquinosis">Triquinosis</Button>
+            <Button to="javascript/arrays">Arrays</Button>
+          </HeroGridUnit>
         </div>
       </div>
     </div>
