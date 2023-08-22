@@ -10,48 +10,57 @@ import { SocialLogo } from '../../components/socialLogo.jsx'
 <BaseLayout title="Curriculum">
   <div class="hero items-start min-h-screen">
     <div class="hero-content">
-      <div class="max-w-lg">
-        <GradientTitle client:only withColor={'C.Vitae: '} withoutColor={'Diego Nicita'} />
+      <div class="max-w-2xl">
+        <GradientTitle
+          client:only
+          withColor={'C.Vitae: '}
+          withoutColor={'Diego Nicita'}
+        />
+        <div class="divider"></div> 
+        <h1 class="text-lg mt-4 mb-4 font-bold">Intro</h1>
         <div>
-          <span class="font-bold">Desarrollador Frontend y Mobile</span>. Uso <span
-            class="font-bold">
-            React y React Native.</span><div>
-            Tambien realizo proyectos usando Nodejs, Express, MySQL y
-            videojuegos con Unity.<div></div>
-          </div>
-          <div class="flex flex-row">
-            <SocialLogo title="Github" client:only />
-            <SocialLogo title="Linkedin" client:only />
-          </div>
-          <h1 class="text-lg mt-4 mb-4 font-bold">Proyectos</h1>
-          <Proyecto
-            title="Webapp.ar"
-            description="sitio web personal alojado en un Vultr (VPN Ubuntu) donde instale Ngnix, MySQL server y Nodejs entre otras herramientas utiles"
-            tools="Astro/React/TailwindCss/DaisyUI/Tensorflow"
-          />
-          <Proyecto
-            title="Solocalzados"
-            description="Ecommerce sobre una tienda de calzados"
-            tools="HTML/CSS/NodeJS/Express/MYSQL"
-          />
-          <Proyecto
-            title="Mercado (antes Mercadoliebre)"
-            description="Ecommerce sobre una tienda online similar a Mercadolibre o Amazon"
-            tools="HTML/CSS/NodeJS/Express/MYSQL"
-          />
-
-          <Proyecto
-            title="Infootball"
-            description="Proyecto sobre Scouting de Jugadores de Futbol"
-            tools="React Native"
-          />
-
-          <Proyecto
-            title="Smart Shop"
-            description="Proyecto sobre Escaneo de Codigos QR de un Ecommerce para evitar las filas al pagar"
-            tools="React Native"
-          />
+          Soy desarrollador Frontend y Mobile. Uso principalmente <span
+            class="font-bold"
+          >
+            React y React Native.</span
+          >
+          Tambien utilizo Nodejs, Express, MySQL y Unity. Para más informacion te dejo enlaces a Github y Linkedin.</div>
+        <div class="flex flex-row">
+          <SocialLogo title="Github" client:only />
+          <SocialLogo title="Linkedin" client:only />
         </div>
+        <div class="divider"></div> 
+        <h1 class="text-lg mt-4 mb-4 font-bold">Proyectos</h1>
+        <Proyecto
+          title="Webapp"
+          description="Sitio web personal alojado en un Vultr donde instale Ubuntu, Ngnix, Node y MySQL. Estoy migrando el Frontend de mis proyectos a Astro. Los antiguos proyectos se transformaran en backends con NodeJs."
+          tools="Astro/React/TailwindCss/DaisyUI/Tensorflow"
+          link="https://webapp.ar"
+        />
+        <Proyecto
+          title="Solocalzados"
+          description="Ecommerce sobre una tienda de calzados"
+          tools="HTML/CSS/NodeJS/Express/MYSQL"
+          link="https://solocalzado.webapp.ar"
+        />
+        <Proyecto
+          title="Mercado"
+          description="Ecommerce sobre una tienda online similar a Mercadolibre o Amazon"
+          tools="HTML/CSS/NodeJS/Express/MYSQL"
+          link="https://mercado.webapp.ar"
+        />
+
+        <Proyecto
+          title="Infootball"
+          description="Proyecto sobre Scouting de Jugadores de Futbol"
+          tools="React Native"
+        />
+
+        <Proyecto
+          title="Smart Shop"
+          description="Proyecto sobre Escaneo de Codigos QR de un Ecommerce para evitar las filas al pagar"
+          tools="React Native"
+        />
       </div>
     </div>
   </div>
