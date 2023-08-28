@@ -1,0 +1,12 @@
+---
+const { arreglo, title } = Astro.props
+var newArray = []
+if (arreglo && typeof arreglo[Symbol.iterator] === 'function') {
+  arreglo.forEach((item) => newArray.push(item))
+  console.log(newArray)
+} else {
+  console.log('La constante no es válida para usar map().')
+}
+---
+
+<div>{newArray.map((item) => <div>{title}: {item}</div>)}</div>

@@ -1,0 +1,227 @@
+[
+    { "title": "Trazer",
+      "presente": ["Trouxe"],
+      "preterito-perfeito": ["Trazido"],
+      "futuro-do-subjuntivo": ["Trouxer"],
+      "ejemplos": [
+        "Eu trouxe os livros para a escola.",
+        "O presente foi trazido por ela.",
+        "Quando você trouxer o relatório, discutiremos."
+      ]
+    },
+    { "title" : "Pedir",
+      "presente": ["Peço", "Peça"],
+      "ejemplos": [
+        "Eu sempre peço um café pela manhã.",
+        "Ela pede ajuda quando precisa.",
+        "Peça desculpas pelo atraso."
+      ]
+    },
+    { "title" : "Medir",
+      "presente": ["Meço", "Meça"],
+      "ejemplos": [
+        "Eu meço a temperatura do corpo.",
+        "Ele mede a área do terreno.",
+        "Meça a quantidade exata de açúcar."
+      ]
+    },
+    { "title" : "Estar",
+      "preterito-imperfeito": ["Estava"],
+      "preterito-perfeito": ["Estive"],
+      "presente-do-subjuntivo": ["Esteja"],
+      "futuro-do-subjuntivo": ["Estiver"],
+      "ejemplos": [
+        "Eu estava cansado ontem à noite.",
+        "Ela esteve no escritório o dia inteiro.",
+        "Espero que você esteja bem.",
+        "Quando você estiver pronto, podemos sair."
+      ]
+    },
+    { "title" : "Ser",
+      "preterito-imperfeito-do-subjuntivo": ["Fosse"],
+      "futuro-do-subjuntivo": ["For"],
+      "ejemplos": [
+        "Se eu fosse mais alto, poderia jogar basquete.",
+        "Quando for a sua vez, fale sobre si mesmo.",
+        "Se ele fosse mais organizado, seria mais produtivo."
+      ]
+    },
+    { "title" : "Ir",
+      "preterito-imperfeito-do-subjuntivo": ["Fosse"],
+      "futuro-do-subjuntivo": ["For"],
+      "ejemplos": [
+        "Se eu fosse você, iria ao médico.",
+        "Quando ela for à festa, avisaremos você.",
+        "Se eles fossem mais cedo, conseguiriam bons lugares."
+      ]
+    },
+    { "title" : "Estar",
+      "preterito-imperfeito": ["Estava"],
+      "preterito-perfeito": ["Estive"],
+      "presente-do-subjuntivo": ["Esteja"],
+      "futuro-do-subjuntivo": ["Estiver"],
+      "ejemplos": [
+        "Eu estava cansado ontem à noite.",
+        "Ela esteve no escritório o dia inteiro.",
+        "Espero que você esteja bem.",
+        "Quando você estiver pronto, podemos sair."
+      ]
+    },
+    { "title" : "Ser",
+      "preterito-imperfeito-do-subjuntivo": ["Fosse"],
+      "futuro-do-subjuntivo": ["For"],
+      "ejemplos": [
+        "Se eu fosse mais alto, poderia jogar basquete.",
+        "Quando for a sua vez, fale sobre si mesmo.",
+        "Se ele fosse mais organizado, seria mais produtivo."
+      ]
+    },
+    { "title" : "Ir",
+      "preterito-imperfeito-do-subjuntivo": ["Fosse"],
+      "futuro-do-subjuntivo": ["For"],
+      "ejemplos": [
+        "Se eu fosse você, iria ao médico.",
+        "Quando ela for à festa, avisaremos você.",
+        "Se eles fossem mais cedo, conseguiriam bons lugares."
+      ]
+    },
+    { "title" : "Vir",
+      "preterito-perfeito": ["Vim", "Vem", "Veio"],
+      "futuro-do-subjuntivo": ["Vier"],
+      "ejemplos": [
+        "Eu vim de carro para o trabalho hoje.",
+        "A primavera vem depois do inverno.",
+        "Ele veio nos visitar ontem.",
+        "Quando você vier, avise-me com antecedência."
+      ]
+    },
+    { "title" : "Ver",
+      "presente": ["Vejo"],
+      "preterito-imperfeito-do-subjuntivo": ["Visse"],
+      "futuro-do-subjuntivo": ["Vir"],
+      "ejemplos": [
+        "Eu vejo o pôr do sol todos os dias.",
+        "Se eu visse isso antes, teria evitado o problema.",
+        "Quando ele vir a verdade, entenderá."
+      ]
+    },
+    { "title" : "Saber",
+      "presente-do-subjuntivo": ["Saiba"],
+      "preterito-perfeito": ["Soube"],
+      "futuro-do-subjuntivo": ["Souber"],
+      "ejemplos": [
+        "Eu sei como resolver esse quebra-cabeças.",
+        "Ela soube da notícia atraves do jornal.",
+        "Quando você souber a resposta, me avise."
+      ]
+    },
+    { "title" : "Ter",
+      "preterito-perfeito": ["Tive", "Teve"],
+      "futuro-do-subjuntivo": ["Tiver"],
+      "ejemplos": [
+        "Eu tive uma ideia brilhante.",
+        "Ele teve um dia ocupado no trabalho.",
+        "Quando você tiver a resposta, me diga."
+      ]
+    },
+    { "title" : "Caber",
+      "preterito-perfeito": ["Coube"],
+      "presente-do-subjuntivo": ["Caiba"],
+      "participio-passado": ["Cabido"],
+      "futuro-do-subjuntivo": ["Couber"],
+      "ejemplos": [
+        "O livro coube na minha mochila.",
+        "É difícil que caiba mais gente no carro.",
+        "Já tinha cabido muita comida na geladeira.",
+        "Quando couber mais gente, vamos convidar."
+      ]
+    },
+    { "title" : "Haver",
+      "preterito-perfeito": ["Houve"],
+      "presente-do-subjuntivo": ["Haja"],
+      "preterito-imperfeito-do-subjuntivo": ["Houvesse"],
+      "ejemplos": [
+        "Houve uma festa incrível no último fim de semana.",
+        "Haja respeito nas discussões.",
+        "Se houvesse mais tempo, faríamos mais atividades."
+      ]
+    },
+    { "title" : "Poder",
+      "presente": ["Posso"],
+      "preterito-perfeito": ["Pude"],
+      "preterito-perfeito-do-subjuntivo": ["Pôde"],
+      "ejemplos": [
+        "Eu posso te ajudar com isso.",
+        "Ontem eu pude terminar o projeto.",
+        "Se ele pôde fazer isso, qualquer um pode."
+      ]
+    },  
+    { "title" : "Ler",
+      "participio-passado": ["Lido"],
+      "preterito-imperfeito-do-subjuntivo": ["Lesse"],
+      "ejemplos": [
+        "Eu li esse livro no mês passado.",
+        "Se eu lesse mais, teria um vocabulário melhor.",
+        "O livro foi lido por muitas pessoas."
+      ]
+    },
+    { "title" : "Sair",
+      "presente-do-subjuntivo": ["Saia"],
+      "presente": ["Saio"],
+      "preterito-imperfeito-do-subjuntivo": ["Saísse"],
+      "ejemplos": [
+        "Eu saio para correr todas as manhãs.",
+        "Espero que ela saia bem na prova.",
+        "Se eu saísse mais cedo, evitaria o tráfego."
+      ]
+    },
+    { "title" : "Pôr",
+      "preterito-perfeito": ["Pus", "Pôs"],
+      "futuro-do-subjuntivo": ["Puser"],
+      "ejemplos": [
+        "Eu pus o bolo na geladeira.",
+        "Ela pôs a mesa para o jantar.",
+        "Quando eu puser a roupa para lavar, aviso vocês."
+      ]
+    },
+    { "title" : "Fazer",
+      "preterito-perfeito": ["Fez"],
+      "presente": ["Faço"],
+      "futuro-do-subjuntivo": ["Fizer"],
+      "ejemplos": [
+        "Ele fez um trabalho incrível na apresentação.",
+        "Eu faço exercícios todos os dias.",
+        "Quando você fizer as tarefas, poderá descansar."
+      ]
+    },
+    { "title" : "Ouvir",
+      "presente": ["Ouço"],
+      "preterito-perfeito": ["Ouviu"],
+      "ejemplos": [
+        "Eu ouço música enquanto trabalho.",
+        "Ela ouviu um barulho estranho à noite.",
+        "Quando você ouvir a campainha, atenda por favor."
+      ]
+    },
+    { "title" : "Dar",
+      "preterito-perfeito": ["Deu", "Dei"],
+      "preterito-imperfeito-do-subjuntivo": ["Desse"],
+      "futuro-do-subjuntivo": ["Der"],
+      "ejemplos": [
+        "Eu dei um presente para ela no aniversário.",
+        "Ele deu um conselho valioso.",
+        "Se eu desse meu número de telefone, ela me ligaria.",
+        "Quando você der o sinal, começaremos a apresentação."
+      ]
+    },
+    { "title" : "Querer",
+      "preterito-perfeito": ["Quis"],
+      "preterito-imperfeito-do-subjuntivo": ["Quisesse"],
+      "futuro-do-subjuntivo": ["Quiser"],
+      "ejemplos": [
+        "Eu quis aprender a tocar violão.",
+        "Se eu quisesse, teria ido à festa.",
+        "Quando você quiser, podemos sair juntos."
+      ]
+    }
+] 

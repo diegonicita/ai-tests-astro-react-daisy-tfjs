@@ -1,5 +1,36 @@
 ---
+import type { isRenderTemplateResult } from 'astro/dist/runtime/server/render/astro'
 import BaseLayout from '../../../layouts/BaseLayout.astro'
+import Array from '../../../components/array.astro'
+import { getEntry } from 'astro:content'
+
+const verbosIrregulares = await getEntry('portugues', 'verbos-irregulares')
+const data = [
+  {
+    title: 'Presente',
+    arrayName: 'presente',
+  },
+  {
+    title: 'Presente do Subjuntivo',
+    arrayName: 'presente-do-subjuntivo',
+  },
+  {
+    title: 'Preterito Perfeito',
+    arrayName: 'preterito-perfeito',
+  },
+  {
+    title: 'Preterito Imperfeito',
+    arrayName: 'preterito-imperfeito',
+  },
+  {
+    title: 'Futuro do Subjuntivo',
+    arrayName: 'futuro-do-subjuntivo',
+  },
+  {
+    title: 'Ejemplo',
+    arrayName: 'ejemplos',
+  },
+]
 ---
 
 <BaseLayout title="Portugues">
@@ -29,6 +60,30 @@ import BaseLayout from '../../../layouts/BaseLayout.astro'
     <div class="five bg-base-300 p-2">Proximamente.</div>
     <div class="six bg-base-200 p-2">Proximamente.</div>
     <div class="seven bg-base-300 p-2">Proximamente.</div>
+    <div class="eight bg-base-200 px-4 pb-4">
+      <h1 class="mb-2">Verbos Irregulares</h1>
+      {
+        verbosIrregulares.data.map((item, index) => {
+          return (
+            <>
+              <div>
+                <div>
+                  <div class="font-bold mt-4">
+                    {index + 1}: {item.title}
+                  </div>
+                </div>
+                <Array title={data[0].title} arreglo={item[data[0].arrayName]} />                
+                <Array title={data[1].title} arreglo={item[data[1].arrayName]} />                
+                <Array title={data[2].title} arreglo={item[data[2].arrayName]} />                
+                <Array title={data[3].title} arreglo={item[data[3].arrayName]} />                
+                <Array title={data[4].title} arreglo={item[data[4].arrayName]} />                
+                <Array title={data[5].title} arreglo={item[data[5].arrayName]} />                
+              </div>
+            </>
+          )
+        })
+      }
+    </div>
   </div>
 </BaseLayout>
 
@@ -66,5 +121,9 @@ import BaseLayout from '../../../layouts/BaseLayout.astro'
   .seven {
     grid-column: 2;
     grid-row: 3;
+  }
+  .eight {
+    grid-column: 1/4;
+    grid-row: 5;
   }
 </style>
