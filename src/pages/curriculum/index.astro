@@ -11,25 +11,34 @@ import { SocialLogo } from '../../components/socialLogo.jsx'
   <div class="hero items-start min-h-screen">
     <div class="hero-content">
       <div class="max-w-2xl">
-        <GradientTitle
-          client:only
-          withColor={'C.Vitae: '}
-          withoutColor={'Diego Nicita'}
-        />
-        <div class="divider"></div> 
-        <h1 class="text-2xl mt-4 mb-4 font-bold">Intro</h1>
+        <GradientTitle client:only withColor={'C.Vitae'} withoutColor={''} />
+        <div class="divider"></div>
+        <h1 class="text-2xl mt-4 mb-4 font-bold">Diego Nicita</h1>
         <div>
-          Soy desarrollador Frontend y Mobile. Uso principalmente <span
-            class="font-bold"
-          >
-            React y React Native.</span
-          >
-          Tambien utilizo Nodejs, Express, MySQL y Unity. Para más informacion te dejo enlaces a Github y Linkedin.</div>
+          Me dedico al desarrollo <span class="font-bold"
+            >Frontend y Mobile</span
+          > con <span class="font-bold">React y React Native.</span>
+        </div>
+        Tambien utilizo Nodejs, Express, MySQL. MongoDb y C# con Unity.
+        <div class="mt-4">
+          <span class="font-bold">Estudios:</span><ul>
+            <li>Digital House (Programador Fullstack MERN)</li><li>
+              Alkemy (Programador React)
+            </li><li>
+              Universidad Tecnologica Nacional (C#, Desarrollo de Videojuegos con
+              Unity)
+            </li>
+            <li>Autodidacta</li>
+          </ul>
+        </div>
+        <div class="mt-4">
+          Para más informacion te dejo enlaces a Github y Linkedin.
+        </div>
         <div class="flex flex-row">
           <SocialLogo title="Github" client:only />
           <SocialLogo title="Linkedin" client:only />
         </div>
-        <div class="divider"></div> 
+        <div class="divider"></div>
         <h1 class="text-2xl mt-4 mb-4 font-bold">Proyectos</h1>
         <Proyecto
           title="Webapp"
