@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import Card from '../../components/card.astro'
-import { timerMessage } from 'astro/dist/core/logger/core'
+import { CardsJSX } from '../../components/cardsJSX'
 
 const response = await fetch('https://mercado.webapp.ar/api/')
 const data = await response.json()
@@ -18,7 +18,7 @@ const data = await response.json()
         Ecommerce about a Mercado (Shop)
       </p>
     </div>
-    <h1 class="font-bold mt-8">Productos</h1>
+    <h1 class="font-bold mt-8">Productos (Only a Fetch in Build Time, Astro Component)</h1>
     <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       {
         data.map((item) => (
@@ -31,18 +31,9 @@ const data = await response.json()
         ))
       }
     </div>
-    <h1 class="font-bold mt-8">Ofertas</h1>
+    <h1 class="font-bold mt-8">Ofertas (Fetch in Render Time, React Component)</h1>
     <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {
-        data.map((item) => (
-          <Card
-            title={item.titulo}
-            description={item.descripcion}
-            image={item.imagen}
-            price={item.precio}
-          />
-        ))
-      }
+      <CardsJSX client:only/>
     </div>
   </div>
   <br />
