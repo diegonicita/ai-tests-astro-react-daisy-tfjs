@@ -3,24 +3,23 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import Title from '../components/title.astro'
 import Button from '../components/button.astro'
 import { GradientTitle } from '../components/gradientTitle'
-import Hero from '../components/hero.astro'
+import Hero from '../components/home/hero.astro'
 import HeroGrid from '../components/heroGrid.astro'
 import HeroGridUnit from '../components/heroGridUnit.astro'
 ---
 
 <BaseLayout title="Webapp">
-  <Hero />
-  <!-- <HeroGrid /> -->
+  <Hero />  
 
   <div class="hero items-start">
     <div class="hero-content text-start">
       <div>
         <div class="mt-16 md:mt-0">
           <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-            Mis trabajos y proyectos
+            No te pierdas nada
           </h2>
           <p class="text-lg mt-4 text-slate-500">
-            Trabajos y proyectos relacionadas con la programación y/o la medicina.
+            Mira mis articulos, trabajos y proyectos.
           </p>
         </div>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
@@ -37,6 +36,7 @@ import HeroGridUnit from '../components/heroGridUnit.astro'
             <Button to="portugues/week1">Semana 1</Button>
             <Button to="portugues/week2">Semana 2</Button>
             <Button to="portugues/week3">Semana 3</Button>
+            <Button to="portugues/week4">Semana 4</Button>
           </HeroGridUnit>
           <HeroGridUnit
             title="Componentes y Ejemplos"

@@ -1,0 +1,35 @@
+---
+const title = 'Bienvenidos'
+const description =
+' Soy médico y programador (frontend y mobile).' +
+' Aquí intento fusionar ambas profesiones y compartir información util.' +
+' Si te gusta esta web, fue creada con Astro, React, Tailwind y DaisyUI.' +
+' Puedes personalizarla cambiando el theme (oscuro, claro, cupcake, ciberpunk) o las fuentes en la navbar.' +
+' Si te interesa también puedes clonarlo desde Github.'
+const signature = 'Diego Nicita'
+const image = '/webapp/logo-grande.png'
+const button1 = 'Acerca de Mi'
+const link1 = "window.location.href='/curriculum'"
+const button2 = 'Github Repo'
+const link2 =
+  "window.location.href='https://github.com/diegonicita/astro-react-daisy-webapp'"
+---
+
+<div class="hero bg-base-400">
+  <div class="hero-content flex-col-reverse xl:flex-row-reverse">
+    <img src={image} class="w-[0%] md:w-[45%]" />
+    <div class="w-full">
+      <h1 class="text-6xl font-bold" style="text-wrap: balance">
+        {title}
+      </h1>
+      <h3 class="text-md text-slate-500" style="text-wrap: balance">
+        {description}
+      </h3>
+      <h4 class="flex justify-end pr-10 text-slate-500">{signature}</h4>
+      <button class="mt-6 btn btn-outline" onclick={link1}>
+        {button1}
+      </button>
+      <button class="mt-6 btn btn-primary" onclick={link2}>{button2}</button>
+    </div>
+  </div>
+</div>
