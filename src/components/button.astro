@@ -1,7 +1,7 @@
 ---
-const { to, add } = Astro.props
+const { to, big, notPrimary, outline } = Astro.props
 ---
 
-<a class:list={['btn btn-sm mt-4', add || 'btn-primary' ]} href={to}>
+<a class:list={['btn btn-sm mt-4 mr-2', notPrimary || 'btn-primary', big && 'btn-md', outline && 'btn-outline' ]} href={to}>
   <slot />
 </a>
