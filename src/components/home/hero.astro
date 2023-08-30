@@ -2,9 +2,9 @@
 import Button from '../button.astro'
 const title = 'Bienvenidos'
 const description =
-  ' Soy médico y programador (frontend y mobile).' +
-  ' Aquí intento fusionar ambas profesiones y compartir información util.' +
-  ' Si te gusta esta web, fue creada con Astro, React, Tailwind y DaisyUI.' +
+  ' Mi nombre es Diego. Soy programador y médico.' +
+  ' Desde aquí busco compartir mi experiencia y generar información útil.' +
+  ' Esta web fue creada con Astro, React, Tailwind y DaisyUI.' +
   ' Puedes personalizarla cambiando el theme (oscuro, claro, cupcake, ciberpunk) o las fuentes en la navbar.' +
   ' Si te interesa también puedes clonarlo desde Github.'
 const signature = 'Diego Nicita'
@@ -17,16 +17,25 @@ const link2 = 'https://github.com/diegonicita/astro-react-daisy-webapp'
 
 <div class="hero bg-base-400">
   <div class="hero-content flex-col-reverse xl:flex-row-reverse">
+    
     <img src={image} class="w-[0%] md:w-[45%]" />
     <div class="w-full">
       <h1 class="text-6xl font-bold" style="text-wrap: balance">
         {title}
       </h1>
-      <h3 class="text-md text-slate-500" style="text-wrap: balance">
-        {description}
-      </h3>
-      <h4 class="flex justify-end pr-10 text-slate-500">{signature}</h4>
-      <Button notPrimary big outline to={link1}>{button1}</Button>      
+      <div class="flex flex-row">
+        <div class="flex-1 flex-grow-[2]">
+          <h3
+            class="text-md text-slate-500 items-start"
+            style="text-wrap: balance"
+          >
+            {description}
+          </h3>
+          <!-- <h4 class="flex justify-start pt-4  text-slate-500">{signature}</h4> -->
+        </div>
+        <div class="flex-grow-[1] xl:flex-grow-[0]"></div>
+      </div>
+      <Button notPrimary big outline to={link1}>{button1}</Button>
       <Button big to={link2}>{button2}</Button>
     </div>
   </div>
