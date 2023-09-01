@@ -10,29 +10,36 @@ module.exports = {
   theme: {
     extend: {},
   },
-   plugins: [    
-     plugin(function ({ addBase, theme }) {
-       addBase({
-         h1: {
-           fontSize: theme('fontSize.2xl'),
-           marginTop: theme('spacing.4'),                              
-         },
-         h2: {
-           fontSize: theme('fontSize.xl'),
-           marginTop: theme('spacing.4'),                           
-         },
-         h3: {
-           fontSize: theme('fontSize.lg'),
-           marginTop: theme('spacing.4'),                                        
-         },
-         p: {     
-            marginTop: theme('spacing.4'),
-            lineHeight: theme('lineHeight.7'),          
-          },
-       })
-     }),
-    require('daisyui')],
+  plugins: [
+    plugin(function ({ addBase, theme }) {
+      addBase({
+        h1: {
+          fontSize: theme('fontSize.2xl'),
+          marginTop: theme('spacing.4'),
+        },
+        h2: {
+          fontSize: theme('fontSize.xl'),
+          marginTop: theme('spacing.4'),
+        },
+        h3: {
+          fontSize: theme('fontSize.lg'),
+          marginTop: theme('spacing.4'),
+        },
+        p: {
+          marginTop: theme('spacing.4'),
+          lineHeight: theme('lineHeight.7'),
+        },
+      })
+    }),
+    require('daisyui'),
+  ],
   daisyui: {
-    themes: ['light', 'dark', 'cupcake', 'cyberpunk'],
+    themes: [
+      'light',
+      'dark',
+      'cupcake',
+      'cyberpunk',
+      'valentine',      
+    ],
   },
 }

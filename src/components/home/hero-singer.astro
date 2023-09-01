@@ -1,0 +1,39 @@
+---
+import Button from '../button.astro'
+const title = 'Singer Violinista Astrid Concierto España'
+const description =
+  ' Mi nombre es Astrid. Soy violinista y showgirl.' +
+  ' Soy violinista y showgirl. Mi nombre es Astrid. ' +
+  ' Mi nombre es Astrid. ';
+const image = '/webapp/singer-grande.png'
+const button1 = 'Acerca de Mi'
+const link1 = ''
+const button2 = 'Conciertos'
+const link2 = ''
+---
+
+<div class="hero bg-base-400">
+  <div class="hero-content flex-col-reverse xl:flex-row-reverse">
+    
+    <img src={image} class="w-[0%] md:w-[100%] md:shadow-lg md:mt-8" />
+    <div class="w-full">
+      <h1 class="text-6xl font-bold" style="text-wrap: balance">
+        {title}
+      </h1>
+      <div class="flex flex-row">
+        <div class="flex-1 flex-grow-[2]">
+          <h3
+            class="text-xl text-slate-700 items-start"
+            style="text-wrap: balance"
+          >
+            {description}
+          </h3>
+          <!-- <h4 class="flex justify-start pt-4  text-slate-500">{signature}</h4> -->
+        </div>
+        <div class="flex-grow-[1] xl:flex-grow-[0]"></div>
+      </div>
+      <Button notPrimary big outline to={link1}>{button1}</Button>
+      <Button big to={link2}>{button2}</Button>
+    </div>
+  </div>
+</div>

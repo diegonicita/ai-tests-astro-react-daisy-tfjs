@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Title from '../../components/title.astro'
+import Button from '../../components/button.astro'
+import { GradientTitle } from '../../components/gradientTitle'
+import Hero from '../../components/home/hero-singer.astro'
+import HeroGrid from '../../components/heroGrid.astro'
+import HeroGridUnit from '../../components/heroGridUnit.astro'
+---
+
+<BaseLayout title="Singer">
+  <Hero />
+
+  <div class="hero items-start">
+    <div class="hero-content text-start">
+      <div>
+        <div class="mt-16 md:mt-0"></div>
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+          Contenido
+        </h2>
+        <p class="text-lg mt-4 text-slate-500 text-balance max-w-xl">
+          Navega por las diferentes secciones
+        </p>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-12 gap-16">
+          <HeroGridUnit title="Sobre Mi" description="qwqwewe mi curriculum vrererer itae. rerere Mi curriculum vitae. ">
+            <Button to="">Sobre Mi</Button>
+          </HeroGridUnit>
+          <HeroGridUnit
+            title="Conciertos"
+            description="qweqwewq Resumenes y rerere rejercicios sobre el idioma portugues"
+          >
+            <Button to="">Calendario</Button>            
+          </HeroGridUnit>
+          <HeroGridUnit
+            title="Componentes"
+            description="Compon enteererer res en erl rerere os que estoy trabajando"
+          >
+            <Button to="">Componente</Button>            
+          </HeroGridUnit>          
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

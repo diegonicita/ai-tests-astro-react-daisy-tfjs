@@ -44,7 +44,7 @@ export const Form = () => {
   }
 
   return (
-    <div className="flex flex-row justify-around">
+    <div className="flex flex-col justify-center  items-center md:flex-row md:justify-center md:items-start">
       <form onSubmit={handleSubmit} className="form-control w-full max-w-xs">
         <Input
           label="Edad"
@@ -78,7 +78,7 @@ export const Form = () => {
         </button>
       </form>
       {resultMans && (
-        <div className="flex flex-col w-1/2">
+        <div className="flex m-4">
           <Stats value1={resultMans} value2={resultWomans} />
         </div>
       )}
