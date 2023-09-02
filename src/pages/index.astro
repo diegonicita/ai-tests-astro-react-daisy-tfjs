@@ -22,8 +22,10 @@ import HeroGridUnit from '../components/heroGridUnit.astro'
           Navega por las diferentes secciones
         </p>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-12 gap-16">
-          <HeroGridUnit title="Sobre Mi" description="Mi curriculum vitae">
-            <Button to="curriculum">Curriculum Vitae</Button>
+          <HeroGridUnit title="Apps con Astro.Build" description="Prototipos, en desarrollo, con Astro.Build">            
+            <Button to="mercado">Mercado App</Button>
+            <Button to="singer">Singer App</Button>
+            <Button to="choices">Choices App</Button>
           </HeroGridUnit>
           <HeroGridUnit
             title="Curso de Portugues"
@@ -37,13 +39,11 @@ import HeroGridUnit from '../components/heroGridUnit.astro'
           </HeroGridUnit>
           <HeroGridUnit
             title="Componentes y Ejemplos"
-            description="Cosas relacionadas con la programacion web y/o la medicina en los que estoy trabajando"
+            description="Componentes en los que estoy trabajando"
           >
             <Button to="examples/login">Login</Button>
             <Button to="examples/register">Register</Button>
-            <Button to="examples/grid">Grid</Button>
-            <Button to="mercado">Mercado App</Button>
-            <Button to="singer">Hero Singer</Button>
+            <Button to="examples/grid">Grid</Button>           
           </HeroGridUnit>
           <HeroGridUnit
             title="Tensorflow.js"

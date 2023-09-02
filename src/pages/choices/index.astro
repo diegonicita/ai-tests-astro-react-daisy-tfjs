@@ -1,14 +1,14 @@
 ---
-import BaseLayout from '../../layouts/BaseTransitioned.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro'
 import Title from '../../components/title.astro'
 import Button from '../../components/button.astro'
 import { GradientTitle } from '../../components/gradientTitle'
-import Hero from '../../components/home/hero-singer.astro'
+import Hero from '../../components/home/hero-choices.astro'
 import HeroGrid from '../../components/heroGrid.astro'
 import HeroGridUnit from '../../components/heroGridUnit.astro'
 ---
 
-<BaseLayout title="Singer">
+<BaseLayout title="Choices">
   <Hero />
 
   <div class="hero items-start">
@@ -23,13 +23,13 @@ import HeroGridUnit from '../../components/heroGridUnit.astro'
         </p>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-12 gap-16">
           <HeroGridUnit title="Sobre Mi" description="qwqwewe mi curriculum vrererer itae. rerere Mi curriculum vitae. ">
-            <Button to="">Sobre Mi</Button>
+            <Button to="">Sobre Nosotros</Button>
           </HeroGridUnit>
           <HeroGridUnit
             title="Conciertos"
             description="qweqwewq Resumenes y rerere rejercicios sobre el idioma portugues"
           >
-            <Button to="/singer/calendario">Calendario</Button>            
+            <Button to="/choices/examenes">Examenes Disponibles</Button>            
           </HeroGridUnit>
           <HeroGridUnit
             title="Componentes"
