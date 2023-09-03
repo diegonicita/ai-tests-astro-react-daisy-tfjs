@@ -2,10 +2,10 @@
 import Button from '../button.astro'
 const title = 'Examenes de Residencias Medicas'
 const description =
-  ' Examenes de Argentina, España, Mexico y Peru.' +
-  ' Somos Medicos especialistas por Residencia y estamos para ayudarte para que tambien lo logres.' +
-  ' Practica y consultanos cualquier duda. ';
-const image = '/webapp/singer-grande.png'
+  ' Exámenes de Argentina, España, México y Perú.' +
+  ' Somos Médicos especialistas por Residencia y estamos para ayudarte para que también lo logres.' +
+  ' Practica y consultanos ante cualquier duda. ';
+const image = '/webapp/choices-grande.png'
 const button1 = 'Acerca de Nosotros'
 const link1 = ''
 const button2 = 'Examenes'
@@ -15,7 +15,7 @@ const link2 = '/choices/examenes'
 <div class="hero bg-base-400">
   <div class="hero-content flex-col-reverse xl:flex-row-reverse">
     
-    <img src={image} class="w-[0%] md:w-[100%] md:shadow-lg md:mt-8" />
+    <img src={image} class="rounded-[5rem] w-[0%] md:w-[100%] md:shadow-lg md:mt-8" />
     <div class="w-full">
       <h1 class="text-6xl font-bold" style="text-wrap: balance">
         {title}
@@ -23,7 +23,7 @@ const link2 = '/choices/examenes'
       <div class="flex flex-row">
         <div class="flex-1 flex-grow-[2]">
           <h3
-            class="text-xl text-slate-700 items-start"
+            class="text-xl text-slate-500 items-start"
             style="text-wrap: balance"
           >
             {description}
