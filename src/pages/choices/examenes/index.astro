@@ -1,30 +1,20 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro'
-import Button from '../../../components/button.astro'
-import HeroGridUnit from '../../../components/heroGridUnit.astro'
+import { CardsJSX } from '../../../components/cards/choices/cardsJSX'
 ---
 
-<BaseLayout title="Singer">
-  <div class="hero items-start">
-    <div class="hero-content text-start">
-      <div>
-        <div class="mt-16 md:mt-0"></div>
-        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-          Examenes disponibles
-        </h2>
-        <p class="text-lg mt-4 text-slate-500 text-balance max-w-xl">
-          Examenes
-        </p>
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-12 gap-16">
-          <HeroGridUnit
-            title="Examenes"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. A, nam. Soluta aspernatur eveniet, expedita molestias optio earum adipisci nulla culpa maiores accusamus! In reprehenderit nisi voluptates cumque dolores quaerat aperiam"
-          >
-            <Button to="">Comenzar</Button>
-          </HeroGridUnit>
-        </div>
-      </div>
-    </div>
+<BaseLayout title="Singer">  
+  <div class="mt-16 md:mt-0">
+    <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+      Preguntas
+    </h2>
+    <p class="text-lg mt-4 text-slate-500">Preguntas</p>
+  </div> 
+  <h1 class="font-bold mt-8">
+    Preguntas (Fetch in Render Time, React Component)
+  </h1>
+  <div class="grid">
+    <CardsJSX client:only />
   </div>
   <div></div>
 </BaseLayout>
