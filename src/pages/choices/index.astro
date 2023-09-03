@@ -16,29 +16,63 @@ import HeroGridUnit from '../../components/heroGridUnit.astro'
       <div>
         <div class="mt-16 md:mt-0"></div>
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-          Contenido
+          Exámenes por Países
         </h2>
         <p class="text-lg mt-4 text-slate-500 text-balance max-w-xl">
-          Navega por las diferentes secciones
+          En las diferentes secciones encontraras exámenes de Argentina, España, México y Perú:
         </p>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-12 gap-16">
-          <HeroGridUnit title="Sobre Mi" description="qwqwewe mi curriculum vrererer itae. rerere Mi curriculum vitae. ">
-            <Button to="">Sobre Nosotros</Button>
+          <!-- <HeroGridUnit title="Sobre Mi" description="qwqwewe mi curriculum vrererer itae. rerere Mi curriculum vitae. ">
+            <Button to="/choices/nosotros">Sobre Nosotros</Button>
+          </HeroGridUnit> -->
+          <HeroGridUnit
+            title="Exámenes de Argentina"
+            description="Nuestro listado de exámenes dadsdasads de Argentina"
+          >
+            <Button to="/choices/examenes">Exámenes Argentinos</Button>            
           </HeroGridUnit>
           <HeroGridUnit
-            title="Conciertos"
-            description="qweqwewq Resumenes y rerere rejercicios sobre el idioma portugues"
-          >
-            <Button to="/choices/examenes">Examenes Disponibles</Button>            
-          </HeroGridUnit>
-          <HeroGridUnit
-            title="Componentes"
-            description="Compon enteererer res en erl rerere os que estoy trabajando"
-          >
-            <Button to="">Componente</Button>            
-          </HeroGridUnit>          
+          title="Exámenes de España"
+          description="Nuestro listado de exámenes dasdaasddsa de España"
+        >
+          <Button to="/choices/examenes">Exámenes Españoles</Button>            
+        </HeroGridUnit>                   
+        <HeroGridUnit
+          title="Exámenes de Mexico"
+          description="Nuestro listado de exámenes  adsdsadsa de Mexico"
+        >
+          <Button to="/choices/examenes">Exámenes Mexicanos</Button>            
+        </HeroGridUnit>  
+        <HeroGridUnit
+        title="Exámenes de Peru"
+        description="Nuestro listado de asdasdasddsa exámenes de Peru"
+      >
+        <Button to="/choices/examenes">Exámenes Peruanos</Button>            
+      </HeroGridUnit>                 
         </div>
-      </div>
+      </div>      
+    </div>
+  </div>
+  <div class="hero items-start mt-16">
+    <div class="hero-content text-start">
+      <div>
+        <div class="mt-16 md:mt-0"></div>
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+          Buscador de Preguntas
+        </h2>
+        <p class="text-lg mt-4 text-slate-500 text-balance max-w-xl">
+          Usa palabras claves para navegar nuestro banco de preguntas
+        </p>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-12 gap-16">
+          <HeroGridUnit title="Buscador" description="Escribe una palabra clave para buscar algun tema especifico. Por ejemplo: 'VDRL'">
+            <div class="form-control mt-4">
+              <input type="text" placeholder="Buscar..." class="input input-bordered w-24 md:w-auto" />
+            </div>
+            <Button to="/choices/nosotros">Buscar</Button>
+          </HeroGridUnit> 
+          
+        </div>
+      </div>      
     </div>
   </div>
 </BaseLayout>

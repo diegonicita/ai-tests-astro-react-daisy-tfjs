@@ -1,14 +1,14 @@
 ---
 import Button from '../button.astro'
-const title = 'Examenes de Residencias Medicas'
+const title = 'Exámenes de Residencias Médicas'
 const description =
   ' Exámenes de Argentina, España, México y Perú.' +
-  ' Somos Médicos especialistas por Residencia y estamos para ayudarte para que también lo logres.' +
-  ' Practica y consultanos ante cualquier duda. ';
+  ' Somos médicos que realizaron una residencia médica y estamos para ayudarte para que también lo logres.' +
+  ' Practica y consúltanos ante cualquier duda. ';
 const image = '/webapp/choices-grande.png'
 const button1 = 'Acerca de Nosotros'
-const link1 = ''
-const button2 = 'Examenes'
+const link1 = '/choices/nosotros'
+const button2 = 'Exámenes'
 const link2 = '/choices/examenes'
 ---
 
@@ -33,7 +33,7 @@ const link2 = '/choices/examenes'
         <div class="flex-grow-[1] xl:flex-grow-[0]"></div>
       </div>
       <Button notPrimary big outline to={link1}>{button1}</Button>
-      <Button big to={link2}>{button2}</Button>
+      <!-- <Button big to={link2}>{button2}</Button> -->
     </div>
   </div>
 </div>
