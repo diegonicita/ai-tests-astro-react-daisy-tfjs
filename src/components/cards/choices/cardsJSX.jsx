@@ -6,12 +6,10 @@ export const CardsJSX = () => {
 
   useEffect(() => {
     // Realizar la solicitud a la API usando fetch
-    fetch('https://mercado.webapp.ar/api/preguntas/0')
+    fetch('https://mercado.webapp.ar/api/examen/?limite=5')
       .then((response) => response.json())
       .then((data) => {
-        const valorObtenido = []
-        valorObtenido.push(data)
-        setData(valorObtenido)        
+        setData(data)        
       })
       .catch((error) => {
         console.error('Error:', error)
