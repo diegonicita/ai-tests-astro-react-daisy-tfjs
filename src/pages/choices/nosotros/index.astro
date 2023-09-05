@@ -2,9 +2,11 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro'
 import Button from '../../../components/button.astro'
 import HeroGridUnit from '../../../components/heroGridUnit.astro'
+const linkURL = '/choices'
+const logoURL = '/choices/logo.png'
 ---
 
-<BaseLayout title="Singer">
+<BaseLayout title="Choices App" link={linkURL} logo={logoURL}> 
   <div class="hero items-start">
     <div class="hero-content text-start">
       <div>

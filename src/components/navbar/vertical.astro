@@ -1,4 +1,5 @@
 ---
+const { link, logo, title } = Astro.props
 import Menu from './verticalMenu.astro'
 ---
 
@@ -24,8 +25,8 @@ import Menu from './verticalMenu.astro'
       <Menu />
     </ul>
   </div>
-  <a class="w-0 md:w-16" href="/">
-    <img src="/webapp/logo.png" alt="logo" />
+  <a class="w-0 md:w-16" href={link ?? '/'}>
+    <img src={logo ?? '/webapp/logo.png'} alt="logo" />
   </a>
-  <a class="btn btn-ghost normal-case text-xl" href="/">Webapp</a>
+  <a class="btn btn-ghost normal-case text-xl" href={link ?? '/'}>{title}</a>
 </div>

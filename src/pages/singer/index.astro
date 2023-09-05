@@ -6,9 +6,12 @@ import { GradientTitle } from '../../components/gradientTitle'
 import Hero from '../../components/home/hero-singer.astro'
 import HeroGrid from '../../components/heroGrid.astro'
 import HeroGridUnit from '../../components/heroGridUnit.astro'
+
+const baseURL = '/singer'
+
 ---
 
-<BaseLayout title="Singer">
+<BaseLayout title="Singer" link={baseURL} logo="/choices/logo.png">
   <Hero />
 
   <div class="hero items-start">
@@ -23,7 +26,7 @@ import HeroGridUnit from '../../components/heroGridUnit.astro'
         </p>
         <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-12 gap-16">
           <HeroGridUnit title="Sobre Mi" description="qwqwewe mi curriculum vrererer itae. rerere Mi curriculum vitae. ">
-            <Button to="">Sobre Mi</Button>
+            <Button to={baseURL}>Sobre Mi</Button>
           </HeroGridUnit>
           <HeroGridUnit
             title="Conciertos"
@@ -35,7 +38,7 @@ import HeroGridUnit from '../../components/heroGridUnit.astro'
             title="Componentes"
             description="Compon enteererer res en erl rerere os que estoy trabajando"
           >
-            <Button to="">Componente</Button>            
+            <Button to={baseURL}>Componente</Button>            
           </HeroGridUnit>          
         </div>
       </div>
