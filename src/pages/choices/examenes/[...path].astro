@@ -41,6 +41,9 @@ export async function getStaticPaths() {
     {params: { path: 'mir/2013' },props: { title: 'Exámen MIR', limit: 10, year: 2012, id: 2 }},
     {params: { path: 'mir/2014' },props: { title: 'Exámen MIR', limit: 10, year: 2012, id: 2 }},
 
+    {params: { path: 'pediatricos/2008' },props: { title: 'Exámen Pediátrico CABA', limit: 10, year: 2008, id: 3 }},
+    {params: { path: 'pediatricos/2009' },props: { title: 'Exámen Pediátrico CABA', limit: 10, year: 2009, id: 3 }},
+
     { params: { path: 'provincial/2007' }, props: { title: 'Exámen Provincial', limit: 10, year: 2007, id: 4 }},
     { params: { path: 'provincial/2008' }, props: { title: 'Exámen Provincial', limit: 10, year: 2008, id: 4 }},
     { params: { path: 'provincial/2009' }, props: { title: 'Exámen Provincial', limit: 10, year: 2009, id: 4 }},
@@ -50,9 +53,12 @@ export async function getStaticPaths() {
     { params: { path: 'provincial/2013' }, props: { title: 'Exámen Provincial', limit: 10, year: 2013, id: 4 }},
     { params: { path: 'provincial/2014' }, props: { title: 'Exámen Provincial', limit: 10, year: 2014, id: 4 }},    
     { params: { path: 'provincial/2015' }, props: { title: 'Exámen Provincial', limit: 10, year: 2015, id: 4 }},    
+    
+    {params: { path: 'unico/2014' },props: { title: 'Exámen Argentina Único', limit: 10, year: 2014, id: 5 }},    
 
     {params: { path: 'peru/2013' },props: { title: 'Exámen Perú Único', limit: 10, year: 2013, id: 6 }},
     {params: { path: 'peru/2014' },props: { title: 'Exámen Perú Único', limit: 10, year: 2014, id: 6 }},
+
   ]
 }
 
@@ -70,7 +76,7 @@ const { title, limit, year, id } = Astro.props
   </div>
   <!-- <h1 class="font-bold mt-8">Examen Municipal de Buenos Aires</h1> -->
   <div class="grid">
-    <CardsJSX client:only limit={limit} year={year} id={id} />
+    <CardsJSX client:only limit={limit} year={year} id={id} desde={0}>
   </div>
   <div></div>
 </BaseLayout>
