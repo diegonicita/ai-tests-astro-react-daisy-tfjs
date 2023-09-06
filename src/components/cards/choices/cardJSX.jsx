@@ -4,7 +4,7 @@ export const CardJSX = ({
   title,
   description,
   image,
-  price,
+  year,
   opcion1,
   opcion2,
   opcion3,
@@ -14,7 +14,7 @@ export const CardJSX = ({
   <div className="my-4 text-xl">
     <div className="card-body p-0">
       <h2 className="card-title">
-        {title} - Año {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+        {title} - Año {year.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
       </h2>
       <div className="w-full">{description}</div>
       <div className="mt-4 card-actions m-0">
