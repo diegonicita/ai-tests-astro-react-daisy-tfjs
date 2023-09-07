@@ -1,8 +1,8 @@
 ---
-const name = 'Tetris'
-const tablero = []
-const ficha = []
 import { Tablero } from '../../../components/tetris/tablero'
+import BaseLayout from '../../../layouts/BaseLayout.astro'
 ---
 
-<Tablero client:only x={20} y={20} />
+<BaseLayout>
+  <Tablero client:only />
+</BaseLayout>
