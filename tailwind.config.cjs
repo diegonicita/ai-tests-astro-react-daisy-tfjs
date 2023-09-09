@@ -8,7 +8,34 @@ module.exports = {
     './src/pages/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        enter: 'enter .25s ease-out',
+        leave: 'leave .25s ease-in forwards',
+      },
+      keyframes: {
+        enter: {
+          '0%': {
+            opacity: '0',
+            transform: 'scale(.9)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'scale(1)',
+          },
+        },
+        leave: {
+          '0%': {
+            opacity: '1',
+            transform: 'scale(1)',
+          },
+          '100%': {
+            opacity: '0',
+            transform: 'scale(.9)',
+          },
+        },
+      },
+    },
   },
   plugins: [
     plugin(function ({ addBase, theme }) {
@@ -34,12 +61,6 @@ module.exports = {
     require('daisyui'),
   ],
   daisyui: {
-    themes: [
-      'light',
-      'dark',
-      'cupcake',
-      'cyberpunk',
-      'valentine',      
-    ],
+    themes: ['light', 'dark', 'cupcake', 'cyberpunk', 'valentine'],
   },
 }

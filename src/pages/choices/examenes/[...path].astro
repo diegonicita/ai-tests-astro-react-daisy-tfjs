@@ -1,64 +1,201 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro'
-import { CardsJSX } from '../../../components/cards/choices/cardsJSX'
+import { Page } from '../../../components/cards/choices/page'
 const linkURL = '/choices'
 const logoURL = '/choices/logo.png'
 
 export async function getStaticPaths() {
   return [
-    {params: { path: 'municipal/2002' }, props: {title: 'Exámen Municipal', limit: 10, year: 2002, id: 0 }},
-    {params: { path: 'municipal/2003' }, props: {title: 'Exámen Municipal', limit: 10, year: 2003, id: 0 }},
-    {params: { path: 'municipal/2004' }, props: {title: 'Exámen Municipal', limit: 10, year: 2004, id: 0 }},
-    {params: { path: 'municipal/2005' }, props: {title: 'Exámen Municipal', limit: 10, year: 2005, id: 0 }},
-    {params: { path: 'municipal/2006' }, props: {title: 'Exámen Municipal', limit: 10, year: 2006, id: 0 }},
-    {params: { path: 'municipal/2007' }, props: {title: 'Exámen Municipal', limit: 10, year: 2007, id: 0 }},
-    {params: { path: 'municipal/2008' }, props: {title: 'Exámen Municipal', limit: 10, year: 2008, id: 0 }},
-    {params: { path: 'municipal/2009' }, props: {title: 'Exámen Municipal', limit: 10, year: 2009, id: 0 }},
-    {params: { path: 'municipal/2010' }, props: {title: 'Exámen Municipal', limit: 10, year: 2010, id: 0 }},
-    {params: { path: 'municipal/2011' }, props: {title: 'Exámen Municipal', limit: 10, year: 2011, id: 0 }},
-    {params: { path: 'municipal/2012' }, props: {title: 'Exámen Municipal', limit: 10, year: 2012, id: 0 }},
-    {params: { path: 'municipal/2013' }, props: {title: 'Exámen Municipal', limit: 10, year: 2013, id: 0 }},
-    {params: { path: 'municipal/2014' }, props: {title: 'Exámen Municipal', limit: 10, year: 2014, id: 0 }},
-    {params: { path: 'municipal/2015' }, props: {title: 'Exámen Municipal', limit: 10, year: 2015, id: 0 }},
-    
-    {params: { path: 'enarm/2003' },props: { title: 'Exámen ENARM', limit: 10, year: 2003, id: 1 }},
-    {params: { path: 'enarm/2004' },props: { title: 'Exámen ENARM', limit: 10, year: 2004, id: 1 }},
-    {params: { path: 'enarm/2005' },props: { title: 'Exámen ENARM', limit: 10, year: 2005, id: 1 }},
-    {params: { path: 'enarm/2006' },props: { title: 'Exámen ENARM', limit: 10, year: 2006, id: 1 }},
-    {params: { path: 'enarm/2007' },props: { title: 'Exámen ENARM', limit: 10, year: 2007, id: 1 }},
-    {params: { path: 'enarm/2008' },props: { title: 'Exámen ENARM', limit: 10, year: 2008, id: 1 }},
-    {params: { path: 'enarm/2009' },props: { title: 'Exámen ENARM', limit: 10, year: 2009, id: 1 }},
-    {params: { path: 'enarm/2010' },props: { title: 'Exámen ENARM', limit: 10, year: 2010, id: 1 }},
-    {params: { path: 'enarm/2011' },props: { title: 'Exámen ENARM', limit: 10, year: 2011, id: 1 }},
-    {params: { path: 'enarm/2012' },props: { title: 'Exámen ENARM', limit: 10, year: 2012, id: 1 }},
+    {
+      params: { path: 'municipal/2002' },
+      props: { title: 'Exámen Municipal', limit: 10, year: 2002, id: 0 },
+    },
+    {
+      params: { path: 'municipal/2003' },
+      props: { title: 'Exámen Municipal', limit: 10, year: 2003, id: 0 },
+    },
+    {
+      params: { path: 'municipal/2004' },
+      props: { title: 'Exámen Municipal', limit: 10, year: 2004, id: 0 },
+    },
+    {
+      params: { path: 'municipal/2005' },
+      props: { title: 'Exámen Municipal', limit: 10, year: 2005, id: 0 },
+    },
+    {
+      params: { path: 'municipal/2006' },
+      props: { title: 'Exámen Municipal', limit: 10, year: 2006, id: 0 },
+    },
+    {
+      params: { path: 'municipal/2007' },
+      props: { title: 'Exámen Municipal', limit: 10, year: 2007, id: 0 },
+    },
+    {
+      params: { path: 'municipal/2008' },
+      props: { title: 'Exámen Municipal', limit: 10, year: 2008, id: 0 },
+    },
+    {
+      params: { path: 'municipal/2009' },
+      props: { title: 'Exámen Municipal', limit: 10, year: 2009, id: 0 },
+    },
+    {
+      params: { path: 'municipal/2010' },
+      props: { title: 'Exámen Municipal', limit: 10, year: 2010, id: 0 },
+    },
+    {
+      params: { path: 'municipal/2011' },
+      props: { title: 'Exámen Municipal', limit: 10, year: 2011, id: 0 },
+    },
+    {
+      params: { path: 'municipal/2012' },
+      props: { title: 'Exámen Municipal', limit: 10, year: 2012, id: 0 },
+    },
+    {
+      params: { path: 'municipal/2013' },
+      props: { title: 'Exámen Municipal', limit: 10, year: 2013, id: 0 },
+    },
+    {
+      params: { path: 'municipal/2014' },
+      props: { title: 'Exámen Municipal', limit: 10, year: 2014, id: 0 },
+    },
+    {
+      params: { path: 'municipal/2015' },
+      props: { title: 'Exámen Municipal', limit: 10, year: 2015, id: 0 },
+    },
 
-    {params: { path: 'mir/2007' },props: { title: 'Exámen MIR', limit: 10, year: 2007, id: 2 }},
-    {params: { path: 'mir/2008' },props: { title: 'Exámen MIR', limit: 10, year: 2008, id: 2 }},
-    {params: { path: 'mir/2009' },props: { title: 'Exámen MIR', limit: 10, year: 2009, id: 2 }},
-    {params: { path: 'mir/2010' },props: { title: 'Exámen MIR', limit: 10, year: 2010, id: 2 }},
-    {params: { path: 'mir/2011' },props: { title: 'Exámen MIR', limit: 10, year: 2011, id: 2 }},
-    {params: { path: 'mir/2012' },props: { title: 'Exámen MIR', limit: 10, year: 2012, id: 2 }},
-    {params: { path: 'mir/2013' },props: { title: 'Exámen MIR', limit: 10, year: 2012, id: 2 }},
-    {params: { path: 'mir/2014' },props: { title: 'Exámen MIR', limit: 10, year: 2012, id: 2 }},
+    {
+      params: { path: 'enarm/2003' },
+      props: { title: 'Exámen ENARM', limit: 10, year: 2003, id: 1 },
+    },
+    {
+      params: { path: 'enarm/2004' },
+      props: { title: 'Exámen ENARM', limit: 10, year: 2004, id: 1 },
+    },
+    {
+      params: { path: 'enarm/2005' },
+      props: { title: 'Exámen ENARM', limit: 10, year: 2005, id: 1 },
+    },
+    {
+      params: { path: 'enarm/2006' },
+      props: { title: 'Exámen ENARM', limit: 10, year: 2006, id: 1 },
+    },
+    {
+      params: { path: 'enarm/2007' },
+      props: { title: 'Exámen ENARM', limit: 10, year: 2007, id: 1 },
+    },
+    {
+      params: { path: 'enarm/2008' },
+      props: { title: 'Exámen ENARM', limit: 10, year: 2008, id: 1 },
+    },
+    {
+      params: { path: 'enarm/2009' },
+      props: { title: 'Exámen ENARM', limit: 10, year: 2009, id: 1 },
+    },
+    {
+      params: { path: 'enarm/2010' },
+      props: { title: 'Exámen ENARM', limit: 10, year: 2010, id: 1 },
+    },
+    {
+      params: { path: 'enarm/2011' },
+      props: { title: 'Exámen ENARM', limit: 10, year: 2011, id: 1 },
+    },
+    {
+      params: { path: 'enarm/2012' },
+      props: { title: 'Exámen ENARM', limit: 10, year: 2012, id: 1 },
+    },
 
-    {params: { path: 'pediatricos/2008' },props: { title: 'Exámen Pediátrico CABA', limit: 10, year: 2008, id: 3 }},
-    {params: { path: 'pediatricos/2009' },props: { title: 'Exámen Pediátrico CABA', limit: 10, year: 2009, id: 3 }},
+    {
+      params: { path: 'mir/2007' },
+      props: { title: 'Exámen MIR', limit: 10, year: 2007, id: 2 },
+    },
+    {
+      params: { path: 'mir/2008' },
+      props: { title: 'Exámen MIR', limit: 10, year: 2008, id: 2 },
+    },
+    {
+      params: { path: 'mir/2009' },
+      props: { title: 'Exámen MIR', limit: 10, year: 2009, id: 2 },
+    },
+    {
+      params: { path: 'mir/2010' },
+      props: { title: 'Exámen MIR', limit: 10, year: 2010, id: 2 },
+    },
+    {
+      params: { path: 'mir/2011' },
+      props: { title: 'Exámen MIR', limit: 10, year: 2011, id: 2 },
+    },
+    {
+      params: { path: 'mir/2012' },
+      props: { title: 'Exámen MIR', limit: 10, year: 2012, id: 2 },
+    },
+    {
+      params: { path: 'mir/2013' },
+      props: { title: 'Exámen MIR', limit: 10, year: 2012, id: 2 },
+    },
+    {
+      params: { path: 'mir/2014' },
+      props: { title: 'Exámen MIR', limit: 10, year: 2012, id: 2 },
+    },
 
-    { params: { path: 'provincial/2007' }, props: { title: 'Exámen Provincial', limit: 10, year: 2007, id: 4 }},
-    { params: { path: 'provincial/2008' }, props: { title: 'Exámen Provincial', limit: 10, year: 2008, id: 4 }},
-    { params: { path: 'provincial/2009' }, props: { title: 'Exámen Provincial', limit: 10, year: 2009, id: 4 }},
-    { params: { path: 'provincial/2010' }, props: { title: 'Exámen Provincial', limit: 10, year: 2010, id: 4 }},
-    { params: { path: 'provincial/2011' }, props: { title: 'Exámen Provincial', limit: 10, year: 2011, id: 4 }},
-    { params: { path: 'provincial/2012' }, props: { title: 'Exámen Provincial', limit: 10, year: 2012, id: 4 }},
-    { params: { path: 'provincial/2013' }, props: { title: 'Exámen Provincial', limit: 10, year: 2013, id: 4 }},
-    { params: { path: 'provincial/2014' }, props: { title: 'Exámen Provincial', limit: 10, year: 2014, id: 4 }},    
-    { params: { path: 'provincial/2015' }, props: { title: 'Exámen Provincial', limit: 10, year: 2015, id: 4 }},    
-    
-    {params: { path: 'unico/2014' },props: { title: 'Exámen Argentina Único', limit: 10, year: 2014, id: 5 }},    
+    {
+      params: { path: 'pediatricos/2008' },
+      props: { title: 'Exámen Pediátrico CABA', limit: 10, year: 2008, id: 3 },
+    },
+    {
+      params: { path: 'pediatricos/2009' },
+      props: { title: 'Exámen Pediátrico CABA', limit: 10, year: 2009, id: 3 },
+    },
 
-    {params: { path: 'peru/2013' },props: { title: 'Exámen Perú Único', limit: 10, year: 2013, id: 6 }},
-    {params: { path: 'peru/2014' },props: { title: 'Exámen Perú Único', limit: 10, year: 2014, id: 6 }},
+    {
+      params: { path: 'provincial/2007' },
+      props: { title: 'Exámen Provincial', limit: 10, year: 2007, id: 4 },
+    },
+    {
+      params: { path: 'provincial/2008' },
+      props: { title: 'Exámen Provincial', limit: 10, year: 2008, id: 4 },
+    },
+    {
+      params: { path: 'provincial/2009' },
+      props: { title: 'Exámen Provincial', limit: 10, year: 2009, id: 4 },
+    },
+    {
+      params: { path: 'provincial/2010' },
+      props: { title: 'Exámen Provincial', limit: 10, year: 2010, id: 4 },
+    },
+    {
+      params: { path: 'provincial/2011' },
+      props: { title: 'Exámen Provincial', limit: 10, year: 2011, id: 4 },
+    },
+    {
+      params: { path: 'provincial/2012' },
+      props: { title: 'Exámen Provincial', limit: 10, year: 2012, id: 4 },
+    },
+    {
+      params: { path: 'provincial/2013' },
+      props: { title: 'Exámen Provincial', limit: 10, year: 2013, id: 4 },
+    },
+    {
+      params: { path: 'provincial/2014' },
+      props: { title: 'Exámen Provincial', limit: 10, year: 2014, id: 4 },
+    },
+    {
+      params: { path: 'provincial/2015' },
+      props: { title: 'Exámen Provincial', limit: 10, year: 2015, id: 4 },
+    },
 
+    {
+      params: { path: 'unico/2014' },
+      props: { title: 'Exámen Argentina Único', limit: 10, year: 2014, id: 5 },
+    },
+
+    {
+      params: { path: 'peru/2013' },
+      props: { title: 'Exámen Perú Único', limit: 10, year: 2013, id: 6 },
+    },
+    {
+      params: { path: 'peru/2014' },
+      props: { title: 'Exámen Perú Único', limit: 10, year: 2014, id: 6 },
+    },
   ]
 }
 
@@ -76,7 +213,7 @@ const { title, limit, year, id } = Astro.props
   </div>
   <!-- <h1 class="font-bold mt-8">Examen Municipal de Buenos Aires</h1> -->
   <div class="grid">
-    <CardsJSX client:only limit={limit} year={year} id={id} desde={0}>
+    <Page client:only limit={limit} year={year} id={id} desde={0} />
+    <div></div>
   </div>
-  <div></div>
 </BaseLayout>

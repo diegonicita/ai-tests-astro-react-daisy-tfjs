@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import { CardJSX } from './cardJSX'
+import { Question } from './question'
 
-export const CardsJSX = ({ limit, year, id, desde }) => {
+export const Page = ({ limit, year, id, desde }) => {
   const [data, setData] = useState(null)  
 
   useEffect(() => {
@@ -29,18 +29,15 @@ export const CardsJSX = ({ limit, year, id, desde }) => {
     <>
       {data &&
         data.map((item, index) => (
-          <CardJSX
+          <Question
             key={index}
             title={'Pregunta N°' + item.numero}
+            questionNumber={item.numero}
             description={item.texto}
             image={item.imagen}
             year={item.ano}
             correct={item.correcta}
-            opcion1={item.opcion1}
-            opcion2={item.opcion2}
-            opcion3={item.opcion3}
-            opcion4={item.opcion4}
-            opcion5={item.opcion5}
+            options={[item.opcion1, item.opcion2, item.opcion3, item.opcion4, item.opcion5]}            
           />
         ))}
     </>
