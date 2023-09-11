@@ -4,8 +4,12 @@ import { Teclado } from '../../../components/tortutetris/teclado'
 import BaseLayout from '../../../layouts/BaseLayout.astro'
 ---
 
-<BaseLayout>  
-  <Tablero client:only />
-  <div class="divider"></div>
-  <Teclado/>
+<BaseLayout>
+  <div class="flex flex-col lg:flex-row items-center gap-4 p-4">
+    <Tablero client:only />
+    <div class="divider"></div>
+    <div class="flex flex-col">
+      <Teclado />
+    </div>
+  </div>
 </BaseLayout>

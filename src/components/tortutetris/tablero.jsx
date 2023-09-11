@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 var turtle = 0
 // var x = 0
 // var y = 0
-var ch = ' '
+var ch = '.'
 const GRAVITY = 500
 
 const turtles = [
@@ -44,8 +44,7 @@ export const Tablero = () => {
     initGame()
   }, [])
 
-  const updateGame = () => {
-    console.log('update every ' + GRAVITY + 'ms')
+  const updateGame = () => {    
     turtles[turtle].y++
     checkLimits()
     updateTablero()
@@ -62,7 +61,7 @@ export const Tablero = () => {
   const updateTablero = () => {
     setTablero((prevTablero) => {
       const newTablero = prevTablero.map((fila) => {
-        return fila.map(() => 0) // Borra todas las celdas estableciéndolas en 0
+        return fila.map(() => ch) // Borra todas las celdas estableciéndolas en 0
       })
 
       // Dibuja las tortugas del array 'turtles' en sus respectivas posiciones
@@ -75,44 +74,43 @@ export const Tablero = () => {
   }
 
   // Función para comprobar los límites de movimiento de la tortuga actual
-const checkMovementLimits = () => {
-  const currentTurtle = turtles[turtle];
-  if (currentTurtle.y < 0) currentTurtle.y = 0;
-  if (currentTurtle.y > 9) {
-    currentTurtle.y = 9;
-    turtle++;
-    if (turtle > turtles.length - 1) turtle = 0;
+  const checkMovementLimits = () => {
+    const currentTurtle = turtles[turtle]
+    if (currentTurtle.y < 0) currentTurtle.y = 0
+    if (currentTurtle.y > 9) {
+      currentTurtle.y = 9
+      turtle++
+      if (turtle > turtles.length - 1) turtle = 0
+    }
+    if (currentTurtle.x < 0) currentTurtle.x = 0
+    if (currentTurtle.x > 9) currentTurtle.x = 9
   }
-  if (currentTurtle.x < 0) currentTurtle.x = 0;
-  if (currentTurtle.x > 9) currentTurtle.x = 9;
-};
 
-// Función para comprobar y manejar superposiciones de tortugas
-const checkTurtleOverlap = () => {
-  const currentTurtle = turtles[turtle];
-  const isOverlap = turtles.some((otherTurtle, index) => {
-    return (
-      index !== turtle &&
-      otherTurtle.x === currentTurtle.x &&
-      otherTurtle.y === currentTurtle.y
-    );
-  });
+  // Función para comprobar y manejar superposiciones de tortugas
+  const checkTurtleOverlap = () => {
+    const currentTurtle = turtles[turtle]
+    const isOverlap = turtles.some((otherTurtle, index) => {
+      return (
+        index !== turtle &&
+        otherTurtle.x === currentTurtle.x &&
+        otherTurtle.y === currentTurtle.y
+      )
+    })
 
-  if (isOverlap) {
-    // Si hay superposición, maneja la lógica de lo que deseas hacer en caso de superposición.
-    // Por ejemplo, puedes mover la tortuga actual a una posición diferente o realizar alguna acción específica.
-    // Aquí se establece la lógica para mover la tortuga actual a una posición diferente.      
-    currentTurtle.y = currentTurtle.y - 1;
-    turtle++;
+    if (isOverlap) {
+      // Si hay superposición, maneja la lógica de lo que deseas hacer en caso de superposición.
+      // Por ejemplo, puedes mover la tortuga actual a una posición diferente o realizar alguna acción específica.
+      // Aquí se establece la lógica para mover la tortuga actual a una posición diferente.
+      currentTurtle.y = currentTurtle.y - 1
+      turtle++
+    }
   }
-};
 
-// Llamadas a las funciones de comprobación en tu función principal
-const checkLimits = () => {
-  checkMovementLimits();
-  checkTurtleOverlap();
-};
-
+  // Llamadas a las funciones de comprobación en tu función principal
+  const checkLimits = () => {
+    checkMovementLimits()
+    checkTurtleOverlap()
+  }
 
   useEffect(() => {
     const handleKeyPress = (event) => {
@@ -139,26 +137,26 @@ const checkLimits = () => {
     }
     return typeof obj[Symbol.iterator] === 'function'
   }
-
+  
   return (
-    <div>
-      <h1 className="text-center">Tortutetris</h1>
-      <div className="divider"></div>
-      {isIterable(tablero) &&
-        tablero.map((fila, i) => (
-          <div key={i}>
-            <div className="flex flex-row h-10 m-1 justify-center items-center">
-              {fila.map((columna, j) => (
-                <div
-                  className="bg-blue-500 flex flex-row h-10 w-10 m-1  justify-center items-center"
+    <div>      
+      <div className="border-2 p-2 shadow-lg bg-secondary">
+        {isIterable(tablero) &&
+          tablero.map((fila, i) => (
+            <div key={i}>
+              <div className="flex flex-row h-7 md:h-7 m-1 justify-center items-center">
+                {fila.map((columna, j) => (
+                  <div
+                  className="text-sm bg-primary text-primary-content flex flex-row h-7 md:h-7 w-7 md:w-8 justify-center items-center"
                   key={j}
-                >
-                  {columna}
-                </div>
-              ))}
+                  >
+                    {columna}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+      </div>
     </div>
   )
 }
