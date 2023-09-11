@@ -1,0 +1,11 @@
+---
+import { Tablero } from '../../../components/tortutetris/tablero'
+import { Teclado } from '../../../components/tortutetris/teclado'
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+---
+
+<BaseLayout>  
+  <Tablero client:only />
+  <div class="divider"></div>
+  <Teclado/>
+</BaseLayout>

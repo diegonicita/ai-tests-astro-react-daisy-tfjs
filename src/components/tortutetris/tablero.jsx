@@ -143,6 +143,7 @@ const checkLimits = () => {
   return (
     <div>
       <h1 className="text-center">Tortutetris</h1>
+      <div className="divider"></div>
       {isIterable(tablero) &&
         tablero.map((fila, i) => (
           <div key={i}>
