@@ -12,7 +12,6 @@ var emptySpace = '.'
 var turtleSpace = '🐢'
 const UPDATE_GAME_INTERVAL = 100
 const UPDATE_GRAVITY_INTERVAL = 10 * UPDATE_GAME_INTERVAL
-var gravityCounter = 0
 const turtles = createTurtles()
 var confettiAvaliable = 1
 
@@ -26,38 +25,40 @@ export const Tablero = () => {
   }
 
   useKeyboard(turtle, turtles, updateTablero)
+  useKeyboard(turtle + 1, turtles, updateTablero)
 
   const updateGame = () => {
     gravity(turtles[turtle])
+    gravity(turtles[turtle + 1])
     checkOverlaps(turtle, turtles)
+    checkOverlaps(turtle + 1, turtles)
     updateMovement(turtles[turtle])
+    updateMovement(turtles[turtle + 1])
     updateTablero(turtles)
-    if (turtle < 9 && 
-        turtles[turtle].status === false
-        )
-        {
-          turtle++
-          turtles[turtle].status = true
-        }
-    if (turtle === 9 &&
-        turtles[turtle].status === false &&
-        confettiAvaliable != 0
-        )
-        {                
-          confetti()
-          confettiAvaliable = 0
-        }
+    if (turtle < 9 && turtles[turtle].status === false) {
+      turtle += 2
+      turtles[turtle].status = true
+      turtles[turtle + 1].status = true
+    }
+    if (
+      turtle === 10 &&
+      turtles[turtle].status === false &&
+      confettiAvaliable != 0
+    ) {
+      confetti()
+      confettiAvaliable = 0
+    }
   }
 
   useGameInterval(UPDATE_GAME_INTERVAL, updateGame)
 
   const gravity = (t) => {
     if (t.status === true) {
-      gravityCounter += UPDATE_GAME_INTERVAL
-      if (gravityCounter >= UPDATE_GRAVITY_INTERVAL) {
+      t.gravityCounter += UPDATE_GAME_INTERVAL
+      if (t.gravityCounter >= UPDATE_GRAVITY_INTERVAL) {
         t.moveY = 1
         t.moveUpdate = true
-        gravityCounter = 0
+        t.gravityCounter = 0
       }
     }
   }
@@ -68,7 +69,8 @@ export const Tablero = () => {
       return (
         index !== currentTurtle &&
         other.x === t.x + t.moveX &&
-        other.y === t.y + t.moveY && other.status === false
+        other.y === t.y + t.moveY &&
+        other.status === false
       )
     })
 
