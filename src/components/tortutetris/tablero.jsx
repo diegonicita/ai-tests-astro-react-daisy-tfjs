@@ -5,6 +5,7 @@ import { useGameInterval } from './hooks/useGameInterval'
 import { createTurtles } from './utils/createTurtles'
 import { updateSpaces } from './utils/updateSpaces'
 import { isIterable } from './utils/isIterable'
+import confetti from 'canvas-confetti'
 
 var turtle = 0
 var emptySpace = '.'
@@ -13,9 +14,9 @@ const UPDATE_GAME_INTERVAL = 100
 const UPDATE_GRAVITY_INTERVAL = 10 * UPDATE_GAME_INTERVAL
 var gravityCounter = 0
 const turtles = createTurtles()
+var confettiAvaliable = 1
 
 export const Tablero = () => {
-
   const { tablero, setTablero } = useTablero(emptySpace)
 
   const updateTablero = () => {
@@ -27,72 +28,70 @@ export const Tablero = () => {
   useKeyboard(turtle, turtles, updateTablero)
 
   const updateGame = () => {
-    gravity()
-    checkOverlaps()
-    updateMovement()
-    updateTablero()
-    checkNext()
+    gravity(turtles[turtle])
+    checkOverlaps(turtle, turtles)
+    updateMovement(turtles[turtle])
+    updateTablero(turtles)
+    if (turtle < 9 && 
+        turtles[turtle].status === false
+        )
+        {
+          turtle++
+          turtles[turtle].status = true
+        }
+    if (turtle === 9 &&
+        turtles[turtle].status === false &&
+        confettiAvaliable != 0
+        )
+        {                
+          confetti()
+          confettiAvaliable = 0
+        }
   }
 
   useGameInterval(UPDATE_GAME_INTERVAL, updateGame)
 
-  const gravity = () => {
-    if (turtles[turtle].status === true) {
+  const gravity = (t) => {
+    if (t.status === true) {
       gravityCounter += UPDATE_GAME_INTERVAL
       if (gravityCounter >= UPDATE_GRAVITY_INTERVAL) {
-        turtles[turtle].moveY = 1
-        turtles[turtle].moveUpdate = true
+        t.moveY = 1
+        t.moveUpdate = true
         gravityCounter = 0
       }
     }
   }
   // Función para comprobar y manejar superposiciones de tortugas
-  const checkOverlaps = () => {
-    const currentTurtle = turtles[turtle]
-    const isOverlap = turtles.some((otherTurtle, index) => {
+  const checkOverlaps = (currentTurtle, turtlesArray) => {
+    const t = turtlesArray[currentTurtle] // current turtles[currentTurtle] // current turtle
+    const isOverlap = turtles.some((other, index) => {
       return (
-        index !== turtle &&
-        otherTurtle.x === currentTurtle.x + currentTurtle.moveX &&
-        otherTurtle.y === currentTurtle.y + currentTurtle.moveY
+        index !== currentTurtle &&
+        other.x === t.x + t.moveX &&
+        other.y === t.y + t.moveY && other.status === false
       )
     })
 
     if (isOverlap) {
-      currentTurtle.status = currentTurtle.moveX != 0 ? true : false
-      currentTurtle.moveX = 0
-      currentTurtle.moveY = 0
-      currentTurtle.moveUpdate = false
+      t.status = t.moveX != 0 ? true : false
+      t.moveX = 0
+      t.moveY = 0
+      t.moveUpdate = false
     }
   }
 
-  const updateMovement = () => {
-    if (turtles[turtle].moveUpdate === true) {
-      if (
-        turtles[turtle].y + turtles[turtle].moveY > 9 ||
-        turtles[turtle].y + turtles[turtle].moveY < 0
-      ) {
-        if (turtles[turtle].y + turtles[turtle].moveY > 9)
-          turtles[turtle].status = false
-        turtles[turtle].moveY = 0
-      }
-      if (
-        turtles[turtle].x + turtles[turtle].moveX > 9 ||
-        turtles[turtle].x + turtles[turtle].moveX < 0
-      ) {
-        turtles[turtle].moveX = 0
-      }
-      turtles[turtle].y += turtles[turtle].moveY
-      turtles[turtle].x += turtles[turtle].moveX
-      turtles[turtle].moveUpdate === false
-      turtles[turtle].moveY = 0
-      turtles[turtle].moveX = 0
-    }
-  }  
-
-  const checkNext = () => {
-    if (turtle < 9 && turtles[turtle].status === false) {
-      turtle++
-      turtles[turtle].status = true
+  const updateMovement = (t) => {
+    if (t.moveUpdate === true) {
+      const sy = t.y + t.moveY
+      const sx = t.x + t.moveX
+      if (sy > 9 || sy < 0) t.moveY = 0
+      if (sy > 9) t.status = false
+      if (sx > 9 || sx < 0) t.moveX = 0
+      t.y += t.moveY
+      t.x += t.moveX
+      t.moveUpdate === false
+      t.moveY = 0
+      t.moveX = 0
     }
   }
 
@@ -105,7 +104,7 @@ export const Tablero = () => {
               <div className="flex flex-row h-7 md:h-7 m-1 justify-center items-center">
                 {fila.map((columna, j) => (
                   <div
-                    className="text-sm bg-secondary text-secondary-content flex flex-row h-7 md:h-7 w-7 md:w-8 justify-center items-center"
+                    className="text-2xl bg-secondary text-secondary-content flex flex-row h-7 md:h-7 w-7 md:w-8 justify-center items-center"
                     key={j}
                   >
                     {columna}
