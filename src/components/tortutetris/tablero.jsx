@@ -30,18 +30,17 @@ export const Tablero = () => {
   const updateGame = () => {
     gravity(turtles[turtle])
     gravity(turtles[turtle + 1])
-    checkOverlaps(turtle, turtles)
-    checkOverlaps(turtle + 1, turtles)
+    checkOverlaps(turtle, turtles)    
     updateMovement(turtles[turtle])
     updateMovement(turtles[turtle + 1])
     updateTablero(turtles)
-    if (turtle < 9 && turtles[turtle].status === false) {
+    if (turtle < (turtles.length - 2) && turtles[turtle].status === false) {
       turtle += 2
       turtles[turtle].status = true
       turtles[turtle + 1].status = true
     }
     if (
-      turtle === 10 &&
+      turtle === turtles.length &&
       turtles[turtle].status === false &&
       confettiAvaliable != 0
     ) {
@@ -64,7 +63,8 @@ export const Tablero = () => {
   }
   // Función para comprobar y manejar superposiciones de tortugas
   const checkOverlaps = (currentTurtle, turtlesArray) => {
-    const t = turtlesArray[currentTurtle] // current turtles[currentTurtle] // current turtle
+    const t = turtlesArray[currentTurtle]
+    const t2 = turtlesArray[currentTurtle + 1] // current turtles[currentTurtle] // current turtle
     const isOverlap = turtles.some((other, index) => {
       return (
         index !== currentTurtle &&
@@ -74,11 +74,39 @@ export const Tablero = () => {
       )
     })
 
+    const isOverlap2 = turtles.some((other, index) => {
+      return (
+        index !== currentTurtle + 1 &&
+        other.x === t2.x + t2.moveX &&
+        other.y === t2.y + t2.moveY &&
+        other.status === false
+      )
+    })
+
     if (isOverlap) {
       t.status = t.moveX != 0 ? true : false
-      t.moveX = 0
-      t.moveY = 0
-      t.moveUpdate = false
+      if (t.status === false) {
+        t2.status = false
+        t.moveX = 0
+        t.moveY = 0
+        t.moveUpdate = false
+        t2.moveX = 0
+        t2.moveY = 0
+        t2.moveUpdate = false
+      }
+    }
+
+    if (isOverlap2) {
+      t2.status = t.moveX != 0 ? true : false
+      if (t2.status === false) {
+        t.status = false
+        t.moveX = 0
+        t.moveY = 0
+        t.moveUpdate = false
+        t2.moveX = 0
+        t2.moveY = 0
+        t2.moveUpdate = false
+      }
     }
   }
 
