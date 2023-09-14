@@ -39,7 +39,8 @@ export const Tablero = () => {
         updateTablero(turtles)
         if (t.status === false) {
           turtle++
-          if (turtle < 10) turtlesIdMap[turtle].forEach((tt) => (tt.status = true))
+          if (turtle < 10)
+            turtlesIdMap[turtle].forEach((tt) => (tt.status = true))
         }
       }
     })
@@ -81,9 +82,9 @@ export const Tablero = () => {
       t.status = false
       t.moveX = 0
       t.moveY = 0
-      t.moveUpdate = false      
+      t.moveUpdate = false
       turtlesIdMap[turtle].forEach((tt) => {
-        tt.status = false        
+        tt.status = false
         tt.moveX = 0
         tt.moveY = 0
         tt.moveUpdate = false
@@ -97,17 +98,18 @@ export const Tablero = () => {
       const sx = t.x + t.moveX
       if (sy > 9 || sy < 0) t.moveY = 0
       if (sy > 9) {
-        turtles.map((tt) => {
-          if (tt.id === turtle) {
-            tt.status = false            
-          }
+        turtlesIdMap[turtle].forEach((tt) => {
+          tt.status = false
+          tt.moveX = 0
+          tt.moveY = 0
+          tt.moveUpdate = false
         })
       }
       if (sx > 9 || sx < 0) {
         turtles.map((tt) => {
           if (tt.id === turtle) {
             tt.moveX = 0
-            tt.moveUpdate = false            
+            tt.moveUpdate = false
           }
         })
       }
