@@ -27,23 +27,19 @@ export const Tablero = () => {
 
   const updateGame = () => {
     if (turtle < 10)
-    turtlesIdMap[turtle].forEach((t) => {    
+      turtlesIdMap[turtle].forEach((t) => {
         gravity(t)
         checkOverlaps(t, turtles)
-        checkLimits(t)            
-    })
+        checkLimits(t)
+      })
 
     turtles.forEach((t) => {
-      if (t.id === turtle) {        
+      if (t.id === turtle) {
         updateMovement(t)
         updateTablero(turtles)
         if (t.status === false) {
           turtle++
-          turtles.map((tt) => {
-            if (tt.id === turtle) {
-              tt.status = true              
-            }
-          })
+          if (turtle < 10) turtlesIdMap[turtle].forEach((tt) => (tt.status = true))
         }
       }
     })
@@ -85,8 +81,13 @@ export const Tablero = () => {
       t.status = false
       t.moveX = 0
       t.moveY = 0
-      t.moveUpdate = false
-      t.sprite = '🚫'
+      t.moveUpdate = false      
+      turtlesIdMap[turtle].forEach((tt) => {
+        tt.status = false        
+        tt.moveX = 0
+        tt.moveY = 0
+        tt.moveUpdate = false
+      })
     }
   }
 
@@ -98,8 +99,7 @@ export const Tablero = () => {
       if (sy > 9) {
         turtles.map((tt) => {
           if (tt.id === turtle) {
-            tt.status = false
-            tt.sprite = '⛰'
+            tt.status = false            
           }
         })
       }
@@ -107,13 +107,12 @@ export const Tablero = () => {
         turtles.map((tt) => {
           if (tt.id === turtle) {
             tt.moveX = 0
-            tt.moveUpdate = false
-            tt.sprite = '%'
+            tt.moveUpdate = false            
           }
         })
       }
     }
-  }  
+  }
 
   const updateMovement = (t) => {
     t.y += t.moveY
