@@ -2,52 +2,60 @@ import { useEffect, useState } from 'react'
 import { useKeyboard } from './hooks/useKeyboard'
 import { useTablero } from './hooks/useTablero'
 import { useGameInterval } from './hooks/useGameInterval'
-import { createTurtles } from './utils/createTurtles'
+import { createTurtles, createIdMap } from './utils/createTurtles'
 import { updateSpaces } from './utils/updateSpaces'
 import { isIterable } from './utils/isIterable'
 import confetti from 'canvas-confetti'
+import { t } from '../../../dist/_astro/store.c40f039e'
 
 var turtle = 0
 var emptySpace = '.'
-var turtleSpace = '🐢'
 const UPDATE_GAME_INTERVAL = 100
 const UPDATE_GRAVITY_INTERVAL = 10 * UPDATE_GAME_INTERVAL
 const turtles = createTurtles()
+const turtlesIdMap = createIdMap(turtles)
 var confettiAvaliable = 1
 
 export const Tablero = () => {
   const { tablero, setTablero } = useTablero(emptySpace)
 
   const updateTablero = () => {
-    setTablero((prevTablero) =>
-      updateSpaces(turtles, emptySpace, turtleSpace, prevTablero),
-    )
+    setTablero((prevTablero) => updateSpaces(turtles, emptySpace, prevTablero))
   }
 
   useKeyboard(turtle, turtles, updateTablero)
-  useKeyboard(turtle + 1, turtles, updateTablero)
 
   const updateGame = () => {
-    gravity(turtles[turtle])
-    gravity(turtles[turtle + 1])
-    checkOverlaps(turtle, turtles)    
-    updateMovement(turtles[turtle])
-    updateMovement(turtles[turtle + 1])
-    updateTablero(turtles)
-    if (turtle < (turtles.length - 2) && turtles[turtle].status === false) {
-      turtle += 2
-      turtles[turtle].status = true
-      turtles[turtle + 1].status = true
-    }
-    if (
-      turtle === turtles.length &&
-      turtles[turtle].status === false &&
-      confettiAvaliable != 0
-    ) {
-      confetti()
-      confettiAvaliable = 0
-    }
+    if (turtle < 10)
+    turtlesIdMap[turtle].forEach((t) => {    
+        gravity(t)
+        checkOverlaps(t, turtles)
+        checkLimits(t)            
+    })
+
+    turtles.forEach((t) => {
+      if (t.id === turtle) {        
+        updateMovement(t)
+        updateTablero(turtles)
+        if (t.status === false) {
+          turtle++
+          turtles.map((tt) => {
+            if (tt.id === turtle) {
+              tt.status = true              
+            }
+          })
+        }
+      }
+    })
   }
+
+  // if (turtle === turtles.length &&
+  //   turtles[turtle].status === false &&
+  //   confettiAvaliable != 0
+  // ) {
+  //   confetti()
+  //   confettiAvaliable = 0
+  // }
 
   useGameInterval(UPDATE_GAME_INTERVAL, updateGame)
 
@@ -63,66 +71,56 @@ export const Tablero = () => {
   }
   // Función para comprobar y manejar superposiciones de tortugas
   const checkOverlaps = (currentTurtle, turtlesArray) => {
-    const t = turtlesArray[currentTurtle]
-    const t2 = turtlesArray[currentTurtle + 1] // current turtles[currentTurtle] // current turtle
-    const isOverlap = turtles.some((other, index) => {
+    const t = currentTurtle
+    const isOverlap = turtlesArray.some((other) => {
       return (
-        index !== currentTurtle &&
+        other.id !== t.id &&
         other.x === t.x + t.moveX &&
         other.y === t.y + t.moveY &&
         other.status === false
       )
     })
 
-    const isOverlap2 = turtles.some((other, index) => {
-      return (
-        index !== currentTurtle + 1 &&
-        other.x === t2.x + t2.moveX &&
-        other.y === t2.y + t2.moveY &&
-        other.status === false
-      )
-    })
-
     if (isOverlap) {
-      t.status = t.moveX != 0 ? true : false
-      if (t.status === false) {
-        t2.status = false
-        t.moveX = 0
-        t.moveY = 0
-        t.moveUpdate = false
-        t2.moveX = 0
-        t2.moveY = 0
-        t2.moveUpdate = false
-      }
-    }
-
-    if (isOverlap2) {
-      t2.status = t.moveX != 0 ? true : false
-      if (t2.status === false) {
-        t.status = false
-        t.moveX = 0
-        t.moveY = 0
-        t.moveUpdate = false
-        t2.moveX = 0
-        t2.moveY = 0
-        t2.moveUpdate = false
-      }
+      t.status = false
+      t.moveX = 0
+      t.moveY = 0
+      t.moveUpdate = false
+      t.sprite = '🚫'
     }
   }
 
-  const updateMovement = (t) => {
+  const checkLimits = (t) => {
     if (t.moveUpdate === true) {
       const sy = t.y + t.moveY
       const sx = t.x + t.moveX
       if (sy > 9 || sy < 0) t.moveY = 0
-      if (sy > 9) t.status = false
-      if (sx > 9 || sx < 0) t.moveX = 0
-      t.y += t.moveY
-      t.x += t.moveX
-      t.moveUpdate === false
-      t.moveY = 0
-      t.moveX = 0
+      if (sy > 9) {
+        turtles.map((tt) => {
+          if (tt.id === turtle) {
+            tt.status = false
+            tt.sprite = '⛰'
+          }
+        })
+      }
+      if (sx > 9 || sx < 0) {
+        turtles.map((tt) => {
+          if (tt.id === turtle) {
+            tt.moveX = 0
+            tt.moveUpdate = false
+            tt.sprite = '%'
+          }
+        })
+      }
     }
+  }  
+
+  const updateMovement = (t) => {
+    t.y += t.moveY
+    t.x += t.moveX
+    t.moveUpdate = false
+    t.moveY = 0
+    t.moveX = 0
   }
 
   return (

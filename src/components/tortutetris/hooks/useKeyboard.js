@@ -1,28 +1,32 @@
 import { useEffect } from 'react'
 
-export const useKeyboard = ( turtle, turtles, updateTablero ) => {
+export const useKeyboard = (turtle, turtles, updateTablero) => {
   useEffect(() => {
     const handleKeyPress = (event) => {
-      console.log("key down. turtle " + turtle)
-      if (turtles[turtle].status == true) {
-        if (event.key === 'w') {
-          turtles[turtle].moveUpdate = true
-          turtles[turtle].moveY = -1
+      console.log('key down. turtle ' + turtle)
+      turtles.map((tt) => {
+        if (tt.id === turtle) {
+          if (tt.status == true) {
+            if (event.key === 'w') {
+              tt.moveUpdate = true
+              tt.moveY = -1
+            }
+            if (event.key === 's') {
+              tt.moveUpdate = true
+              tt.moveY = 1
+            }
+            if (event.key === 'a') {
+              tt.moveUpdate = true
+              tt.moveX = -1
+            }
+            if (event.key === 'd') {
+              tt.moveUpdate = true
+              tt.moveX = 1
+            }
+          }
         }
-        if (event.key === 's') {
-          turtles[turtle].moveUpdate = true
-          turtles[turtle].moveY = 1
-        }
-        if (event.key === 'a') {
-          turtles[turtle].moveUpdate = true
-          turtles[turtle].moveX = -1
-        }
-        if (event.key === 'd') {
-          turtles[turtle].moveUpdate = true
-          turtles[turtle].moveX = 1
-        }
-      }
-      updateTablero()
+        //updateTablero()
+      })
     }
 
     const removeListener = () => {
@@ -30,7 +34,7 @@ export const useKeyboard = ( turtle, turtles, updateTablero ) => {
     }
 
     // Eliminar el oyente de eventos anterior antes de crear uno nuevo
-    removeListener()    
+    removeListener()
 
     // Agregar un evento para detectar la pulsación de teclas en el documento
     document.addEventListener('keydown', handleKeyPress)
