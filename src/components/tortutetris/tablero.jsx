@@ -6,7 +6,6 @@ import { createTurtles, createIdMap } from './utils/createTurtles'
 import { updateSpaces } from './utils/updateSpaces'
 import { isIterable } from './utils/isIterable'
 import confetti from 'canvas-confetti'
-import { t } from '../../../dist/_astro/store.c40f039e'
 
 var turtle = 0
 var emptySpace = '.'
@@ -28,7 +27,7 @@ export const Tablero = () => {
   const updateGame = () => {
     if (turtle < 10)
       turtlesIdMap[turtle].forEach((t) => {
-        gravity(t)
+        // gravity(t)
         checkOverlaps(t, turtles)
         checkLimits(t)
       })
