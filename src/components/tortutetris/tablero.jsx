@@ -9,6 +9,8 @@ import confetti from 'canvas-confetti'
 
 var turtle = 0
 var emptySpace = '.'
+const tableroWidth = 15
+const tableroHeight = 15
 const UPDATE_GAME_INTERVAL = 100
 const UPDATE_GRAVITY_INTERVAL = 5 * UPDATE_GAME_INTERVAL
 const turtles = createTurtles()
@@ -16,7 +18,11 @@ const turtlesIdMap = createIdMap(turtles)
 var confettiAvaliable = 1
 
 export const Tablero = () => {
-  const { tablero, setTablero } = useTablero(emptySpace)
+  const { tablero, setTablero } = useTablero(
+    tableroWidth + 1,
+    tableroHeight + 1,
+    emptySpace,
+  )
 
   const updateTablero = () => {
     setTablero((prevTablero) => updateSpaces(turtles, emptySpace, prevTablero))
@@ -95,8 +101,8 @@ export const Tablero = () => {
     if (t.moveUpdate === true) {
       const sy = t.y + t.moveY
       const sx = t.x + t.moveX
-      if (sy > 9 || sy < 0) t.moveY = 0
-      if (sy > 9) {
+      if (sy > tableroHeight - 3 || sy < 0) t.moveY = 0
+      if (sy > tableroHeight - 3) {
         turtlesIdMap[turtle].forEach((tt) => {
           tt.status = false
           tt.moveX = 0
@@ -104,7 +110,7 @@ export const Tablero = () => {
           tt.moveUpdate = false
         })
       }
-      if (sx > 8 || sx < 1) {
+      if (sx > tableroWidth - 2 || sx < 1) {
         turtles.map((tt) => {
           if (tt.id === turtle) {
             tt.moveX = 0
@@ -116,11 +122,22 @@ export const Tablero = () => {
   }
 
   const updateMovement = (t) => {
-    t.y += t.moveY
-    t.x += t.moveX
-    t.moveUpdate = false
-    t.moveY = 0
-    t.moveX = 0
+    if (t.rotation.update == true) {
+      const tCenter = turtles.find((tt) => tt.id === turtle)
+      t.x = tCenter.x + t.rotation.positions[t.rotation.index].x
+      t.y = tCenter.y + t.rotation.positions[t.rotation.index].y
+      t.rotation.index++
+      if (t.rotation.index > 3) {
+        t.rotation.index = 0
+      }
+      t.rotation.update = false
+    } else {
+      t.y += t.moveY
+      t.x += t.moveX
+      t.moveUpdate = false
+      t.moveY = 0
+      t.moveX = 0
+    }
   }
 
   return (

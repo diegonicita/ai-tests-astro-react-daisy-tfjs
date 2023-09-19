@@ -7,8 +7,8 @@ const Zero = 0
 export const rotationDefault = () => ({
   index: 0,
   update: false,
-  roteX: 0,
-  roteY: 0,
+  originalX: 0,
+  originalY: 0,
   positions: [
     { x: 1, y: -1 },
     { x: 1, y: 1 },
@@ -17,24 +17,99 @@ export const rotationDefault = () => ({
   ],
 })
 
-export const rotationNone = () => ({
+export const rotationNone = (x = 0, y = 0) => ({
   index: 0,
   update: false,
-  roteX: 0,
-  roteY: 0,
+  originalX: 0,
+  originalY: 0,
   positions: [
-    { x: 0, y: 0 },
-    { x: 0, y: 0 },
-    { x: 0, y: 0 },
-    { x: 0, y: 0 },
+    { x, y },
+    { x, y },
+    { x, y },
+    { x, y },
+  ],
+})
+
+export const rotationU1 = () => ({
+  index: 0,
+  update: false,
+  originalX: 0,
+  originalY: 0,
+  positions: [
+    { x: 0, y: UP },
+    { x: RIGHT, y: 0 },
+    { x: 0, y: DOWN },
+    { x: LEFT, y: 0 },
+  ],
+})
+
+export const rotationD1 = () => ({
+  index: 0,
+  update: false,
+  originalX: 0,
+  originalY: 0,
+  positions: [
+    { x: 0, y: DOWN },
+    { x: LEFT, y: 0 },
+    { x: 0, y: UP },
+    { x: RIGHT, y: 0 },
+  ],
+})
+
+export const rotationR1 = () => ({
+  index: 0,
+  update: false,
+  originalX: 0,
+  originalY: 0,
+  positions: [
+    { x: RIGHT, y: 0 },
+    { x: 0, y: DOWN },
+    { x: LEFT, y: 0 },
+    { x: 0, y: UP },
+  ],
+})
+export const rotationL1 = () => ({
+  index: 0,
+  update: false,
+  originalX: 0,
+  originalY: 0,
+  positions: [
+    { x: LEFT, y: 0 },
+    { x: 0, y: UP },
+    { x: RIGHT, y: 0 },
+    { x: 0, y: DOWN },
+  ],
+})
+export const rotationL2 = () => ({
+  index: 0,
+  update: false,
+  originalX: 0,
+  originalY: 0,
+  positions: [
+    { x: LEFT * 2, y: 0 },
+    { x: 0, y: UP * 2 },
+    { x: RIGHT * 2, y: 0 },
+    { x: 0, y: DOWN * 2 },
+  ],
+})
+export const rotationR1D1 = () => ({
+  index: 0,
+  update: false,
+  originalX: 0,
+  originalY: 0,
+  positions: [
+    { x: RIGHT, y: DOWN },
+    { x: LEFT, y: DOWN },
+    { x: LEFT, y: UP },
+    { x: RIGHT, y: UP },
   ],
 })
 
 export const rotationToRightUp = () => ({
   index: 0,
   update: false,
-  roteX: 0,
-  roteY: 0,
+  originalX: 0,
+  originalY: 0,
   positions: [
     { x: RIGHT, y: UP },
     { x: RIGHT, y: DOWN },
@@ -43,11 +118,11 @@ export const rotationToRightUp = () => ({
   ],
 })
 
-export const rotationToRightDown = () => ( {
+export const rotationToRightDown = () => ({
   index: 0,
   update: false,
-  roteX: 0,
-  roteY: 0,
+  originalX: 0,
+  originalY: 0,
   positions: [
     { x: RIGHT, y: DOWN },
     { x: LEFT, y: DOWN },
@@ -56,11 +131,11 @@ export const rotationToRightDown = () => ( {
   ],
 })
 
-export const rotationToLeftDown = () => ( {
+export const rotationToLeftDown = () => ({
   index: 0,
   update: false,
-  roteX: 0,
-  roteY: 0,
+  originalX: 0,
+  originalY: 0,
   positions: [
     { x: LEFT, y: DOWN },
     { x: LEFT, y: UP },
@@ -72,8 +147,8 @@ export const rotationToLeftDown = () => ( {
 export const rotationToLeftUp = () => ({
   index: 0,
   update: false,
-  roteX: 0,
-  roteY: 0,
+  originalX: 0,
+  originalY: 0,
   positions: [
     { x: LEFT, y: UP },
     { x: RIGHT, y: UP },
@@ -85,8 +160,8 @@ export const rotationToLeftUp = () => ({
 export const rotationToLeftUp2 = () => ({
   index: 0,
   update: false,
-  roteX: 0,
-  roteY: 0,
+  originalX: 0,
+  originalY: 0,
   positions: [
     { x: LEFT * 2, y: UP * 2 },
     { x: RIGHT * 2, y: UP * 2 },
@@ -98,8 +173,8 @@ export const rotationToLeftUp2 = () => ({
 export const rotationToCornersRightDown = () => ({
   index: 0,
   update: false,
-  roteX: 0,
-  roteY: 0,
+  originalX: 0,
+  originalY: 0,
   positions: [
     { x: 0, y: DOWN * 2 },
     { x: LEFT * 2, y: 0 },

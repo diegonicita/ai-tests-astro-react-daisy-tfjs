@@ -3,8 +3,7 @@ import { useEffect } from 'react'
 export const useKeyboard = (turtle, turtles, updateTablero) => {
 
   useEffect(() => {
-    const handleKeyPress = (event) => {
-      console.log('key down. turtle ' + turtle)
+    const handleKeyPress = (event) => {      
       turtles.map((tt, indice) => {
         if (tt.id === turtle) {
           if (tt.status == true) {
@@ -26,12 +25,18 @@ export const useKeyboard = (turtle, turtles, updateTablero) => {
             }            
 
             if (event.key === 'k') {            
-              const index = tt.rotation.index
-              tt.moveUpdate = true
-              tt.moveX = tt.rotation.positions[index].x
-              tt.moveY = tt.rotation.positions[index].y
-              tt.rotation.index++
-              if (tt.rotation.index > 3) tt.rotation.index = 0            
+              if (tt.rotation.update == false)
+              {
+              // const index = tt.rotation.index
+              // tt.moveUpdate = true
+              // tt.moveX = tt.rotation.positions[index].x
+              // tt.moveY = tt.rotation.positions[index].y
+              tt.rotation.update = true
+              tt.rotation.originalX = tt.x;
+              tt.rotation.originalY = tt.y;              
+              }
+              // tt.rotation.index++
+              // if (tt.rotation.index > 3) tt.rotation.index = 0            
             }
           }
         }
@@ -56,3 +61,4 @@ export const useKeyboard = (turtle, turtles, updateTablero) => {
 
   return null
 }
+

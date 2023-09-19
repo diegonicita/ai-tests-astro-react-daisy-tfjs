@@ -19,7 +19,7 @@ export const createPieceBox = (id, sprite, status) => [
     moveUpdate: false,
     status: status,
     gravityCounter: 0,
-    sprite: sprite,
+    sprite: sprite == '0' ? '0' : sprite,  
     rotation: rotationNone(),
   },
   {
@@ -31,8 +31,8 @@ export const createPieceBox = (id, sprite, status) => [
     moveUpdate: false,
     status: status,
     gravityCounter: 0,
-    sprite: sprite,
-    rotation: rotationNone(),
+    sprite: sprite == '0' ? '1' : sprite,  
+    rotation: rotationNone(1,0),
   },
   {
     id: id,
@@ -43,8 +43,8 @@ export const createPieceBox = (id, sprite, status) => [
     moveUpdate: false,
     status: status,
     gravityCounter: 0,
-    sprite: sprite,
-    rotation: rotationNone(),
+    sprite: sprite == '0' ? '2' : sprite,  
+    rotation: rotationNone(0,1),
   },
   {
     id: id,
@@ -55,7 +55,7 @@ export const createPieceBox = (id, sprite, status) => [
     moveUpdate: false,
     status: status,
     gravityCounter: 0,
-    sprite: sprite,
-    rotation: rotationNone(),
+    sprite: sprite == '0' ? '3' : sprite,  
+    rotation: rotationNone(1,1),
   },
 ]

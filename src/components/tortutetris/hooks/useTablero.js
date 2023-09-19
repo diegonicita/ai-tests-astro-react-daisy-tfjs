@@ -1,19 +1,10 @@
 import { useEffect, useState } from 'react'
 
-export const useTablero = (ch) => {
+export const useTablero = (width, height, ch) => {
+  
+  const fila = Array(width).fill(ch);  
 
-  const emptyTablero = [
-    [ch, ch, ch, ch, ch, ch, ch, ch, ch, ch],
-    [ch, ch, ch, ch, ch, ch, ch, ch, ch, ch],
-    [ch, ch, ch, ch, ch, ch, ch, ch, ch, ch],
-    [ch, ch, ch, ch, ch, ch, ch, ch, ch, ch],
-    [ch, ch, ch, ch, ch, ch, ch, ch, ch, ch],
-    [ch, ch, ch, ch, ch, ch, ch, ch, ch, ch],
-    [ch, ch, ch, ch, ch, ch, ch, ch, ch, ch],
-    [ch, ch, ch, ch, ch, ch, ch, ch, ch, ch],
-    [ch, ch, ch, ch, ch, ch, ch, ch, ch, ch],
-    [ch, ch, ch, ch, ch, ch, ch, ch, ch, ch],
-  ]
+  const emptyTablero = Array(height).fill(fila);
 
   const [tablero, setTablero] = useState(emptyTablero)
 

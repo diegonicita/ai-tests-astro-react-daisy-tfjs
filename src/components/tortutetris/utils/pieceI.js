@@ -7,21 +7,12 @@ import {
   rotationToLeftUp,
   rotationToLeftUp2,
   rotationToCornersRightDown,
+  rotationR1,
+  rotationL1,
+  rotationL2,
 } from './rotations'
 
 export const createPieceI = (id, sprite, status) => [
-  {
-    id: id,
-    x: 6,
-    y: 0,
-    moveX: 0,
-    moveY: 0,
-    moveUpdate: false,
-    status: status,
-    gravityCounter: 0,
-    sprite: sprite,
-    rotation: rotationToRightDown(),
-  },
   {
     id: id,
     x: 6,
@@ -31,8 +22,20 @@ export const createPieceI = (id, sprite, status) => [
     moveUpdate: false,
     status: status,
     gravityCounter: 0,
-    sprite: sprite,
+    sprite: sprite == '0' ? '0' : sprite,  
     rotation: rotationNone(),
+  },
+  {
+    id: id,
+    x: 6,
+    y: 0,
+    moveX: 0,
+    moveY: 0,
+    moveUpdate: false,
+    status: status,
+    gravityCounter: 0,
+    sprite: sprite == '0' ? '1' : sprite,
+    rotation: rotationR1(),
   },
   {
     id: id,
@@ -43,8 +46,8 @@ export const createPieceI = (id, sprite, status) => [
     moveUpdate: false,
     status: status,
     gravityCounter: 0,
-    sprite: sprite,
-    rotation: rotationToLeftUp(),
+    sprite: sprite == '0' ? '2' : sprite,
+    rotation: rotationL1(),
   },
   {
     id: id,
@@ -55,7 +58,7 @@ export const createPieceI = (id, sprite, status) => [
     moveUpdate: false,
     status: status,
     gravityCounter: 0,
-    sprite: sprite,
-    rotation: rotationToLeftUp2(),
+    sprite: sprite == '0' ? '3' : sprite,
+    rotation: rotationL2(),
   },
 ]
