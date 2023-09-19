@@ -10,7 +10,7 @@ import confetti from 'canvas-confetti'
 var turtle = 0
 var emptySpace = '.'
 const UPDATE_GAME_INTERVAL = 100
-const UPDATE_GRAVITY_INTERVAL = 10 * UPDATE_GAME_INTERVAL
+const UPDATE_GRAVITY_INTERVAL = 5 * UPDATE_GAME_INTERVAL
 const turtles = createTurtles()
 const turtlesIdMap = createIdMap(turtles)
 var confettiAvaliable = 1
@@ -25,9 +25,9 @@ export const Tablero = () => {
   useKeyboard(turtle, turtles, updateTablero)
 
   const updateGame = () => {
-    if (turtle < 10)
+    if (turtle < 8)
       turtlesIdMap[turtle].forEach((t) => {
-        // gravity(t)
+        gravity(t)
         checkOverlaps(t, turtles)
         checkLimits(t)
       })
@@ -38,7 +38,7 @@ export const Tablero = () => {
         updateTablero(turtles)
         if (t.status === false) {
           turtle++
-          if (turtle < 10)
+          if (turtle < 8)
             turtlesIdMap[turtle].forEach((tt) => (tt.status = true))
         }
       }
@@ -104,7 +104,7 @@ export const Tablero = () => {
           tt.moveUpdate = false
         })
       }
-      if (sx > 9 || sx < 0) {
+      if (sx > 8 || sx < 1) {
         turtles.map((tt) => {
           if (tt.id === turtle) {
             tt.moveX = 0

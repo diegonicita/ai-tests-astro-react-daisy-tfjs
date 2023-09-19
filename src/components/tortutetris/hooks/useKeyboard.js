@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 
 export const useKeyboard = (turtle, turtles, updateTablero) => {
+
   useEffect(() => {
     const handleKeyPress = (event) => {
       console.log('key down. turtle ' + turtle)
@@ -22,8 +23,9 @@ export const useKeyboard = (turtle, turtles, updateTablero) => {
             if (event.key === 'd') {
               tt.moveUpdate = true
               tt.moveX = 1
-            }
-            if (event.key === 'k') {
+            }            
+
+            if (event.key === 'k') {            
               const index = tt.rotation.index
               tt.moveUpdate = true
               tt.moveX = tt.rotation.positions[index].x
@@ -33,7 +35,7 @@ export const useKeyboard = (turtle, turtles, updateTablero) => {
             }
           }
         }
-        //updateTablero()
+        // updateTablero()
       })
     }
 
