@@ -6,12 +6,17 @@ import { createTurtles, createIdMap } from './utils/createTurtles'
 import { updateSpaces } from './utils/updateSpaces'
 import { isIterable } from './utils/isIterable'
 import confetti from 'canvas-confetti'
+import { TailwindToaster } from '../cards/choices/tailwindToaster'
+import { toastMessage } from './toastMessage'
 
+var gameState = 'waiting'
+var gameTweet = ''
 var turtle = 0
+const TOTAL_TURTLES = 24
 var emptySpace = '.'
 const tableroWidth = 15
 const tableroHeight = 15
-const UPDATE_GAME_INTERVAL = 100
+const UPDATE_GAME_INTERVAL = 50
 const UPDATE_GRAVITY_INTERVAL = 5 * UPDATE_GAME_INTERVAL
 const turtles = createTurtles()
 const turtlesIdMap = createIdMap(turtles)
@@ -31,33 +36,33 @@ export const Tablero = () => {
   useKeyboard(turtle, turtles, updateTablero)
 
   const updateGame = () => {
-    if (turtle < 8)
-      turtlesIdMap[turtle].forEach((t) => {
-        gravity(t)
-        checkOverlaps(t, turtles)
-        checkLimits(t)
-      })
+    if (gameState == 'playing') {
+      if (turtle < TOTAL_TURTLES)
+        turtlesIdMap[turtle].forEach((t) => {
+          gravity(t)
+          checkOverlaps(t, turtles)
+          checkLimits(t)
+        })
 
-    turtles.forEach((t) => {
-      if (t.id === turtle) {
-        updateMovement(t)
-        updateTablero(turtles)
-        if (t.status === false) {
-          turtle++
-          if (turtle < 8)
-            turtlesIdMap[turtle].forEach((tt) => (tt.status = true))
+      turtles.forEach((t) => {
+        if (t.id === turtle) {
+          updateMovement(t)
+          updateTablero(turtles)
+          if (t.status === false) {
+            turtle++
+            if (turtle < TOTAL_TURTLES)
+              {
+                gameTweet = 'pieceDown'
+                turtlesIdMap[turtle].forEach((tt) => (tt.status = true))
+              }
+            else {
+              gameState = 'isOver'
+            }
+          }
         }
-      }
-    })
+      })
+    }
   }
-
-  // if (turtle === turtles.length &&
-  //   turtles[turtle].status === false &&
-  //   confettiAvaliable != 0
-  // ) {
-  //   confetti()
-  //   confettiAvaliable = 0
-  // }
 
   useGameInterval(UPDATE_GAME_INTERVAL, updateGame)
 
@@ -93,6 +98,9 @@ export const Tablero = () => {
         tt.moveX = 0
         tt.moveY = 0
         tt.moveUpdate = false
+        if (tt.y == 0 && gameState == 'playing') {
+          gameState = 'isOver'
+        }
       })
     }
   }
@@ -101,8 +109,8 @@ export const Tablero = () => {
     if (t.moveUpdate === true) {
       const sy = t.y + t.moveY
       const sx = t.x + t.moveX
-      if (sy > tableroHeight - 3 || sy < 0) t.moveY = 0
-      if (sy > tableroHeight - 3) {
+      if (sy > tableroHeight || sy < 0) t.moveY = 0
+      if (sy > tableroHeight) {
         turtlesIdMap[turtle].forEach((tt) => {
           tt.status = false
           tt.moveX = 0
@@ -110,7 +118,7 @@ export const Tablero = () => {
           tt.moveUpdate = false
         })
       }
-      if (sx > tableroWidth - 2 || sx < 1) {
+      if (sx > tableroWidth || sx < 0) {
         turtles.map((tt) => {
           if (tt.id === turtle) {
             tt.moveX = 0
@@ -140,8 +148,33 @@ export const Tablero = () => {
     }
   }
 
+  useEffect(() => {
+    if (gameState === 'waiting') {
+      toastMessage('Ready!')
+      setTimeout(() => {
+        gameState = 'playing'
+      }, 1500)
+    }
+    if (gameState === 'playing') {
+      toastMessage('Play!')
+    }
+    if (gameState === 'isOver') {
+      toastMessage('Game Over')
+    }
+  }, [gameState])
+
+  useEffect(() => {
+    if (gameTweet === 'pieceDown') {
+      toastMessage('Piece Down!', 'twitter')
+      setTimeout(() => {
+        gameTweet = ''
+      }, 1500)
+    }
+  }, [gameTweet])
+
   return (
     <div>
+      <TailwindToaster />
       <div className="border-2 p-2 shadow-lg bg-secondary">
         {isIterable(tablero) &&
           tablero.map((fila, i) => (

@@ -9,10 +9,10 @@ import {
   rotationToCornersRightDown,
 } from './rotations'
 
-export const createPieceBox = (id, sprite, status) => [
+export const createPieceBox = (id, x, sprite, status) => [
   {
     id: id,
-    x: 3,
+    x: x,
     y: 0,
     moveX: 0,
     moveY: 0,
@@ -24,7 +24,7 @@ export const createPieceBox = (id, sprite, status) => [
   },
   {
     id: id,
-    x: 4,
+    x: x+1,
     y: 0,
     moveX: 0,
     moveY: 0,
@@ -36,7 +36,7 @@ export const createPieceBox = (id, sprite, status) => [
   },
   {
     id: id,
-    x: 3,
+    x: x,
     y: 1,
     moveX: 0,
     moveY: 0,
@@ -48,7 +48,7 @@ export const createPieceBox = (id, sprite, status) => [
   },
   {
     id: id,
-    x: 4,
+    x: x+1,
     y: 1,
     moveX: 0,
     moveY: 0,

@@ -12,10 +12,10 @@ import {
   rotationL2,
 } from './rotations'
 
-export const createPieceI = (id, sprite, status) => [
+export const createPieceI = (id, x, sprite, status) => [
   {
     id: id,
-    x: 6,
+    x: x,
     y: 1,
     moveX: 0,
     moveY: 0,
@@ -27,7 +27,7 @@ export const createPieceI = (id, sprite, status) => [
   },
   {
     id: id,
-    x: 6,
+    x: x,
     y: 0,
     moveX: 0,
     moveY: 0,
@@ -39,7 +39,7 @@ export const createPieceI = (id, sprite, status) => [
   },
   {
     id: id,
-    x: 6,
+    x: x,
     y: 2,
     moveX: 0,
     moveY: 0,
@@ -51,7 +51,7 @@ export const createPieceI = (id, sprite, status) => [
   },
   {
     id: id,
-    x: 6,
+    x: x,
     y: 3,
     moveX: 0,
     moveY: 0,

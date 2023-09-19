@@ -19,10 +19,10 @@ export const Teclado = () => (
       <kbd className="kbd kbd-lg bg-primary text-primary-content">s</kbd>
       <kbd className="kbd kbd-lg bg-primary text-primary-content">d</kbd>
       <kbd className="kbd kbd-lg">f</kbd>
-      <kbd className="kbd kbd-lg">g</kbd>
+      <kbd className="hidden sm:inline-flex kbd kbd-lg">g</kbd>
       <kbd className="hidden sm:inline-flex kbd kbd-lg">h</kbd>
       <kbd className="hidden sm:inline-flex kbd kbd-lg">j</kbd>
-      <kbd className="hidden sm:inline-flex kbd kbd-lg">k</kbd>
+      <kbd className="kbd kbd-lg  bg-primary text-primary-content">k</kbd>
       <kbd className="hidden sm:inline-flex kbd kbd-lg">l</kbd>
     </div>
     <div className="flex justify-center gap-1 my-1 w-full">

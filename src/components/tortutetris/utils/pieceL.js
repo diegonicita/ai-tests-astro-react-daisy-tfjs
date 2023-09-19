@@ -12,10 +12,10 @@ import {
   rotationR1D1,
 } from './rotations'
 
-export const createPieceL = (id, sprite, status) => [
+export const createPieceL = (id, x, sprite, status) => [
   {
     id: id,
-    x: 7,
+    x: x,
     y: 1,
     moveX: 0,
     moveY: 0,
@@ -27,7 +27,7 @@ export const createPieceL = (id, sprite, status) => [
   },
   {
     id: id,
-    x: 7,
+    x: x,
     y: 0,
     moveX: 0,
     moveY: 0,
@@ -39,7 +39,7 @@ export const createPieceL = (id, sprite, status) => [
   },
   {
     id: id,
-    x: 8,
+    x: x+1,
     y: 0,
     moveX: 0,
     moveY: 0,
@@ -51,7 +51,7 @@ export const createPieceL = (id, sprite, status) => [
   },
   {
     id: id,
-    x: 7,
+    x: x,
     y: 2,
     moveX: 0,
     moveY: 0,

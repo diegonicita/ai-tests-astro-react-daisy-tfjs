@@ -9,7 +9,7 @@ export const TailwindToaster = () => {
         }}
       >
         {(t) => (
-          <div className="toast-top text-center">
+          <div className="text-center">
             <div className="alert alert-error">{resolveValue(t.message)}</div>
           </div>
         )}
