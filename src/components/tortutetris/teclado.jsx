@@ -1,7 +1,8 @@
 export const Teclado = () => (
   <>
-  <h2 className="text-center">TORTUTETRIS</h2>  
-  <h2 className="text-center mb-4"> Usa las teclas WASD para mover las tortugas </h2>
+  <h2 className="text-center font-bold">TORTUTETRIS</h2>  
+  <h2 className="text-center"> Usa las teclas WASD para mover las piezas </h2>
+  <h2 className="text-center mb-8"> Usa la tecla K para rotarlas </h2>
     <div className="flex justify-center md:gap-1 my-1 w-full">
       <kbd className="kbd kbd-lg">q</kbd>
       <kbd className="kbd kbd-lg bg-primary text-primary-content">w</kbd>
