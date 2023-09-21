@@ -11,19 +11,19 @@ import { SocialLogo } from '../../components/socialLogo.jsx'
       <div class="max-w-2xl">
         <GradientTitle client:only withColor={'C.Vitae'} withoutColor={''} />
         <div class="divider"></div>
-        <h1 class="text-2xl mt-4 mb-4 font-bold">Diego Nicita</h1>
+        <h1 class="text-2xl mt-4 mb-4 font-bold">Soy Diego Nicita</h1>
         <div>
           Me dedico al desarrollo <span class="font-bold"
             >Frontend y Mobile</span
           > con <span class="font-bold">React y React Native.</span>
         </div>
-        Tambien utilizo Nodejs, Express, MySQL. MongoDb y C# con Unity.
+        También utilizo Astro, Nodejs, Express, MySQL, MongoDb y C# con Unity.
         <div class="mt-4">
           <span class="font-bold">Estudios:</span><ul>
             <li>Digital House (Programador Fullstack MERN)</li><li>
               Alkemy (Programador React)
             </li><li>
-              Universidad Tecnologica Nacional (C#, Desarrollo de Videojuegos con
+              Universidad Tecnológica Nacional (C#, Desarrollo de Videojuegos con
               Unity)
             </li>
             <li>Autodidacta</li>
@@ -39,8 +39,20 @@ import { SocialLogo } from '../../components/socialLogo.jsx'
         <div class="divider"></div>
         <h1 class="text-2xl mt-4 mb-4 font-bold">Proyectos</h1>
         <Proyecto
+        title="TortuTetris"
+        description="Videojuego basado en el clásico Tetris de los 80"
+        tools="Astro. React. Tailwind. DaisyUI."
+        link="/games/tortutetris/"
+      />
+        <Proyecto
+          title="Choices de Medicina"
+          description="App para practicar exámenes de residencias médicas mediante preguntas tipo 'Multiple Choices' de Argentina, España, México y Perú. Somos médicos que realizaron una residencia médica y nuestra mision es ayudarte a convertirte en médico residente. Practica y consúltanos ante cualquier duda."
+          tools="Astro. React. Tailwind. DaisyUI. Node. MySQL."
+          link="/choices"
+        />
+        <Proyecto
           title="Webapp"
-          description="Sitio web personal alojado en un Vultr donde instale Ubuntu, Ngnix, Node y MySQL. Estoy migrando el Frontend de mis proyectos a Astro. Los antiguos proyectos se transformaran en backends con NodeJs."
+          description="Sitio web personal alojado en un Vultr donde instalé Ubuntu, Ngnix, Node y MySQL. Estoy migrando el Frontend de mis proyectos a Astro. Los antiguos proyectos se transformarán en backends con NodeJs."
           tools="Astro. React. Tailwind. DaisyUI. Tensorflow"
           link="https://webapp.ar"
         />

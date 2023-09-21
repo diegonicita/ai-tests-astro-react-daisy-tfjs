@@ -1,12 +1,16 @@
 ---
 import Button from '../button.astro'
 const title = 'Bienvenidos'
-const description =
-  ' Mi nombre es Diego. Soy programador y médico.' +
-  ' Desde aquí busco compartir mi experiencia y generar información útil.' +
-  ' Esta web fue creada con Astro, React, Tailwind y DaisyUI.' +
-  ' Puedes personalizarla cambiando el theme (oscuro, claro, cupcake, ciberpunk) o las fuentes en la navbar.' +
-  ' Si te interesa también puedes clonarlo desde Github.'
+const description1a =
+  ' Hola, mi nombre es Diego. Soy Programador Web y de Videojuegos.'
+const description1b =
+ ' Desde aquí busco compartir mi experiencia, crear prototipos y también generar información útil sobre Medicina (tambien soy médico) y Desarrollo de software.'
+const description2 =
+  ' Esta web fue creada principalmente con Astro, React, Tailwind y DaisyUI.'
+const description3 =
+  ' Puedes personalizar el theme y las fuentes usando el menu de la barra de navegación (Navbar).'  
+const description4 =
+  ' Si te interesa también puedes clonar esta página web desde mi cuenta de Github.'
 const signature = 'Diego Nicita'
 const image = '/webapp/logo-grande.png'
 const button1 = 'Acerca de Mi'
@@ -17,7 +21,6 @@ const link2 = 'https://github.com/diegonicita/astro-react-daisy-webapp'
 
 <div class="hero bg-base-400">
   <div class="hero-content flex-col-reverse xl:flex-row-reverse">
-    
     <img src={image} class="w-[0%] md:w-[45%]" />
     <div class="w-full">
       <h1 class="text-6xl font-bold" style="text-wrap: balance">
@@ -29,7 +32,31 @@ const link2 = 'https://github.com/diegonicita/astro-react-daisy-webapp'
             class="text-md text-slate-500 items-start"
             style="text-wrap: balance"
           >
-            {description}
+            {description1a}
+          </h3>
+          <h3
+            class="text-md text-slate-500 items-start"
+            style="text-wrap: balance"
+          >
+            {description2}
+          </h3>
+          <h3
+            class="text-md text-slate-500 items-start"
+            style="text-wrap: balance"
+          >
+            {description1b}
+          </h3>
+          <h3
+            class="text-md text-slate-500 items-start"
+            style="text-wrap: balance"
+          >
+            {description3}
+          </h3>
+          <h3
+            class="text-md text-slate-500 items-start"
+            style="text-wrap: balance"
+          >
+            {description4}
           </h3>
           <!-- <h4 class="flex justify-start pt-4  text-slate-500">{signature}</h4> -->
         </div>
