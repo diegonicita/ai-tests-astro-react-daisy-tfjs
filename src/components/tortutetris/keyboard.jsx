@@ -1,4 +1,4 @@
-export const Teclado = () => (
+export const Keyboard = () => (
   <>
   <h2 className="text-center font-bold">TORTUTETRIS</h2>  
   <h2 className="text-center"> Usa las teclas WASD para mover las piezas </h2>
