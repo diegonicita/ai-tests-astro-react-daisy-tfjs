@@ -12,6 +12,8 @@ import {
 export const createPieceBox = (id, x, sprite, status) => [
   {
     id: id,
+    initialX: x,
+    initialY: 0,
     x: x,
     y: 0,
     moveX: 0,
@@ -24,7 +26,9 @@ export const createPieceBox = (id, x, sprite, status) => [
   },
   {
     id: id,
-    x: x+1,
+    initialX: x + 1,
+    initialY: 0,
+    x: x + 1,
     y: 0,
     moveX: 0,
     moveY: 0,
@@ -36,6 +40,8 @@ export const createPieceBox = (id, x, sprite, status) => [
   },
   {
     id: id,
+    initialX: x,
+    initialY: 1,
     x: x,
     y: 1,
     moveX: 0,
@@ -48,6 +54,8 @@ export const createPieceBox = (id, x, sprite, status) => [
   },
   {
     id: id,
+    initialX: x + 1,
+    initialY: 1,
     x: x+1,
     y: 1,
     moveX: 0,

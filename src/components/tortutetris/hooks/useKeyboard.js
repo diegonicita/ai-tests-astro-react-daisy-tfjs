@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 
-export const useKeyboard = (turtle, turtles, updateTablero) => {
-
+export const useKeyboard = (turtle, turtles, updateTablero) => {  
   useEffect(() => {
     const handleKeyPress = (event) => {      
+      console.log('key down. turtle ' + turtle)
       turtles.map((tt, indice) => {
         if (tt.id === turtle) {
           if (tt.status == true) {

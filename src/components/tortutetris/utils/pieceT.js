@@ -15,6 +15,8 @@ import {
 export const createPieceT = (id, x, sprite, status) => [
   {
     id: id,
+    initialX: x+1,
+    initialY: 0,
     x: x+1,
     y: 0,
     moveX: 0,
@@ -27,6 +29,8 @@ export const createPieceT = (id, x, sprite, status) => [
   },
   {
     id: id,
+    initialX: x,
+    initialY: 0,
     x: x,
     y: 0,
     moveX: 0,
@@ -39,6 +43,8 @@ export const createPieceT = (id, x, sprite, status) => [
   },
   {
     id: id,
+    initialX: x+2,
+    initialY: 0,
     x: x+2,
     y: 0,
     moveX: 0,
@@ -51,6 +57,8 @@ export const createPieceT = (id, x, sprite, status) => [
   },
   {
     id: id,
+    initialX: x+1,
+    initialY: 1,
     x: x+1,
     y: 1,
     moveX: 0,

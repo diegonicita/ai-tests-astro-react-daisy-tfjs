@@ -1,22 +1,21 @@
-export const updateSpaces = (prevTablero, turtles, emptySpace) => {
-  const newTablero = prevTablero.map((fila) => {
-    return fila.map((t) => emptySpace)
+export const updateSpaces = (
+  prevTablero,
+  turtles,
+  emptySpace,
+  actualTurtleId,
+  tablero2
+) => {
+  const newTablero = tablero2.map((fila) => {
+    return fila.map((t) => t)
   })
+
   turtles.forEach((turtle) => {
-    var space = undefined
-    if (turtle.status === false || turtle.status === true) space = turtle.sprite
-    if (turtle.status === undefined) space = emptySpace
-
-    if (space != emptySpace)
-      newTablero[turtle.y > 0 ? turtle.y : 0][turtle.x > 0 ? turtle.x : 0] =
-        space
+    if (actualTurtleId == turtle.id) {
+      if (turtle.status === true)
+        newTablero[turtle.y > 0 ? turtle.y : 0][turtle.x > 0 ? turtle.x : 0] =
+          turtle.sprite
+    }
   })
 
-  const isEmpty = (fila) => fila == emptySpace
-
-  const newTablero2 = newTablero.map((fila) => {
-    return fila.some(isEmpty) ? fila : fila.map(() => 'X')
-  })
-
-  return newTablero2
+  return newTablero
 }

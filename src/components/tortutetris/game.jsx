@@ -14,6 +14,7 @@ const gameState = {
   waiting: 0,
   playing: 1,
   isOver: 2,
+  paused: 3,
 }
 
 const config = {
@@ -29,17 +30,21 @@ const config = {
   tab2: [],
 }
 
-const turtlePixels = createTurtles()
+var turtlePixels = createTurtles()
 config.gameTurtlesLength = turtlePixels.length / 4
 const turtlesIdMap = createIdMap(turtlePixels)
 
 export const Game = () => {
-  const { tablero, tablero2, updateTablero, updateTablero2 } = useTablero(
-    config.gameWidth,
-    config.gameHeight,
-    config.emptySpaceChar,
-    turtlePixels,
-  )
+  const [buttonPauseName, setButtonPauseName] = useState('Pause')
+  const [buttonStartName, setButtonStartName] = useState('Start')
+
+  const { tablero, tablero2, updateTablero, updateTablero2, clearTablero2 } =
+    useTablero(
+      config.gameWidth,
+      config.gameHeight,
+      config.emptySpaceChar,
+      turtlePixels,
+    )
 
   useEffect(() => {
     config.tab2 = tablero2
@@ -59,7 +64,7 @@ export const Game = () => {
       turtlePixels.forEach((pixel) => {
         if (pixel.id === config.actualTurtle) {
           updateMovement(pixel)
-          updateTablero(turtlePixels)
+          updateTablero(config.actualTurtle, config.tab2)
           if (pixel.status === false) {
             config.actualTurtle++
             if (config.actualTurtle < config.gameTurtlesLength) {
@@ -162,11 +167,52 @@ export const Game = () => {
   useToastMessageGameStates(config, gameState)
   useToastMessageTweets(config, gameState)
 
+  const startGame = () => {
+    turtlePixels.map((p) => {
+      p.status = undefined
+      p.x = p.initialX
+      p.y = p.initialY
+      p.moveX = 0
+      p.moveY = 0
+      p.gravityCounter = 0
+    })
+    turtlePixels[0].status = true
+    turtlePixels[1].status = true
+    turtlePixels[2].status = true
+    turtlePixels[3].status = true
+    config.tab2 = []
+    clearTablero2()
+    config.gameTweet = 'clear'
+    config.actualTurtle = 0
+    config.gameState = gameState.playing
+    setButtonStartName('Restart')
+  }
+
+  const pausedGame = () => {
+    config.gameState =
+      config.gameState == gameState.playing
+        ? gameState.paused
+        : gameState.playing
+    setButtonPauseName(
+      config.gameState == gameState.playing ? 'Pause' : 'Continue',
+    )
+  }
+
   return (
     <div className="flex flex-row">
       <TailwindToaster />
-      <Board board={tablero2} />
-      <Board board={tablero} />
+      <div className="flex flex-row">
+        <Board board={tablero} />
+        {/* <Board board={tablero2} /> */}
+      </div>
+      <div className="flex flex-col items-start justify-start w-24">
+        <button className="btn btn-accent m-2 w-full" onClick={startGame}>
+          {buttonStartName}
+        </button>
+        <button className="btn btn-error m-2 w-full" onClick={pausedGame}>
+          {buttonPauseName}
+        </button>
+      </div>
     </div>
   )
 }
