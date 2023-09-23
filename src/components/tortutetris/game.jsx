@@ -26,6 +26,7 @@ const config = {
   gravityInterval: 5 * 50,
   gameTweet: '',
   gameTurtles: null,
+  tab2: [],
 }
 
 const turtlePixels = createTurtles()
@@ -40,6 +41,10 @@ export const Game = () => {
     turtlePixels,
   )
 
+  useEffect(() => {
+    config.tab2 = tablero2
+  }, [tablero2])
+
   useKeyboard(config.actualTurtle, turtlePixels, updateTablero)
 
   const updateGame = () => {
@@ -47,8 +52,8 @@ export const Game = () => {
       if (config.actualTurtle < config.gameTurtlesLength)
         turtlesIdMap[config.actualTurtle].forEach((pixel) => {
           gravity(pixel)
-          checkOverlaps(pixel, turtlePixels)
           checkLimits(pixel)
+          checkOverlaps(pixel, turtlePixels)
         })
 
       turtlePixels.forEach((pixel) => {
@@ -84,17 +89,13 @@ export const Game = () => {
     }
   }
   // Función para comprobar y manejar superposiciones de tortugas
-  const checkOverlaps = (currentPixel, turtlesArray) => {    
-    const isOverlap = turtlesArray.some((otherPixel) => {
-      return (
-        otherPixel.id !== currentPixel.id &&
-        otherPixel.x === currentPixel.x + currentPixel.moveX &&
-        otherPixel.y === currentPixel.y + currentPixel.moveY &&
-        otherPixel.status === false
-      )
-    })
+  const checkOverlaps = (currentPixel) => {
+    const isOverlap =
+      config.tab2[currentPixel.y + currentPixel.moveY][
+        currentPixel.x + currentPixel.moveX
+      ] !== config.emptySpaceChar
 
-    if (isOverlap) {      
+    if (isOverlap) {
       turtlesIdMap[config.actualTurtle].forEach((pixel) => {
         pixel.status = false
         pixel.moveX = 0
@@ -123,9 +124,9 @@ export const Game = () => {
         })
       }
       if (sx > config.gameWidth - 1 || sx < 0) {
-        turtlesIdMap[config.actualTurtle].forEach((p) => {          
-          p.moveX = 0         
-          p.moveUpdate = false          
+        turtlesIdMap[config.actualTurtle].forEach((p) => {
+          p.moveX = 0
+          p.moveUpdate = false
         })
       }
     }
