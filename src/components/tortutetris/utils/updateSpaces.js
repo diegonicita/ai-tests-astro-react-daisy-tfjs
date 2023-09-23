@@ -1,6 +1,6 @@
-export const updateSpaces = (turtles, emptySpace,  prevTablero) => {
+export const updateSpaces = (prevTablero, turtles, emptySpace) => {
   const newTablero = prevTablero.map((fila) => {
-    return fila.map(() => emptySpace)
+    return fila.map((t) => emptySpace)
   })
   turtles.forEach((turtle) => {
     var space = undefined
@@ -11,5 +11,12 @@ export const updateSpaces = (turtles, emptySpace,  prevTablero) => {
       newTablero[turtle.y > 0 ? turtle.y : 0][turtle.x > 0 ? turtle.x : 0] =
         space
   })
-  return newTablero
+
+  const isEmpty = (fila) => fila == emptySpace
+
+  const newTablero2 = newTablero.map((fila) => {
+    return fila.some(isEmpty) ? fila : fila.map(() => 'X')
+  })
+
+  return newTablero2
 }
