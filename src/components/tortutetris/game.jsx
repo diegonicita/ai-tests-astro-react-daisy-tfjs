@@ -108,16 +108,25 @@ export const Game = () => {
       ] !== config.emptySpaceChar
 
     if (isOverlap) {
-      turtlesIdMap[config.actualTurtle].forEach((pixel) => {
-        pixel.status = false
-        pixel.moveX = 0
-        pixel.moveY = 0
-        pixel.moveUpdate = false
-        updateTableroFijo(pixel)
-        if (pixel.y == 0 && config.gameState == gameState.playing) {
-          config.gameState = gameState.isOver
-        }
-      })
+      if (currentPixel.moveX == 0) {
+        turtlesIdMap[config.actualTurtle].forEach((pixel) => {
+          pixel.status = false
+          pixel.moveX = 0
+          pixel.moveY = 0
+          pixel.moveUpdate = false
+          updateTableroFijo(pixel)
+          if (pixel.y == 0 && config.gameState == gameState.playing) {
+            config.gameState = gameState.isOver
+          }
+        })
+      } else {
+        turtlesIdMap[config.actualTurtle].forEach((pixel) => {
+          pixel.moveY = 1
+          pixel.moveX = 0
+          pixel.moveUpdate = false
+          pixel.gravityCounter = 0
+        })
+      }
     }
   }
 
@@ -205,7 +214,7 @@ export const Game = () => {
       <TailwindToaster />
       <div className="flex flex-row">
         <Board board={tablero} />
-        <Board board={tableroFijo.current} />
+        {/* <Board board={tableroFijo.current} /> */}
       </div>
       <div className="flex flex-col items-start justify-start w-24">
         <button className="btn btn-accent m-2 w-full" onClick={startGame}>
