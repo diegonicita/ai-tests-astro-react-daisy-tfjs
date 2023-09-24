@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useKeyboard } from './hooks/useKeyboard'
 import { useTablero } from './hooks/useTablero'
 import { useGameInterval } from './hooks/useGameInterval'
@@ -27,7 +27,6 @@ const config = {
   gravityInterval: 5 * 50,
   gameTweet: '',
   gameTurtles: null,
-  tab2: [],
 }
 
 var turtlePixels = createTurtles()
@@ -38,19 +37,26 @@ export const Game = () => {
   const [buttonPauseName, setButtonPauseName] = useState('Pause')
   const [buttonStartName, setButtonStartName] = useState('Start')
 
-  const { tablero, tablero2, updateTablero, updateTablero2, clearTablero2 } =
-    useTablero(
-      config.gameWidth,
-      config.gameHeight,
-      config.emptySpaceChar,
-      turtlePixels,
-    )
+  const {
+    tablero,
+    tableroFijo,
+    updateTablero,
+    clearTableroFijo,
+    updateTableroFijo,
+    updateTableroFijoDeleteRows,
+  } = useTablero(
+    config.gameWidth,
+    config.gameHeight,
+    config.emptySpaceChar,
+    turtlePixels,
+  )
 
-  useEffect(() => {
-    config.tab2 = tablero2
-  }, [tablero2])
-
-  useKeyboard(config.actualTurtle, turtlePixels, updateTablero)
+  useKeyboard(
+    config.actualTurtle,
+    turtlePixels,
+    config.gameWidth,
+    config.gameHeight,
+  )
 
   const updateGame = () => {
     if (config.gameState == gameState.playing) {
@@ -64,7 +70,7 @@ export const Game = () => {
       turtlePixels.forEach((pixel) => {
         if (pixel.id === config.actualTurtle) {
           updateMovement(pixel)
-          updateTablero(config.actualTurtle, config.tab2)
+          updateTablero(config.actualTurtle)
           if (pixel.status === false) {
             config.actualTurtle++
             if (config.actualTurtle < config.gameTurtlesLength) {
@@ -72,6 +78,7 @@ export const Game = () => {
               turtlesIdMap[config.actualTurtle].forEach(
                 (tt) => (tt.status = true),
               )
+              updateTableroFijoDeleteRows()
             } else {
               config.gameState = gameState.isOver
             }
@@ -96,7 +103,7 @@ export const Game = () => {
   // Función para comprobar y manejar superposiciones de tortugas
   const checkOverlaps = (currentPixel) => {
     const isOverlap =
-      config.tab2[currentPixel.y + currentPixel.moveY][
+      tableroFijo.current[currentPixel.y + currentPixel.moveY][
         currentPixel.x + currentPixel.moveX
       ] !== config.emptySpaceChar
 
@@ -106,7 +113,7 @@ export const Game = () => {
         pixel.moveX = 0
         pixel.moveY = 0
         pixel.moveUpdate = false
-        updateTablero2(pixel)
+        updateTableroFijo(pixel)
         if (pixel.y == 0 && config.gameState == gameState.playing) {
           config.gameState = gameState.isOver
         }
@@ -125,7 +132,7 @@ export const Game = () => {
           p.moveX = 0
           p.moveY = 0
           p.moveUpdate = false
-          updateTablero2(p)
+          updateTableroFijo(p)
         })
       }
       if (sx > config.gameWidth - 1 || sx < 0) {
@@ -176,13 +183,8 @@ export const Game = () => {
       p.moveY = 0
       p.gravityCounter = 0
     })
-    turtlePixels[0].status = true
-    turtlePixels[1].status = true
-    turtlePixels[2].status = true
-    turtlePixels[3].status = true
-    config.tab2 = []
-    clearTablero2()
-    config.gameTweet = 'clear'
+    for (var i = 0; i < 4; i++) turtlePixels[i].status = true
+    clearTableroFijo()
     config.actualTurtle = 0
     config.gameState = gameState.playing
     setButtonStartName('Restart')
@@ -203,7 +205,7 @@ export const Game = () => {
       <TailwindToaster />
       <div className="flex flex-row">
         <Board board={tablero} />
-        {/* <Board board={tablero2} /> */}
+        <Board board={tableroFijo.current} />
       </div>
       <div className="flex flex-col items-start justify-start w-24">
         <button className="btn btn-accent m-2 w-full" onClick={startGame}>

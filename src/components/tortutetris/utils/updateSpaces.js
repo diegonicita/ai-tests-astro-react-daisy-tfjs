@@ -3,9 +3,9 @@ export const updateSpaces = (
   turtles,
   emptySpace,
   actualTurtleId,
-  tablero2
+  tableroFijo
 ) => {
-  const newTablero = tablero2.map((fila) => {
+  const newTablero = tableroFijo.map((fila) => {
     return fila.map((t) => t)
   })
 
@@ -13,7 +13,7 @@ export const updateSpaces = (
     if (actualTurtleId == turtle.id) {
       if (turtle.status === true)
         newTablero[turtle.y > 0 ? turtle.y : 0][turtle.x > 0 ? turtle.x : 0] =
-          turtle.sprite
+          'A'
     }
   })
 

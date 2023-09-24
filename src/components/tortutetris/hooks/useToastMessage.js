@@ -4,15 +4,10 @@ import { toastMessage } from '../toastMessage'
 export const useToastMessageGameStates = (config, gameState) => {
   useEffect(() => {
     if (config.gameState === gameState.waiting) {
-      toastMessage('Press Start!')
-      setTimeout(() => {
-        config.gameState = gameState.paused
-      }, 1500)
-    }
-    if (config.gameState === gameState.paused) {
+      toastMessage('¡Presiona Start!')      
     }
     if (config.gameState === gameState.playing) {
-      toastMessage('Play!')
+      toastMessage('¡Jugando!')
     }
     if (config.gameState === gameState.isOver) {
       toastMessage('Game Over')

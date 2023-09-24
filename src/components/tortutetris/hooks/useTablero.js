@@ -1,25 +1,35 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { updateSpaces } from '../utils/updateSpaces'
 import { updatePixel } from '../utils/updatePixel'
+import { deleteRow } from '../utils/deleteRow'
 
 export const useTablero = (width, height, ch, turtles) => {
   const fila = Array(width).fill(ch)
-
   const emptyTablero = Array(height).fill(fila)
-
+  // Tablero donde se mueve la pieza //
   const [tablero, setTablero] = useState(emptyTablero)
-  const [tablero2, setTablero2] = useState(emptyTablero)
+  // Tablero donde se almacenan las piezas movidas que se fijaron //
+  const tableroFijo = useRef(emptyTablero)
 
-  const updateTablero = (id, tab2) => {
-    setTablero((prevTablero) => updateSpaces(prevTablero, turtles, ch, id, tab2))
+  const updateTablero = (id) => {
+    setTablero((prevTablero) =>
+      updateSpaces(prevTablero, turtles, ch, id, tableroFijo.current),
+    )
   }
 
-  const updateTablero2 = (pixel) => {
-    setTablero2((prevTablero) => updatePixel(prevTablero, pixel))
+  const updateTableroFijo = (pixel) => {
+    tableroFijo.current = updatePixel(tableroFijo.current, pixel)
+    //tableroFijo.current = deleteRow(tableroFijo.current, ch)
   }
 
-  const clearTablero2 = () => {
-    setTablero2((prevTablero) => prevTablero.map((fila) => fila.map((pixel) => ch)))
+  const updateTableroFijoDeleteRows = () => {
+    tableroFijo.current = deleteRow(tableroFijo.current, ch)
+  }
+
+  const clearTableroFijo = () => {
+    tableroFijo.current = tableroFijo.current.map((fila) =>
+      fila.map((pixel) => ch),
+    )
   }
 
   // INIT GAME
@@ -31,5 +41,12 @@ export const useTablero = (width, height, ch, turtles) => {
     initGame()
   }, [])
 
-  return { tablero, tablero2, updateTablero, updateTablero2, clearTablero2 }
+  return {
+    tablero,
+    updateTablero,
+    tableroFijo,
+    updateTableroFijo,
+    updateTableroFijoDeleteRows,
+    clearTableroFijo,
+  }
 }
