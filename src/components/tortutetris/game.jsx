@@ -9,7 +9,6 @@ import {
   useToastMessageGameStates,
   useToastMessageTweets,
 } from './hooks/useToastMessage'
-import { T } from '../../../dist/_astro/tailwindToaster.b2a2d828'
 
 const gameState = {
   waiting: 0,
@@ -139,8 +138,9 @@ export const Game = () => {
     if (pixel.moveUpdate === true) {
       const sy = pixel.y + pixel.moveY
       const sx = pixel.x + pixel.moveX
-      if (sy > config.gameHeight - 1 - config.gamePadding || sy < 0) pixel.moveY = 0
-      if (sy > config.gameHeight - 1 - config.gamePadding) {
+      if (sy > config.gameHeight - 1 - config.gamePadding || sy < 0)
+        pixel.moveY = 0
+      if (sy > config.gameHeight - 1) {
         turtlesIdMap[config.actualTurtle].forEach((p) => {
           p.status = false
           p.moveX = 0
