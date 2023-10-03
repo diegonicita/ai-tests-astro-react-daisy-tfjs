@@ -9,6 +9,7 @@ import {
   useToastMessageGameStates,
   useToastMessageTweets,
 } from './hooks/useToastMessage'
+import { T } from '../../../dist/_astro/tailwindToaster.b2a2d828'
 
 const gameState = {
   waiting: 0,
@@ -21,8 +22,9 @@ const config = {
   gameState: gameState.waiting,
   actualTurtle: 0,
   emptySpaceChar: '.',
-  gameWidth: 10,
-  gameHeight: 20,
+  gameWidth: 14,
+  gamePadding: 2,
+  gameHeight: 22,
   gameInterval: 50,
   gravityInterval: 250,
   gameTweet: '',
@@ -59,12 +61,11 @@ export const Game = () => {
   )
 
   const updateGame = () => {
-
-    console.log("updateGame")
+    console.log('updateGame')
 
     if (config.gameState == gameState.playing) {
       if (config.actualTurtle < config.gameTurtlesLength)
-        turtlesIdMap[config.actualTurtle].forEach((pixel) => {      
+        turtlesIdMap[config.actualTurtle].forEach((pixel) => {
           gravity(pixel)
           checkLimits(pixel)
           checkOverlaps(pixel, turtlePixels)
@@ -73,6 +74,7 @@ export const Game = () => {
       turtlePixels.forEach((pixel) => {
         if (pixel.id === config.actualTurtle) {
           const flag = updateMovement(pixel)
+          build(pixel)
           if (flag == true) updateTablero(config.actualTurtle)
           if (pixel.status === false) {
             config.actualTurtle++
@@ -91,7 +93,7 @@ export const Game = () => {
     }
   }
 
-  useGameInterval(config.gameInterval, updateGame)  
+  useGameInterval(config.gameInterval, updateGame)
 
   const gravity = (pixel) => {
     if (pixel.status === true) {
@@ -137,8 +139,8 @@ export const Game = () => {
     if (pixel.moveUpdate === true) {
       const sy = pixel.y + pixel.moveY
       const sx = pixel.x + pixel.moveX
-      if (sy > config.gameHeight - 1 || sy < 0) pixel.moveY = 0
-      if (sy > config.gameHeight - 1) {
+      if (sy > config.gameHeight - 1 - config.gamePadding || sy < 0) pixel.moveY = 0
+      if (sy > config.gameHeight - 1 - config.gamePadding) {
         turtlesIdMap[config.actualTurtle].forEach((p) => {
           p.status = false
           p.moveX = 0
@@ -147,10 +149,27 @@ export const Game = () => {
           updateTableroFijo(p)
         })
       }
-      if (sx > config.gameWidth - 1 || sx < 0) {
+      if (
+        sx > config.gameWidth - 1 - config.gamePadding ||
+        sx < config.gamePadding
+      ) {
         turtlesIdMap[config.actualTurtle].forEach((p) => {
           p.moveX = 0
           p.moveUpdate = false
+        })
+      }
+
+      if (pixel.x > config.gameWidth - 1 - config.gamePadding) {
+        turtlesIdMap[config.actualTurtle].forEach((p) => {
+          p.moveX = -1
+          p.moveUpdate = true
+        })
+      }
+
+      if (pixel.x < config.gamePadding) {
+        turtlesIdMap[config.actualTurtle].forEach((p) => {
+          p.moveX = 1
+          p.moveUpdate = true
         })
       }
     }
@@ -166,6 +185,14 @@ export const Game = () => {
       flag = true
     }
     return flag
+  }
+
+  const build = (t) => {
+    var indice = t.rotation.index - 1
+    if (indice < 0) indice = 3
+    const tCenter = turtlePixels.find((tt) => tt.id === config.actualTurtle)
+    t.x = tCenter.x + t.rotation.positions[indice].x
+    t.y = tCenter.y + t.rotation.positions[indice].y
   }
 
   const rotate = (t) => {
