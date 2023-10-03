@@ -24,7 +24,7 @@ const config = {
   gameWidth: 10,
   gameHeight: 20,
   gameInterval: 50,
-  gravityInterval: 5 * 50,
+  gravityInterval: 250,
   gameTweet: '',
   gameTurtles: null,
 }
@@ -59,9 +59,12 @@ export const Game = () => {
   )
 
   const updateGame = () => {
+
+    console.log("updateGame")
+
     if (config.gameState == gameState.playing) {
       if (config.actualTurtle < config.gameTurtlesLength)
-        turtlesIdMap[config.actualTurtle].forEach((pixel) => {
+        turtlesIdMap[config.actualTurtle].forEach((pixel) => {      
           gravity(pixel)
           checkLimits(pixel)
           checkOverlaps(pixel, turtlePixels)
@@ -69,8 +72,8 @@ export const Game = () => {
 
       turtlePixels.forEach((pixel) => {
         if (pixel.id === config.actualTurtle) {
-          updateMovement(pixel)
-          updateTablero(config.actualTurtle)
+          const flag = updateMovement(pixel)
+          if (flag == true) updateTablero(config.actualTurtle)
           if (pixel.status === false) {
             config.actualTurtle++
             if (config.actualTurtle < config.gameTurtlesLength) {
@@ -88,7 +91,7 @@ export const Game = () => {
     }
   }
 
-  useGameInterval(config.gameInterval, updateGame)
+  useGameInterval(config.gameInterval, updateGame)  
 
   const gravity = (pixel) => {
     if (pixel.status === true) {
@@ -154,11 +157,15 @@ export const Game = () => {
   }
 
   const updateMovement = (t) => {
+    var flag = false
     if (t.rotation.update == true) {
       rotate(t)
+      flag = true
     } else {
       move(t)
+      flag = true
     }
+    return flag
   }
 
   const rotate = (t) => {

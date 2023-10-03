@@ -1,7 +1,7 @@
 ---
 import Horizontal from './horizontal.astro'
 import Vertical from './vertical.astro'
-const { link, logo, title } = Astro.props
+const { link, logo, title, idiomas } = Astro.props
 ---
 
 <script>
@@ -21,5 +21,5 @@ const { link, logo, title } = Astro.props
 
 <div class="navbar bg-base-100">
   <Vertical title={title} link={link} logo={logo} />
-  <Horizontal />
+  <Horizontal idiomas={idiomas} />
 </div>

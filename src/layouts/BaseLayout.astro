@@ -1,6 +1,6 @@
 ---
 import '../global.css'
-const { title, toxicity, link, logo } = Astro.props
+const { title, toxicity, link, logo, idiomas } = Astro.props
 import Navbar from '../components/navbar/navbar.astro'
 import Footer from '../components/footer.astro'
 ---
@@ -28,7 +28,7 @@ import Footer from '../components/footer.astro'
   <body tabindex="0">
     <div class="flex flex-col items-center justify-center">
       <div class="max-w-[80rem] mx-4">
-        <Navbar title={title} link={link} logo={logo} />
+        <Navbar title={title} link={link} logo={logo} idiomas={idiomas} />
         <slot />
         <Footer />
       </div>
@@ -37,20 +37,22 @@ import Footer from '../components/footer.astro'
 </html>
 
 <script is:inline>
-if (localStorage.getItem('theme') === null) {
-  document.documentElement.setAttribute('data-theme', 'light')
-} else {
-  document.documentElement.setAttribute(
-    'data-theme',
-    localStorage.getItem('theme'),
-  )
-}
+  const font = localStorage.getItem('fontAtom')
+  var bodyElement = document.body
+  while (bodyElement.classList.length > 0) {
+    bodyElement.classList.remove(bodyElement.classList.item(0))
+  }
+  var stringWithoutQuotes = font.replace(/^"(.*)"$/, '$1')
+  bodyElement.classList.add(stringWithoutQuotes)
+</script>
 
-const font = localStorage.getItem('fontAtom')
-var bodyElement = document.body
-while (bodyElement.classList.length > 0) {
-  bodyElement.classList.remove(bodyElement.classList.item(0))
-}
-var stringWithoutQuotes = font.replace(/^"(.*)"$/, '$1')
-bodyElement.classList.add(stringWithoutQuotes)
+<script >
+  if (localStorage.getItem('theme') === null) {
+    document.documentElement.setAttribute('data-theme', 'light')
+  } else {
+    document.documentElement.setAttribute(
+      'data-theme',
+      localStorage.getItem('theme'),
+    )
+  }
 </script>
