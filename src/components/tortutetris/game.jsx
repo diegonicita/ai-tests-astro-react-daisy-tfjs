@@ -9,22 +9,15 @@ import {
   useToastMessageGameStates,
   useToastMessageTweets,
 } from './hooks/useToastMessage'
-
-const gameState = {
-  waiting: 0,
-  playing: 1,
-  isOver: 2,
-  paused: 3,
-}
+import { useGameState } from './hooks/useGameState'
 
 const config = {
-  gameState: gameState.waiting,
   actualTurtle: 0,
   emptySpaceChar: '.',
   gameWidth: 14,
   gamePadding: 2,
   gameHeight: 22,
-  gameInterval: 50,
+  gameInterval: 100,
   gravityInterval: 250,
   gameTweet: '',
   gameTurtles: null,
@@ -35,9 +28,6 @@ config.gameTurtlesLength = turtlePixels.length / 4
 const turtlesIdMap = createIdMap(turtlePixels)
 
 export const Game = () => {
-  const [buttonPauseName, setButtonPauseName] = useState('Pause')
-  const [buttonStartName, setButtonStartName] = useState('Start')
-
   const {
     tablero,
     tableroFijo,
@@ -51,6 +41,8 @@ export const Game = () => {
     config.emptySpaceChar,
     turtlePixels,
   )
+  const { pauseLabel, startLabel, pauseGame, startGame, gameState, gameOver } =
+    useGameState()
 
   useKeyboard(
     config.actualTurtle,
@@ -60,9 +52,7 @@ export const Game = () => {
   )
 
   const updateGame = () => {
-    console.log('updateGame')
-
-    if (config.gameState == gameState.playing) {
+    if (gameState.current == 1) {
       if (config.actualTurtle < config.gameTurtlesLength)
         turtlesIdMap[config.actualTurtle].forEach((pixel) => {
           gravity(pixel)
@@ -84,7 +74,7 @@ export const Game = () => {
               )
               updateTableroFijoDeleteRows()
             } else {
-              config.gameState = gameState.isOver
+              gameOver()
             }
           }
         }
@@ -119,8 +109,8 @@ export const Game = () => {
           pixel.moveY = 0
           pixel.moveUpdate = false
           updateTableroFijo(pixel)
-          if (pixel.y == 0 && config.gameState == gameState.playing) {
-            config.gameState = gameState.isOver
+          if (pixel.y == 0 && gameState.current == 1) {
+            gameOver()
           }
         })
       } else {
@@ -140,7 +130,7 @@ export const Game = () => {
       const sx = pixel.x + pixel.moveX
       if (sy > config.gameHeight - 1 - config.gamePadding || sy < 0)
         pixel.moveY = 0
-      if (sy > config.gameHeight - 1) {
+      if (sy > config.gameHeight - 1 - config.gamePadding) {
         turtlesIdMap[config.actualTurtle].forEach((p) => {
           p.status = false
           p.moveX = 0
@@ -214,10 +204,10 @@ export const Game = () => {
     t.moveX = 0
   }
 
-  useToastMessageGameStates(config, gameState)
-  useToastMessageTweets(config, gameState)
+  useToastMessageGameStates(config)
+  useToastMessageTweets(config)
 
-  const startGame = () => {
+  const resetPixels = () => {
     turtlePixels.map((p) => {
       p.status = undefined
       p.x = p.initialX
@@ -225,22 +215,17 @@ export const Game = () => {
       p.moveX = 0
       p.moveY = 0
       p.gravityCounter = 0
+      p.rotation.index = 0
+      p.rotation.update = false
     })
     for (var i = 0; i < 4; i++) turtlePixels[i].status = true
-    clearTableroFijo()
     config.actualTurtle = 0
-    config.gameState = gameState.playing
-    setButtonStartName('Restart')
   }
 
-  const pausedGame = () => {
-    config.gameState =
-      config.gameState == gameState.playing
-        ? gameState.paused
-        : gameState.playing
-    setButtonPauseName(
-      config.gameState == gameState.playing ? 'Pause' : 'Continue',
-    )
+  const start = () => {
+    startGame()
+    resetPixels()
+    clearTableroFijo()
   }
 
   return (
@@ -251,11 +236,11 @@ export const Game = () => {
         {/* <Board board={tableroFijo.current} /> */}
       </div>
       <div className="flex flex-col items-start justify-start w-24">
-        <button className="btn btn-accent m-2 w-full" onClick={startGame}>
-          {buttonStartName}
+        <button className="btn btn-accent m-2 w-full" onClick={start}>
+          {startLabel}
         </button>
-        <button className="btn btn-error m-2 w-full" onClick={pausedGame}>
-          {buttonPauseName}
+        <button className="btn btn-error m-2 w-full" onClick={pauseGame}>
+          {pauseLabel}
         </button>
       </div>
     </div>

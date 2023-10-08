@@ -1,32 +1,59 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro'
 import Button from '../../../components/button.astro'
-import HeroGridUnit from '../../../components/heroGridUnit.astro'
+import Title from '../../../components/title.astro'
 const linkURL = '/choices'
 const logoURL = '/choices/logo.png'
 ---
 
-<BaseLayout title="Choices App" link={linkURL} logo={logoURL}> 
+<BaseLayout title="Choices App" link={linkURL} logo={logoURL}>
   <div class="hero items-start">
     <div class="hero-content text-start">
       <div>
-        <div class="mt-16 md:mt-0"></div>
-        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-          Nosotros
-        </h2>
-        <p class="text-lg mt-4 text-slate-500 text-balance max-w-xl">
-          Quienes Somos
-        </p>
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-12 gap-16">
-          <HeroGridUnit
-            title="Nosotros"
-            description="Lorem ipsum dolor sit amet consectetur adipisicing elit. A, nam. Soluta aspernatur eveniet, expedita molestias optio earum adipisci nulla culpa maiores accusamus! In reprehenderit nisi voluptates cumque dolores quaerat aperiam"
-          >
-            <!-- <Button to="">Comenzar</Button> -->
-          </HeroGridUnit>
+        <div class="flex flex-col 2xl:flex-row mt-4 gap-4">
+          <div class="flex gap-4 max-w-[40rem] items-start flex-col">
+            <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+              Nosotros
+            </h2>
+            <p class="text-lg mt-4 text-slate-600 text-balance max-w-xl">
+              En esta sección puedes conocer un poco mas sobre nuestros
+              objetivos
+            </p>
+            <p class="text-slate-600 mt-2 leading-relaxed">
+              En nuestro equipo, reunimos a programadores y médicos ex
+              residentes de diversas especialidades con un propósito claro:
+              ayudarte a dar el paso crucial hacia tu especialización médica.
+            </p>
+            <p class="text-slate-600 mt-2 leading-relaxed">
+              Nos dedicamos a orientarte y facilitar tu ingreso al programa de
+              formación que elijas. Ofrecemos orientación especializada y acceso
+              a recursos tecnológicos de vanguardia para optimizar tu aplicación
+              y prepararte para las entrevistas.
+            </p>
+            <p
+              class="text-slate-600 mt-2 leading-relaxed"
+              style="text-wrap: balance"
+            >
+              Estamos comprometidos en ser tu guía, proporcionándote las
+              herramientas y el apoyo que necesitas para destacarte en el
+              proceso de selección. Con nuestra experiencia combinada, te
+              ofrecemos la asistencia necesaria para que logres tu objetivo de
+              ingresar en el programa de especialización que te catapultará
+              hacia una exitosa carrera médica.
+            </p>
+          </div>
+
+          <div class="mt-4 2xl:mt-0 flex w-full items-start justify-start">
+            <img
+              class="rounded shadow"
+              src="/choices/doctors.png"
+              alt="doctores"
+            />
+          </div>
         </div>
       </div>
     </div>
+
+    <div></div>
   </div>
-  <div></div>
 </BaseLayout>
