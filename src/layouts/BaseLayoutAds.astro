@@ -1,0 +1,62 @@
+---
+import '../global.css'
+const { title, toxicity, link, logo, idiomas } = Astro.props
+import Navbar from '../components/navbar/navbar.astro'
+import Footer from '../components/footer.astro'
+---
+
+<html lang="en" class="bg-base-100" data-theme="cupcake">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <script
+      is:inline
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0888433702149364"
+      crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-NMSD9LCCD4"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'G-NMSD9LCCD4')
+    </script>
+  </head>
+  <body tabindex="0">
+    <div class="flex flex-col items-center justify-center">
+      <div class="max-w-[80rem] mx-4">
+        <Navbar title={title} link={link} logo={logo} idiomas={idiomas} />        
+        <slot />
+        <Footer />
+      </div>
+    </div>
+  </body>
+</html>
+
+<script is:inline>
+const font = localStorage.getItem('fontAtom')
+var bodyElement = document.body
+while (bodyElement.classList.length > 0) {
+  bodyElement.classList.remove(bodyElement.classList.item(0))
+}
+var stringWithoutQuotes = font.replace(/^"(.*)"$/, '$1')
+bodyElement.classList.add(stringWithoutQuotes)
+</script>
+
+<script>
+  if (localStorage.getItem('theme') === null) {
+    document.documentElement.setAttribute('data-theme', 'light')
+  } else {
+    document.documentElement.setAttribute(
+      'data-theme',
+      localStorage.getItem('theme'),
+    )
+  }
+</script>

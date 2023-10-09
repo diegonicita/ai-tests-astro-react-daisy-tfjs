@@ -27,6 +27,7 @@ export const Question = ({
             (option, index) =>
               option && (
                 <Option
+                  key={index}
                   questionNumber={questionNumber}
                   handleAnswered={handleAnswered}
                   optionAnswered={optionAnswered}
