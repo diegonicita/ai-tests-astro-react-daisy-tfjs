@@ -5,39 +5,70 @@ import { Proyecto } from '../../components/proyecto.jsx'
 import { SocialLogo } from '../../components/socialLogo.jsx'
 import { Language } from '../../components/languaje.jsx'
 import { Flag } from '../../components/flag.jsx'
+
+const print = true
 ---
 
 <BaseLayout title="Webapp" idiomas>
   <div class="hero items-start min-h-screen">
     <div class="hero-content">
       <div class="max-w-2xl">
-        <div class="flex flex-row items-center gap-4 mb-0">
-          <GradientTitle client:only withColor={'C.Vitae'} withoutColor={''} />
-        </div>
-        <div class="divider mt-0"></div>
-        <h1 class="text-2xl mt-4 mb-4 font-bold">
+        {
+          !print && (
+            <div class="flex flex-row items-center gap-4 mb-0">
+              <GradientTitle
+                client:only
+                withColor={'C.Vitae'}
+                withoutColor={''}
+              />
+            </div>
+          )
+        }
+        {!print && <div class="divider mt-0" />}
+        <h1 class="text-2xl mt-4 font-bold">
           <Language client:only esp="Soy Diego Nicita" por="Sou Diego Nicita" />
-          <div class="flex flex-row items-center gap-2 font-normal">
-            <span class="text-xs m-0 p-0 gap-0">Idioma</span>
-            <Flag client:only />
-          </div>
         </h1>
-        <div>
+        <h1 class="text-lg mb-4 mt-0 font-bold">
           <Language
             client:only
-            esp="Me dedico al desarrollo Front End y Mobile, hace mas de 2 años, con React y React Native"
-            por="Sou desenvolvedor Front End e Movil ha mais de dois anos. Uso React y React Native"
+            esp="Desarrolador React y React Native"
+            por="Desenvolvedor React e React Native"
+          />
+        </h1>
+        {
+          !print && (
+            <h1>
+              <div class="flex flex-row items-center gap-2 font-normal">
+                <span class="text-xs m-0 p-0 gap-0">Idioma</span>
+                <Flag client:only />
+              </div>
+            </h1>
+          )
+        }
+        <div>
+          <span class="font-bold"
+            ><Language client:only esp="Sobre Mi:" por="Sobre Mim:" /></span
+          >
+          <Language
+            client:only
+            esp="Soy desarrollador Front End y Mobile, hace mas de 2 años, con React, Nextjs y React Native"
+            por="Sou desenvolvedor Front End e Movil ha mais de dois anos. Uso React, Nextjs y React Native"
           />
         </div>
         <Language
           client:only
-          esp="También uso Astro, Nodejs, Express, MySQL, MongoDb y C# con Unity."
-          por="Também utilizo Astro, Nodejs, Express, MySQL, MongoDb e C# com Unity."
+          esp="También uso Astro, Nodejs, Express, MySQL, MongoDb y C# con Unity"
+          por="Também utilizo Astro, Nodejs, Express, MySQL, MongoDb e C# com Unity"
         />
         <div class="mt-4">
           <span class="font-bold"
-            ><Language client:only esp="Estudios:" por="Meus estudos são os seguintes:" /></span
-          ><ul>
+            ><Language
+              client:only
+              esp="Estudios:"
+              por="Meus estudos são os seguintes:"
+            /></span
+          >
+          <ul>
             <li>
               <Language
                 client:only
@@ -59,7 +90,13 @@ import { Flag } from '../../components/flag.jsx'
                 por="- Também estudei C# e Desenvolvimento de Videogames com Unity na Universidade Tecnológica Nacional"
               />
             </li>
-            <li><Language client:only esp="- Pero principamente soy autodidacta" por="- Mas eu sou principalmente autodidata" /></li>
+            <li>
+              <Language
+                client:only
+                esp="- Pero principamente soy autodidacta"
+                por="- Mas eu sou principalmente autodidata"
+              />
+            </li>
           </ul>
         </div>
         <div class="mt-4">
@@ -67,43 +104,69 @@ import { Flag } from '../../components/flag.jsx'
             <li>
               <Language
                 client:only
-                esp="Para más informacion te dejo enlaces a Github y Linkedin."
-                por="Para mais informações deixo para voce, enlaces para Github e Linkedin"
+                esp="Para más informacion te dejo enlaces a Github, Linkedin y Gmail."
+                por="Para mais informações deixo para voce, enlaces para Github, Linkedin e meu Gmail"
               />
             </li>
           </ul>
         </div>
-        <div class="flex flex-row">
+        <div class="flex flex-row align-center">
           <SocialLogo title="Github" client:only />
           <SocialLogo title="Linkedin" client:only />
+          <SocialLogo title="Gmail" client:only />
         </div>
-        <div class="divider"></div>
+        {!print && <div class="divider" />}
         <h1 class="text-2xl mt-4 mb-4 font-bold">
-          <Language client:only esp="Proyectos" por="Projectos" />
-          <div class="flex flex-row items-center gap-2 font-normal">
-            <span class="text-xs m-0 p-0 gap-0">Idioma</span>
-            <Flag client:only />
-          </div>
+          <Language client:only esp="Proyectos" por="Projetos" />
+          {
+            !print && (
+              <div class="flex flex-row items-center gap-2 font-normal">
+                <span class="text-xs m-0 p-0 gap-0">Idioma</span>
+                <Flag client:only />
+              </div>
+            )
+          }
         </h1>
         <Proyecto
           client:only
-          title="TortuTetris"
+          image="/webapp/vetcare.png"
+          title="VetCare"
+          esp="Sitio para gestionar las citas de tus mascotas con diferentes veterinarios. Realizado en el marco de No Country en un grupo de 10 personas con diferentes roles (TL, PM, UX-UI, Frontends, Backends, QA)"
+          por="Site para gerenciar as consultas de seus animais de estimação com diversos veterinários. Feito no âmbito da startup 'No Country' em um grupo de 10 pessoas com funções diferentes (TL, UX-UI, Frontend, Backend, QA)"
+          tools="Nexjs. Tailwind. DaisyUI. Nodejs. Express."
+          link="https://s11-03-t-node-react-vetfront.vercel.app/"
+        />
+        <Proyecto
+          client:only
+          title="Tortutetris"
+          image="/games/tetris.jpg"
           esp="Videojuego basado en el clásico Tetris de los 80, un juego de rompecabezas. Consiste en manipular formas geométricas, llamadas tetrominós, mientras caen desde la parte superior de la pantalla para que encajen perfectamente en filas en la parte inferior. Cuando se completa una fila, desaparece, y el objetivo es evitar que las piezas lleguen hasta arriba para seguir jugando"
-          por="Videogame baseado no clássico tetris dos anos 80. Tetris é um jogo de quebra-cabeça que envolve manipular formas geométricas, chamadas tetrominós, enquanto caem de cima da tela para encaixá-las perfeitamente em fileiras na parte inferior. Quando uma fileira é completada, ela desaparece, e o objetivo é evitar que as peças alcancem o topo para continuar jogando"
+          por="Videogame baseado no clássico tetris dos anos 80. Tetris é um jogo de quebra-cabeça que envolve manipular formas geométricas, chamadas tetrominós, enquanto caem de cima da tela para encaixá-las perfeitamente em fileiras na parte inferior. "
           tools="Astro. React. Tailwind. DaisyUI."
-          link="/games/tortutetris/"
+          link="https://webapp.ar/games/tortutetris/"
+        />
+        <Proyecto
+          image="/webapp/smartshop.png"
+          client:only
+          title="Smart Shop"
+          esp="Explora nuestro innovador proyecto de Escaneo de Códigos QR de Ecommerce, diseñado para eliminar las tediosas filas al pagar. Simplemente escanea el código y realiza tu compra sin demoras. Transforma tu experiencia de compra, haciéndola rápida y sin complicaciones, gracias a nuestra tecnología revolucionaria"
+          por="Explore nosso inovador projeto de Escaneamento de Códigos QR de Ecommerce, criado para eliminar as filas demoradas no pagamento. Feito no âmbito da startup 'No Country' em um grupo de 11 pessoas com funções diferentes."
+          tools="React Native. Expo. Tailwind. Axios. Async Storage."
+          link="https://github.com/No-Country/s7-16-t-reactnative"
         />
         <!-- App para practicar exámenes de residencias médicas mediante preguntas tipo 'Multiple Choices' de Argentina, España, México y Perú. Somos médicos que realizaron una residencia médica y nuestra mision es ayudarte a convertirte en médico residente. Practica y consúltanos ante cualquier duda." -->
         <Proyecto
           client:only
-          title="Choices de Medicina"
+          title="Choices"
+          image="/choices/logo.png"
           esp="App para practicar exámenes de residencias médicas mediante preguntas tipo 'Multiple Choices' de Argentina, España, México y Perú. Somos médicos que realizaron una residencia médica y nuestra mision es ayudarte a convertirte en médico residente. Practica y consúltanos ante cualquier duda"
           por="App para praticar os exames de residências médicas através de perguntas do tipo 'Multiple Choices' da Argentina, Espanha, México e Peru. Somos médicos que fizeram uma residência médica e nossa missão é ajudá-lo a se tornar um médico residente. Pratique e conforte-nos em qualquer dúvida"
           tools="Astro. React. Tailwind. DaisyUI. Node. MySQL."
-          link="/choices"
+          link="https://webapp.ar/choices"
         />
         <Proyecto
           client:only
+          image={undefined}
           title="Webapp"
           esp="Sitio web personal alojado en un Vultr donde instalé Ubuntu, Ngnix, Node y MySQL. Estoy migrando el Front End de mis proyectos a Astro. Los antiguos proyectos se transformarán en Back Ends con NodeJs"
           por="Site pessoal hospedado em Vultr, onde instalei o Ubuntu, NGNIX, Node e MySQL. Estou migrando a Front End dos meus projetos para o Astro. Os projetos antigos serão transformados em back Ends com o NodeJS"
@@ -112,40 +175,43 @@ import { Flag } from '../../components/flag.jsx'
         />
         <Proyecto
           client:only
+          image="/webapp/solocalzado.png"
           title="Solocalzados"
           esp="Explora la moda en nuestro ecommerce de calzados. Descubre una amplia colección de zapatos para todas las ocasiones. Desde elegantes tacones hasta cómodas zapatillas, tenemos el par perfecto para ti. ¡Compra con confianza y estilo hoy"
-          por="Explore a moda em nossa loja online de calçados. Descubra uma ampla coleção de sapatos para todas as ocasiões. De elegantes saltos a confortáveis tênis, temos o par perfeito para você. Compre com confiança e estilo hoje!"
+          por="Explore a moda em nossa loja online de calçados. Descubra uma ampla coleção de sapatos para todas as ocasiões. De elegantes saltos a confortáveis tênis, temos o par perfeito para você."
           tools="HTML. CSS. NodeJS. Express. MYSQL"
           link="https://solocalzado.webapp.ar"
         />
         <Proyecto
           client:only
+          image={'/webapp/mercado.png'}
           title="Mercado"
           esp="Explora nuestro ecommerce tipo Mercadolibre o Amazon. Encuentra una variedad increíble de productos, desde electrónicos hasta moda y más. Ofrecemos garantía de calidad y entrega rápida. Haz tus compras con seguridad y descubre ofertas exclusivas. Tu destino para compras en línea confiables y convenientes"
-          por="Explore nosso ecommerce semelhante ao Mercado Livre ou Amazon. Encontre uma variedade incrível de produtos, de eletrônicos a moda e muito mais. Oferecemos garantia de qualidade e entrega rápida. Faça suas compras com segurança e descubra ofertas exclusivas. Seu destino para compras online confiáveis e convenientes"
+          por="Explore nosso ecommerce semelhante ao Mercado Livre ou Amazon. Encontre uma variedade incrível de produtos, de eletrônicos a moda e muito mais. "
           tools="HTML. CSS. NodeJS. Express. MYSQL"
           link="https://mercado.webapp.ar"
         />
 
         <Proyecto
+          image={'/webapp/balon.png'}
           client:only
-          title="Futbol (ex Infootball)"          
+          title="Infootball"
           esp="Explora nuestro proyecto de Scouting de Jugadores de Fútbol. Descubre talentos emergentes y evalúa habilidades con nuestra plataforma especializada. Con estadísticas detalladas y análisis profundos, encontrarás los mejores jugadores para tu equipo. Transforma tu estrategia de reclutamiento con nosotros"
-          por="Explore nosso projeto de Scouting de Jogadores de Futebol. Descubra talentos emergentes e avalie habilidades com nossa plataforma especializada. Com estatísticas detalhadas e análises aprofundadas, você encontrará os melhores jogadores para sua equipe. Transforme sua estratégia de recrutamento conosco"
+          por="Explore nosso projeto de Scouting de Jogadores de Futebol. Descubra talentos emergentes e avalie habilidades com nossa plataforma especializada"
           tools="React Native. Expo. RN Elements. Axios. Async Storage."
           link="https://futbol.webapp.ar"
         />
 
         <Proyecto
           client:only
-          title="Smart Shop"
-          esp="Explora nuestro innovador proyecto de Escaneo de Códigos QR de Ecommerce, diseñado para eliminar las tediosas filas al pagar. Simplemente escanea el código y realiza tu compra sin demoras. Transforma tu experiencia de compra, haciéndola rápida y sin complicaciones, gracias a nuestra tecnología revolucionaria"
-          por="Explore nosso inovador projeto de Escaneamento de Códigos QR de Ecommerce, criado para eliminar as filas demoradas no pagamento. Basta escanear o código e fazer sua compra sem esperas. Transforme sua experiência de compra, tornando-a rápida e sem complicações, graças à nossa tecnologia revolucionária"
-          tools="React Native. Expo. Tailwind. Axios. Async Storage."
-          link=""
+          image={'/webapp/RM-residencias.png'}
+          title="RM"
+          esp="Aplicación para ayudar a los médicos a aprobar diferentes exámenes y asi acceder a programas de residencia. Existian 2 versiones, una free (gratuita) y una pro (paga). La version PRO tenía más de 6000 preguntas. Esta aplicación ya esta obsoleto (deprecado)"
+          por="Aplicativo para ajudar médicos a passarem em diversos exames e assim acessarem programas de residência. Havia 2 versões, uma gratuita (gratuita) e uma profissional (paga). A versão PRO tinha mais de 6.000 perguntas. Este aplicativo já está obsoleto (deprecado)"
+          tools="Cocos Creator. C++. PHP. MySQL. Javascript"
+          link="https://play.google.com/store/apps/details?id=com.nicita.mchoicefree&hl=es&gl=US"
         />
       </div>
     </div>
   </div>
 </BaseLayout>
- ../../components/proyecto.jsx/index.js
