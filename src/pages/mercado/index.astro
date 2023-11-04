@@ -8,20 +8,21 @@ const data = await response.json()
 ---
 
 <BaseLayout title="Mercado" max="max-w-[71rem]">
-  <div class="container max-w-[70rem] m-auto">
+  <div class="container px-2 max-w-[70rem] m-auto">
     <!-- <GradientTitle client:only withColor={'Bienvenido'} withoutColor={''} /> -->
-    <div class="mt-16 md:mt-0">
+    <div class="mt-16 md:mt-0 lg:max-w-[70rem] max-w-3xl m-auto text-center lg:text-left">
       <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
         Mercado Web App
       </h2>
-      <p class="text-lg mt-4 text-slate-500">
-        Ecommerce about a Mercado (Shop)
+      <p class="text-lg mt-1 text-accent-content">
+        Your Favorite Ecommerce
       </p>
+      <h1 class="font-bold mt-4 mb-2">
+        Products: Astro Component
+      </h1>
     </div>
-    <h1 class="font-bold mt-8">
-      Productos (Only a Fetch in Build Time, Astro Component)
-    </h1>
-    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="m-auto lg:max-w-[70rem] max-w-2xl">
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-4 md:gap-8">
       {
         data.map(
           (item: {
@@ -40,8 +41,9 @@ const data = await response.json()
         )
       }
     </div>
+  </div>
     <h1 class="font-bold mt-8">
-      Ofertas (Fetch in Render Time, React Component)
+      Ofertas: (React Component)
     </h1>
     <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       <CardsJSX client:only />

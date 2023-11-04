@@ -2,9 +2,9 @@
 const { title, description, image, price } = Astro.props
 ---
 
-<div class="card text-sm w-full lg:w-70 bg-base-100 shadow-lg p-2 hover:shadow-2xl transition duration-300 ease hover:cursor-pointer px-0 pt-2">
-  <figure class="pt-4">
-    <img src={"https://mercado.webapp.ar/images/" + image} alt="Shoes" class="w-full brightness-90 hover:brightness-95" />
+<div class="card text-sm w-full lg:w-70 bg-base-100 shadow-lg p-2 hover:shadow-2xl transition duration-300 ease hover:cursor-pointer px-0 pt-2 brightness-95">
+  <figure class="px-2">
+    <img src={"https://mercado.webapp.ar/images/" + image} alt="Shoes" class="w-full brightness-90 hover:brightness-95 rounded-xl" />
   </figure>
   <div class="card-body items-center text-center p-0">
     <!-- <h2 class="card-title mt-0 pt-0">{title}</h2> -->
