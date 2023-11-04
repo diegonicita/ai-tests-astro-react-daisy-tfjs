@@ -1,18 +1,22 @@
 export const CardJSX = ({ title, description, image, price }) => (
-  <div className="card text-sm w-full lg:w-70 bg-base-100 shadow-2xl pt-4">
-    <figure className="pt-4 border-t-gray border">
+  <div className="card text-sm w-full lg:w-70 bg-base-100 shadow-lg p-2 hover:shadow-2xl transition duration-300 ease px-0 pt-2 hover:cursor-pointer">
+    <figure className="pt-4">
       <img
         src={'https://mercado.webapp.ar/images/' + image}
         alt="Shoes"
-        className="rounded-xl"
+        className="w-full brightness-90 hover:brightness-95"
       />
     </figure>
-    <div className="card-body items-center text-center">
-      <h2 className="card-title mt-0 pt-0">{title}</h2>
-      <div>{description}</div>
-      <div>${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</div>
-      <div className="mt-4 card-actions">
-        <button className="btn btn-primary">Comprar</button>
+    <div className="card-body items-center text-center p-0">
+      <div className="card-body py-2 px-2">{description}</div>
+    </div>
+    <div className="px-4">
+      <div className="text-lg font-bold">
+        ${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
+      </div>
+
+      <div className="text-accent-content font-bold mt-2 pb-2">
+        Envío Gratis{' '}
       </div>
     </div>
   </div>

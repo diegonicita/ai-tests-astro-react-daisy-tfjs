@@ -2,16 +2,19 @@
 const { title, description, image, price } = Astro.props
 ---
 
-<div class="card text-sm w-full lg:w-70 bg-base-100 shadow-2xl pt-4">
-  <figure class="pt-4 border-t-gray border">
-    <img src={"https://mercado.webapp.ar/images/" + image} alt="Shoes" class="rounded-xl w-full" />
+<div class="card text-sm w-full lg:w-70 bg-base-100 shadow-lg p-2 hover:shadow-2xl transition duration-300 ease hover:cursor-pointer px-0 pt-2">
+  <figure class="pt-4">
+    <img src={"https://mercado.webapp.ar/images/" + image} alt="Shoes" class="w-full brightness-90 hover:brightness-95" />
   </figure>
-  <div class="card-body items-center text-center">
-    <h2 class="card-title mt-0 pt-0">{title}</h2>
-    <div class="">{description}</div>
-    <div>${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</div>
-    <div class="mt-4 card-actions">
-      <button class="btn btn-primary">Comprar</button>
-    </div>
+  <div class="card-body items-center text-center p-0">
+    <!-- <h2 class="card-title mt-0 pt-0">{title}</h2> -->
+    <div class="card-body py-2 px-2">{description}</div>
   </div>
+  <div class="px-4">
+  <div class="text-lg font-bold">${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</div>
+  <!-- <div class="mt-4 card-actions"> -->
+    <div class="text-accent-content font-bold mt-2 pb-2">Envío Gratis </div>
+    <!-- <button class="btn btn-primary">Comprar</button> -->
+  <!-- </div> -->
+</div>
 </div>
