@@ -14,12 +14,19 @@ const subtitleGrid =
   'Exámenes de Argentina (Municipal, Provincial, Unico), de España (MIR), de México (ENARM) y Perú (Unico):'
 ---
 
-<BaseLayout title="Choices App" link={linkURL} logo={logoURL}>
-  <Hero />
+<BaseLayout
+  title="Choices App"
+  link={linkURL}
+  logo={logoURL}
+  max="max-w-[60rem]"
+>
+  <div class="max-w-[60rem] m-auto">
+    <Hero />
+  </div>
 
   <div class="hero items-start">
     <div class="hero-content text-start">
-      <div>
+      <div class="max-w-[60rem] m-auto">
         <div class="mt-16 md:mt-0"></div>
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
           {titleGrid}
@@ -27,10 +34,7 @@ const subtitleGrid =
         <p class="text-lg mt-4 text-slate-500 text-balance max-w-xl">
           {subtitleGrid}
         </p>
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-12 gap-16">
-          <!-- <HeroGridUnit title="Sobre Mi" description="qwqwewe mi curriculum vrererer itae. rerere Mi curriculum vitae. ">
-            <Button to="/choices/nosotros">Sobre Nosotros</Button>
-          </HeroGridUnit> -->
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-12 gap-16">          
           <HeroGridUnit
             title="Municipalidad CABA, Argentina"
             description="Nuestro listado de exámenes de CABA, organizados por año, Argentina"
@@ -53,7 +57,7 @@ const subtitleGrid =
           <HeroGridUnit
             title="Pediátricos, Municipalidad CABA, Argentina"
             description="Nuestro listado de exámenes pediátricos de CABA, organizados por año, Argentina"
-          >            
+          >
             <Button to="/choices/examenes/pediatricos/2008">2008</Button>
             <Button to="/choices/examenes/pediatricos/2009">2009</Button>
           </HeroGridUnit>
@@ -70,55 +74,54 @@ const subtitleGrid =
             <Button to="/choices/examenes/provincial/2013">2013</Button>
             <Button to="/choices/examenes/provincial/2014">2014</Button>
             <Button to="/choices/examenes/provincial/2015">2015</Button>
-
           </HeroGridUnit>
           <HeroGridUnit
-          title="Examen de Argentina, Examen Único"
-          description="Nuestro listado de exámenes únicos, organizados por año, de Argentina"
-        >            
-          <Button to="/choices/examenes/unico/2014">2014</Button>          
-        </HeroGridUnit>
+            title="Examen de Argentina, Examen Único"
+            description="Nuestro listado de exámenes únicos, organizados por año, de Argentina"
+          >
+            <Button to="/choices/examenes/unico/2014">2014</Button>
+          </HeroGridUnit>
           <HeroGridUnit
             title="Exámenes de Mexico - ENARM"
             description="Nuestro listado de exámenes, organizados por año, tipo ENARM de México"
           >
-          <Button to="/choices/examenes/enarm/2003">2003</Button>
-          <Button to="/choices/examenes/enarm/2004">2004</Button>
-          <Button to="/choices/examenes/enarm/2005">2005</Button>
-          <Button to="/choices/examenes/enarm/2006">2006</Button>
-          <Button to="/choices/examenes/enarm/2007">2007</Button>
-          <Button to="/choices/examenes/enarm/2008">2008</Button>
-          <Button to="/choices/examenes/enarm/2009">2009</Button>
-          <Button to="/choices/examenes/enarm/2010">2010</Button>
-          <Button to="/choices/examenes/enarm/2011">2011</Button>
-          </HeroGridUnit>  
+            <Button to="/choices/examenes/enarm/2003">2003</Button>
+            <Button to="/choices/examenes/enarm/2004">2004</Button>
+            <Button to="/choices/examenes/enarm/2005">2005</Button>
+            <Button to="/choices/examenes/enarm/2006">2006</Button>
+            <Button to="/choices/examenes/enarm/2007">2007</Button>
+            <Button to="/choices/examenes/enarm/2008">2008</Button>
+            <Button to="/choices/examenes/enarm/2009">2009</Button>
+            <Button to="/choices/examenes/enarm/2010">2010</Button>
+            <Button to="/choices/examenes/enarm/2011">2011</Button>
+          </HeroGridUnit>
           <HeroGridUnit
             title="Exámenes de España - MIR"
             description="Nuestro listado de exámenes MIR de España"
           >
-          <Button to="/choices/examenes/mir/2007">2007</Button>
-          <Button to="/choices/examenes/mir/2008">2008</Button>
-          <Button to="/choices/examenes/mir/2009">2009</Button>
-          <Button to="/choices/examenes/mir/2010">2010</Button>
-          <Button to="/choices/examenes/mir/2011">2011</Button>
-          <Button to="/choices/examenes/mir/2012">2012</Button>
-          <Button to="/choices/examenes/mir/2013">2013</Button>
-          <Button to="/choices/examenes/mir/2014">2014</Button>
-          </HeroGridUnit> 
+            <Button to="/choices/examenes/mir/2007">2007</Button>
+            <Button to="/choices/examenes/mir/2008">2008</Button>
+            <Button to="/choices/examenes/mir/2009">2009</Button>
+            <Button to="/choices/examenes/mir/2010">2010</Button>
+            <Button to="/choices/examenes/mir/2011">2011</Button>
+            <Button to="/choices/examenes/mir/2012">2012</Button>
+            <Button to="/choices/examenes/mir/2013">2013</Button>
+            <Button to="/choices/examenes/mir/2014">2014</Button>
+          </HeroGridUnit>
           <HeroGridUnit
             title="Exámenes de Perú - Examen Único"
             description="Nuestro listado de exámenes, organizados por año, tipo Único de Perú"
           >
-          <Button to="/choices/examenes/peru/2013">2013</Button>
-          <Button to="/choices/examenes/peru/2014">2014</Button>
-          </HeroGridUnit>        
+            <Button to="/choices/examenes/peru/2013">2013</Button>
+            <Button to="/choices/examenes/peru/2014">2014</Button>
+          </HeroGridUnit>
         </div>
       </div>
     </div>
   </div>
   <div class="hero items-start mt-16">
     <div class="hero-content text-start">
-      <div>
+      <div class="max-w-[60rem] m-auto">
         <div class="mt-16 md:mt-0"></div>
         <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
           Buscador de Preguntas

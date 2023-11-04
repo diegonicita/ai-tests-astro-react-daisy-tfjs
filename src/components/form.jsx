@@ -27,8 +27,7 @@ export const Form = () => {
       creat: checkRange(data.creat, 0, 30),
       peso: checkRange(data.peso, 0, 500),
     }
-    setValues({...obj})
-    console.log(obj)
+    setValues({...obj})    
     var res = Z.safeParse(obj)
     if (!res.success) {
       const id = res.error.issues[0].path

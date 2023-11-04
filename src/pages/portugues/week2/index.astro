@@ -1,5 +1,4 @@
 ---
-import type { isRenderTemplateResult } from 'astro/dist/runtime/server/render/astro'
 import BaseLayout from '../../../layouts/BaseLayout.astro'
 import Array from '../../../components/array.astro'
 import { getEntry } from 'astro:content'
@@ -151,7 +150,7 @@ const data = [
     <div class="eight bg-base-200 px-4 pb-4">
       <h1 class="mb-2">Verbos Irregulares</h1>
       {
-        verbosIrregulares.data.map((item, index) => {
+        verbosIrregulares.data.map((item: { [x: string]: any; title: unknown }, index: number) => {
           return (
             <>
               <div>

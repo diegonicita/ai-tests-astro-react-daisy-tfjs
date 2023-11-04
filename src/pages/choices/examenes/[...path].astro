@@ -200,53 +200,21 @@ export async function getStaticPaths() {
 }
 
 const { title, limit, year, id } = Astro.props
+const max = 'max-w-[58rem]'
 ---
 
-<BaseLayout title="Choices App" link={linkURL} logo={logoURL}>
-  <div class="mt-16 md:mt-0">
+<BaseLayout title="Choices App" link={linkURL} logo={logoURL} max={'max-w-[60rem]'}>
+  <div class=`mt-16 md:mt-0 m-auto ${max}`>
     <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
       {title} - {year}
     </h2>
     <p class="text-lg mt-4 text-slate-500">
       Recuerda que puedes tomarte el tiempo que necesites.
     </p>
-    <!-- <script  
-      is:inline    
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0888433702149364"
-      crossorigin="anonymous"></script> -->
-    <!-- Horizontal Choices -->
-    <!-- <ins      
-      class="adsbygoogle"
-      style="display:block"
-      data-ad-client="ca-pub-0888433702149364"
-      data-ad-slot="1588705454"
-      data-ad-format="auto"
-      data-full-width-responsive="true"></ins> -->
-    <!-- <script is:inline>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script> -->
   </div>
   <!-- <h1 class="font-bold mt-8">Examen Municipal de Buenos Aires</h1> -->
-  <div class="grid">
+  <div class=`grid m-auto max-w-[50rem]`>
     <Page client:only limit={limit} year={year} id={id} desde={0} />
     <div></div>
   </div>
-  <script 
-    is:inline    
-    async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0888433702149364"
-    crossorigin="anonymous"></script>
-  <!-- Horizontal Choices -->
-  <ins
-    is:raw
-    class="adsbygoogle"
-    style="display:block"
-    data-ad-client="ca-pub-0888433702149364"
-    data-ad-slot="1588705454"
-    data-ad-format="auto"
-    data-full-width-responsive="true"></ins>
-  <script is:inline>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
 </BaseLayout>

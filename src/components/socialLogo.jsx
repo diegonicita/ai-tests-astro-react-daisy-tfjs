@@ -7,8 +7,6 @@ export const SocialLogo = ({ title }) => {
   const [color, setColor] = useState(undefined)
   const $themeAtom = useStore(themeAtom)
 
-  // console.log($themeAtom)
-
   useEffect(() => {
     const miElemento = miElementoRef.current
     const estilosComputados = window.getComputedStyle(miElemento)
@@ -20,8 +18,7 @@ export const SocialLogo = ({ title }) => {
     const colorHex = rgbComponents
       .map((component) => parseInt(component).toString(16).padStart(2, '0'))
       .join('') // Esto mostrará el valor del color en formato RGB, por ejemplo "rgb(59, 130, 246)"
-    setColor('#' + colorHex)
-    // console.log('#' + colorHex)
+    setColor('#' + colorHex)    
   }, [$themeAtom])
 
   return (

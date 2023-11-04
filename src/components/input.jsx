@@ -9,8 +9,7 @@ export const Input = ({
 }) => {
   const handleChange = (event) => {
     const obj = { ...values, [name]: event.target.value }
-    setValues(obj)
-    console.log(obj)
+    setValues(obj)    
   }
 
   return (

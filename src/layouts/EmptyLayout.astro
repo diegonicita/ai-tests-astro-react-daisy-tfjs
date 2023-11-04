@@ -1,9 +1,8 @@
 ---
 import '../global.css'
-const { title, toxicity, link, logo, idiomas, max = '' } = Astro.props
+const { title, link, logo, idiomas } = Astro.props
 import Navbar from '../components/navbar/navbar.astro'
 import Footer from '../components/footer.astro'
-const print = false
 ---
 
 <html lang="en" class="bg-base-100" data-theme="cupcake">
@@ -11,37 +10,13 @@ const print = false
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
-    {
-      toxicity && (
-        <>
-          <script
-            is:inline
-            src="https://cdnjs.cloudflare.com/ajax/libs/tensorflow/2.7.0/tf.min.js"
-          />
-          <script
-            is:inline
-            src="https://cdn.jsdelivr.net/npm/@tensorflow-models/toxicity@1.2.2"
-          />
-        </>
-      )
-    }
   </head>
   <body tabindex="0">
-    <div class="flex flex-col">
-      <div>
-        {
-          !print && (
-            <Navbar
-              title={title}
-              link={link}
-              logo={logo}
-              idiomas={idiomas}
-              max={max}
-            />
-          )
-        }
+    <div class="block">
+      <div class="max-w-[90rem] m-auto">
+        <Navbar title={title} link={link} logo={logo} idiomas={idiomas} />
         <slot />
-        {!print && <Footer />}
+        <Footer />
       </div>
     </div>
   </body>

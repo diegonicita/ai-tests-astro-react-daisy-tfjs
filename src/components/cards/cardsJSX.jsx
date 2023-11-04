@@ -10,8 +10,7 @@ export const CardsJSX = () => {
       .then((response) => response.json())
       .then((data) => {
         const valorObtenido = data
-        setData(valorObtenido)
-        console.log(valorObtenido)
+        setData(valorObtenido)        
       })
       .catch((error) => {
         console.error('Error:', error)
