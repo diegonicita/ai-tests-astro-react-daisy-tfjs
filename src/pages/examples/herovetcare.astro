@@ -1,13 +1,95 @@
 ---
-import BlogLayout from '../../layouts/BlogLayout.astro'
-import BaseLayout from '../../layouts/BaseLayout.astro'
 import EmptyLayout from '../../layouts/EmptyLayout.astro'
-import { GradientTitle } from '../../components/gradientTitle'
 import VetCareHeroe from '../../components/heroes/vetcare'
+import Team from '../../components/carrousel/team'
+
+const results = [
+  {
+    id: '65257fdb84a825a841323454',
+    speciality: 'Veterinaria Clinica',
+    phone: '666666666',
+    license: 'VET-CLIN-003',
+    src: 'https://res.cloudinary.com/dxq0pypxu/image/upload/v1697674873/12_tle6ez.png',
+    isActive: true,
+    __v: 0,
+    title: 'Miguel A. Velasquez',
+  },
+  {
+    id: '6528cc704d4f663f63ce38a4',
+    title: 'María J. González',
+    speciality: 'Veterinaria Clinica',
+    src: 'https://res.cloudinary.com/dxq0pypxu/image/upload/v1697674873/15_nwojnr.png',
+  },
+  {
+    id: '65306159ea6ccf98ad0282fe',
+    title: 'Cathy J. Gomez',
+    speciality: 'Veterinaria Clinica',
+    src: 'https://res.cloudinary.com/dxq0pypxu/image/upload/v1697674873/13_dgijzm.png',
+  },
+  {
+    id: '6530616eea6ccf98ad028302',
+    title: 'Velma S. Barry',
+    speciality: 'Veterinario Cardiologo',
+    src: 'https://res.cloudinary.com/dxq0pypxu/image/upload/v1697674873/14_kfke4n.png',
+  },
+  {
+    id: '65306177ea6ccf98ad028304',
+    title: 'Carol C. Queen',
+    speciality: 'Veterinaria Nutricionista',
+    src: 'https://res.cloudinary.com/dxq0pypxu/image/upload/v1697674873/6_kkfn5w.png',
+  },
+  {
+    id: '65306187ea6ccf98ad028306',
+    title: 'Julie K. Rusella',
+    speciality: 'Veterinaria Clinica',
+    src: 'https://res.cloudinary.com/dxq0pypxu/image/upload/v1697674872/4_bnmjza.png',
+  },
+  {
+    id: '65306bef24f577a26f63ca15',
+    title: 'Daniel S. Martinez',
+    speciality: 'Veterinario Cirujano',
+    src: 'https://res.cloudinary.com/dxq0pypxu/image/upload/v1697674873/11_ucfyhu.png',
+  },
+  {
+    id: '65306c0124f577a26f63ca17',
+    title: 'Lucia M. Rodríguez',
+    speciality: 'Veterinaria Dermatóloga',
+    src: 'https://res.cloudinary.com/dxq0pypxu/image/upload/v1697674872/8_bxycre.png',
+  },
+  {
+    id: '653070ee24f577a26f63ca1d',
+    title: 'Carlos A. Pérez',
+    speciality: 'Veterinario Oftalmólogo',
+    src: 'https://res.cloudinary.com/dxq0pypxu/image/upload/v1697674873/10_kv5fxe.png',
+  },
+  {
+    id: '653070fa24f577a26f63ca1f',
+    title: 'Sofia R. Vargas',
+    speciality: 'Veterinaria Nutricionista',
+    src: 'https://res.cloudinary.com/dxq0pypxu/image/upload/v1697674872/4_bnmjza.png',
+  },
+]
 ---
 
 <EmptyLayout>
-  <div class="px-8 lg:px-6 max-w-[90rem] mx-auto">
+  <div>
     <VetCareHeroe />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      charset="UTF-8"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+    />
+    <div>
+      <h1 class="text-4xl text-center p-4 border border-black">Nuestro Team</h1>
+      <div class="flex justify-center">
+      <Team client:only vets={results} />
+      </div>
+    </div>
   </div>
 </EmptyLayout>

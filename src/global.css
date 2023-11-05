@@ -1,21 +1,21 @@
 @font-face {
   font-family: 'font-roboto';
-  src: url('../src/fonts/Roboto-Regular.ttf') format('truetype');  
+  src: url('../src/fonts/Roboto-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'font-lato';
-  src: url('../src/fonts/Lato-Regular.ttf') format('truetype'); 
+  src: url('../src/fonts/Lato-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'font-montserrat';
-  src: url('../src/fonts/Montserrat-Regular.ttf') format('truetype'); 
+  src: url('../src/fonts/Montserrat-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'font-open-sans';
-  src: url('../src/fonts/OpenSans-Regular.ttf') format('truetype'); 
+  src: url('../src/fonts/OpenSans-Regular.ttf') format('truetype');
 }
 
 .font-roboto {
@@ -32,4 +32,8 @@
 
 .font-open-sans {
   font-family: 'font-open-sans'
+}
+
+.text-wrap-balance {
+  text-wrap: balance
 }

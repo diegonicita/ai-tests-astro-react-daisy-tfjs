@@ -1,3 +1,6 @@
+// Este componente usa una clase llamada text-wrap-balance definida en global.css
+
+
 function FingerPrint() {
   return (
     <svg
@@ -64,16 +67,13 @@ export default function vetCareHeroe() {
             className="w-[10rem] sm:w-[20rem] md:w-[25rem] lg:w-[35rem] xl:w-[45rem] 2xl:w-[45rem] h-auto md:absolute md:bottom-[-8px] md:right-[70px] bg-cover"
           />
           <h1
-            style={{ textWrap: 'balance' }}
-            className="text-[20px] leading-[26px] 
+            className="text-wrap-balance text-[20px] leading-[26px] 
       font-normal text-center mt-5 md:text-6xl md:text-left max-w-lg"
           >
-            Componente tipo Hero de nuestro proyecto VetCare hecho con Tailwind
-            y React
+            Componente tipo Hero
           </h1>
           <p
-            style={{ textWrap: 'balance' }}
-            className="max-w-[20rem] text-center text-gray-500 
+            className="text-wrap-balance max-w-[20rem] text-center text-gray-500 
       text-sm font-normal font-inter leading-relaxed mt-5 mb-[25px] md:text-left"
           >
             Las mascotas son humanizantes. Nos recuerdan que tenemos la
