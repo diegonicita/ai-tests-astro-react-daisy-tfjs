@@ -5,15 +5,15 @@ const Team = ({ vets }) => {
   var settings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToShow: 4,
+    slidesToScroll: 4,
     initialSlide: 1,
   }
 
   return (
-    <Slider settings={settings} className="border border-black w-[30rem] p-5">
+    <Slider {...settings} className="w-[20rem] sm:w-[40rem] md:w-[60rem] py-4 text-secondary-content">
       {vets.map((v, i) => (
-        <div key={i} className="max-w-[30rem] bg-red-500 p-5">
+        <div key={i}>
           <Card id={v.id} src={v.src} title={v.title} text={v.speciality} />
         </div>
       ))}
