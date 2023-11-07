@@ -1,6 +1,6 @@
 ---
 import '../global.css'
-const { title, link, logo, idiomas } = Astro.props
+const { title, link, logo, idiomas, max = '' } = Astro.props
 import Navbar from '../components/navbar/navbar.astro'
 import Footer from '../components/footer.astro'
 ---
@@ -14,7 +14,13 @@ import Footer from '../components/footer.astro'
   <body tabindex="0">
     <div class="block">
       <div class="max-w-[90rem] m-auto">
-        <Navbar title={title} link={link} logo={logo} idiomas={idiomas} />
+        <Navbar
+          title={title}
+          link={link}
+          logo={logo}
+          idiomas={idiomas}
+          max={max}
+        />
         <slot />
         <Footer />
       </div>

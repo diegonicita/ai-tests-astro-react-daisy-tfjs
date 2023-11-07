@@ -5,13 +5,14 @@ import BaseLayout from '../../../layouts/BaseLayout.astro'
 import Hero from '../../../components/home/hero-tortutetris.astro'
 ---
 
-<BaseLayout>
-  <!-- <Hero /> -->
-  <div class="flex flex-col lg:flex-row items-center gap-4 p-4">
-    <Game client:only />
-    <div class="divider"></div>
-    <div class="flex flex-col">
-      <Keyboard />
+<BaseLayout title="Webapp">
+  <div class="max-w-[90rem]">
+    <div class="flex flex-col lg:flex-row items-center gap-2 p-4 justify-center">
+      <Game client:only />
+      <div class="lg:divider"></div>
+      <div class="flex flex-col">
+        <Keyboard />
+      </div>
     </div>
   </div>
 </BaseLayout>

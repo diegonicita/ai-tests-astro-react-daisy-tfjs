@@ -6,16 +6,16 @@ export const Proyecto = ({ image, title, tools, link, esp = '', por = '' }) => {
   
   return (
     <>
-      <div className="flex sm:flex-row flex-col max-w-2xl m-auto gap-8">
-        <div>          
+      <article className="flex sm:flex-row flex-col max-w-2xl m-auto gap-4">
+        <section>          
         <h3 className="m-auto">
               <span className="font-bold">{title}</span>
             </h3>
             <figure className="max-w-full sm:max-w-[8rem] h-auto">
-              <img className="rounded min-w-[8rem]" src={image?image:"/webapp/logo.png"} alt="vetcare"/>
+              <img className="rounded sm:min-w-[8rem] m-auto min-w-full px-8 pt-4 sm:p-0" src={image?image:"/webapp/logo.png"} alt="vetcare"/>
             </figure>          
-        </div>
-        <div className=" flex flex-column pl-2 pt-5">
+        </section>
+        <section className=" flex flex-column sm:pt-5 sm:p-0 sm:pl-2">
           <div>            
             {$languageAtom == 'espaniol' && esp}
             {$languageAtom == 'portugues' && por}
@@ -34,8 +34,8 @@ export const Proyecto = ({ image, title, tools, link, esp = '', por = '' }) => {
               )}
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </article>
     </>
   )
 }

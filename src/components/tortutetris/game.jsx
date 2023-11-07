@@ -229,17 +229,17 @@ export const Game = () => {
   }
 
   return (
-    <div className="flex flex-row">
+    <div className="relative flex flex-row">
       <TailwindToaster />
       <div className="flex flex-row">
         <Board board={tablero} />
         {/* <Board board={tableroFijo.current} /> */}
       </div>
-      <div className="flex flex-col items-start justify-start w-24">
-        <button className="btn btn-accent m-2 w-full" onClick={start}>
+      <div className="absolute sm:relative flex sm:flex-col sm:items-start justify-start sm:justify-start bottom-0 w-full">
+        <button className="btn btn-accent btn-sm ml-16 mb-4 sm:ml-2 sm:btn-md w-1/3 sm:w-full opacity-80 sm:opacity-100" onClick={start}>
           {startLabel}
-        </button>
-        <button className="btn btn-error m-2 w-full" onClick={pauseGame}>
+        </button>        
+        <button className="btn btn-error btn-sm ml-2 mb-4 sm:ml-2 sm:btn-md w-1/3 sm:w-full opacity-80 sm:opacity-100" onClick={pauseGame}>
           {pauseLabel}
         </button>
       </div>

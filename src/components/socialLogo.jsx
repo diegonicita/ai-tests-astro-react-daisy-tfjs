@@ -18,7 +18,7 @@ export const SocialLogo = ({ title }) => {
     const colorHex = rgbComponents
       .map((component) => parseInt(component).toString(16).padStart(2, '0'))
       .join('') // Esto mostrará el valor del color en formato RGB, por ejemplo "rgb(59, 130, 246)"
-    setColor('#' + colorHex)    
+    setColor('#' + colorHex)
   }, [$themeAtom])
 
   return (
@@ -84,7 +84,7 @@ export const SocialLogo = ({ title }) => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g clip-path="url(#clip0_1369_53)">
+              <g clipPath="url(#clip0_1369_53)">
                 <path
                   d="M22.9878 12.2242C22.9878 11.2409 22.9095 10.5234 22.7402 9.7793H11.729V14.2173H18.1923C18.0621 15.3202 17.3584 16.9811 15.7946 18.0972L15.7727 18.2458L19.2543 20.996L19.4955 21.0205C21.7107 18.9344 22.9878 15.8649 22.9878 12.2242Z"
                   fill="#4285F4"

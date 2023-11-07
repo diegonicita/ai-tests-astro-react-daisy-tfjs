@@ -4,14 +4,16 @@ import { GradientTitle } from '../../../components/gradientTitle'
 import { Form } from '../../../components/form.jsx'
 ---
 
-<BaseLayout title="Clearence de Creatinina">
-  <div>
+<BaseLayout title="Clearence de Creatinina" max="max-w-[60rem]">
+  <div class="max-w-[60rem] m-auto">
     <div class="min-h-screen p-8">
+      <div class="text-center">
       <GradientTitle
         client:only
         withColor={'Calculadora: '}
         withoutColor={'Cl. de Cr.'}
       />
+      </div>
       <Form client:load />
     </div>
   </div>
