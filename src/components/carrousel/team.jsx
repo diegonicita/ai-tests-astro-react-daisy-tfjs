@@ -37,13 +37,35 @@ const Team = ({ vets }) => {
   }
 
   return (
-    <Slider {...settings} className="w-[20rem] sm:w-[40rem] md:w-[60rem] py-4">
-      {vets.map((v, i) => (
-        <div key={i}>
-          <Card id={v.id} src={v.src} title={v.title} text={v.speciality} />
-        </div>
-      ))}
-    </Slider>
+    <>
+      <link
+        rel="stylesheet"
+        type="text/css"
+        charSet="UTF-8"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+      />
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+      />
+      <Slider
+        {...settings}
+        className="w-[20rem] sm:w-[40rem] md:w-[60rem] py-4"
+      >
+        {vets.map((v, i) => (
+          <div key={i}>
+            <Card
+              id={v.id}
+              src={v.src}
+              title={v.title}
+              text={v.speciality}
+              button={v.button}
+            />
+          </div>
+        ))}
+      </Slider>
+    </>
   )
 }
 
