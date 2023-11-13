@@ -1,6 +1,7 @@
 import Weeks from './weeks'
 import Selectors from './selectors'
-import { days, months, scrollToSection } from './helper'
+import { days, months } from './constants'
+import { scrollToSection } from './scrollToSection'
 import { useState, useRef, type ChangeEvent, type SetStateAction } from 'react'
 import useDate from './useDate'
 
