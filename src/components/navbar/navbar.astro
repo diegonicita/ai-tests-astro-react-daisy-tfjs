@@ -1,7 +1,7 @@
 ---
 import Horizontal from './horizontal.astro'
 import Vertical from './vertical.astro'
-const { link, logo, title, idiomas, max = '' } = Astro.props
+const { link, logo, title, idiomas, max = '', auth} = Astro.props
 ---
 
 <script>
@@ -22,6 +22,6 @@ const { link, logo, title, idiomas, max = '' } = Astro.props
 <div class=`flex justify-center ${max} m-auto`>
   <div class="navbar bg-base-100">
     <Vertical title={title} link={link} logo={logo} />
-    <Horizontal idiomas={idiomas} />
+    <Horizontal idiomas={idiomas} auth={auth}/>
   </div>
 </div>

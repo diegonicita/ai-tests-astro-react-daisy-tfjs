@@ -2,8 +2,9 @@
 import Themes from './horizontalThemes.astro'
 import Languages from './horizontalLanguages.astro'
 import Fonts from './horizontalFonts.astro'
+import Auth from './horizontalAuth.astro'
 
-const { idiomas } = Astro.props
+const { idiomas, auth = false } = Astro.props
 ---
 
 <div class="navbar-end hidden lg:flex pr-8">
@@ -11,5 +12,6 @@ const { idiomas } = Astro.props
     <Themes />
     {idiomas && <Languages />}
     <Fonts />
+    {auth && <Auth />}
   </div>
 </div>

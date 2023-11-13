@@ -30,6 +30,14 @@
   },
   "devDependencies": {
     "@types/react-slick": "^0.23.11",
-    "daisyui": "^3.5.0"
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "daisyui": "^3.5.0",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.3.1",
+    "eslint-plugin-promise": "^6.1.1"
   }
 }

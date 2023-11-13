@@ -11,127 +11,126 @@ const imageDefault = '/webapp/logo-grande.png'
 import VetCareHeroe from '../components/heroes/vetcare'
 ---
 
+<BaseLayout title="Webapp" max="max-w-[60rem]" auth="true">
+  <Hero />
 
-  <BaseLayout title="Webapp" max="max-w-[60rem]">
-    <Hero />
-
-    <div class="hero items-start max-w-[60rem] m-auto">
-      <div class="hero-content text-start">
-        <div>
-          <div class="mt-16 md:mt-0"></div>
-          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-            Contenido
-          </h2>
-          <p class="text-lg mt-4 text-slate-500 text-balance max-w-xl">
-            Navega por las diferentes secciones
-          </p>
-          <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-12 gap-16">
-            <HeroGridUnit
-              title="Apps y Prototipos"
-              description="Apps y prototipos creados con Astro, Tailwind y React. Una API propia creada con Node y MySQL enriquese el frontend con información"
-            >
-              <Button to="mercado">Mercado App</Button>
-              <Button to="singer">Singer App</Button>
-              <Button to="choices">Choices App</Button>
-              <Button to="games/tortutetris">Tortutetris Game</Button>
-            </HeroGridUnit>
-            <HeroGridUnit
-              title="Curso de Portugues"
-              description="Resumenes y ejercicios sobre el idioma portugues. Información obtenida durante mi cursas de Portugues Urgente en 'No Country'"
-            >
-              <Button to="portugues/week1">Semana 1</Button>
-              <Button to="portugues/week2">Semana 2</Button>
-              <Button to="portugues/week3">Semana 3</Button>
-              <Button to="portugues/week4">Semana 4</Button>
-              <Button to="portugues/week5">Semana 5</Button>
-            </HeroGridUnit>
-            <HeroGridUnit
-              title="Componentes y Ejemplos"
-              description="Componentes en los que estoy trabajando. La idea es agregar muchos componentes reutilizables aqui"
-            >
-              <Button to="examples/login">Login</Button>
-              <Button to="examples/register">Register</Button>
-              <Button to="examples/grid">Grid</Button>
-              <Button to="examples/hero-vetcare">Hero VetCare</Button>
-              <Button to="examples/carousel-vetcare">Carousel VetCare</Button>
-            </HeroGridUnit>
-            <HeroGridUnit
-              title="Tensorflow.js"
-              description="Cosas relacionadas con la programacion web y Tensorflow. Mientras realizo un curso de Tensorflow.js voy a ir agregando mas ejemplos"
-            >
-              <Button to="tensorflow/toxicity">Toxicity Classifier</Button>
-            </HeroGridUnit>
-            <HeroGridUnit
-              title="Calculadora"
-              description="Diferentes calculadoras muy útiles en medicina"
-            >
-              <Button to="medicine/calcs/clearence">
-                Clearence de Creatinina
-              </Button>
-            </HeroGridUnit>
-            <HeroGridUnit
-              title="Clases y Cursos"
-              description="Clases de programacion web y medicina en las que participé"
-            >
-              <Button to="medicine/diseases/triquinosis">Triquinosis</Button>
-              <Button to="javascript/arrays">Arrays</Button>
-            </HeroGridUnit>
-          </div>
+  <div class="hero items-start max-w-[60rem] m-auto">
+    <div class="hero-content text-start">
+      <div>
+        <div class="mt-16 md:mt-0"></div>
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+          Contenido
+        </h2>
+        <p class="text-lg mt-4 text-slate-500 text-balance max-w-xl">
+          Navega por las diferentes secciones
+        </p>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-12 gap-16">
+          <HeroGridUnit
+            title="Apps y Prototipos"
+            description="Apps y prototipos creados con Astro, Tailwind y React. Una API propia creada con Node y MySQL enriquese el frontend con información"
+          >
+            <Button to="mercado">Mercado App</Button>
+            <Button to="singer">Singer App</Button>
+            <Button to="choices">Choices App</Button>
+            <Button to="games/tortutetris">Tortutetris Game</Button>
+          </HeroGridUnit>
+          <HeroGridUnit
+            title="Curso de Portugues"
+            description="Resumenes y ejercicios sobre el idioma portugues. Información obtenida durante mi cursas de Portugues Urgente en 'No Country'"
+          >
+            <Button to="portugues/week1">Semana 1</Button>
+            <Button to="portugues/week2">Semana 2</Button>
+            <Button to="portugues/week3">Semana 3</Button>
+            <Button to="portugues/week4">Semana 4</Button>
+            <Button to="portugues/week5">Semana 5</Button>
+          </HeroGridUnit>
+          <HeroGridUnit
+            title="Componentes y Ejemplos"
+            description="Componentes en los que estoy trabajando. La idea es agregar muchos componentes reutilizables aqui"
+          >
+            <Button to="examples/login">Login</Button>
+            <Button to="examples/register">Register</Button>
+            <Button to="examples/grid">Grid</Button>
+            <Button to="examples/hero-vetcare">Hero VetCare</Button>
+            <Button to="examples/carousel-vetcare">Carousel VetCare</Button>
+          </HeroGridUnit>
+          <HeroGridUnit
+            title="Tensorflow.js"
+            description="Cosas relacionadas con la programacion web y Tensorflow. Mientras realizo un curso de Tensorflow.js voy a ir agregando mas ejemplos"
+          >
+            <Button to="tensorflow/toxicity">Toxicity Classifier</Button>
+          </HeroGridUnit>
+          <HeroGridUnit
+            title="Calculadora"
+            description="Diferentes calculadoras muy útiles en medicina"
+          >
+            <Button to="medicine/calcs/clearence">
+              Clearence de Creatinina
+            </Button>
+          </HeroGridUnit>
+          <HeroGridUnit
+            title="Clases y Cursos"
+            description="Clases de programacion web y medicina en las que participé"
+          >
+            <Button to="medicine/diseases/triquinosis">Triquinosis</Button>
+            <Button to="javascript/arrays">Arrays</Button>
+          </HeroGridUnit>
         </div>
       </div>
     </div>
-    <div class="max-w-[60rem] m-auto">
-      <div class="mt-2 md:mt-24"></div>
-      <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-        Recomendados
-      </h2>
-      <p class="text-lg mt-4 text-slate-500 text-balance max-w-xl">
-        Navega por estas secciones recomendadas
-      </p>
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-12 gap-16">
-        <HeroGridUnit
-          title="Tortutetris"
-          description="Versión del clásico juego de piezas llamado Tetris, creado en 1985 por Alexey Pajitnov, un ingeniero de software Sovietico"
-        >
-          <Button to="games/tortutetris">Tortutetris</Button>
-          <img src={image} class="w-[0%] md:w-[100%] md:shadow-lg md:mt-8" />
-        </HeroGridUnit>
-        <HeroGridUnit
-          title="Mercado App"
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis fugiat laudantium alias nam nesciunt molestias numquam"
-        >
-          <Button to="mercado">Mercado App</Button>
-          <img
-            src={imageDefault}
-            class="w-[0%] md:w-[100%] md:shadow-lg md:mt-8"
-          />
-        </HeroGridUnit>
-        <HeroGridUnit
-          title="Singer App"
-          description="App sobre una artista. Utiliza Web Transitions. Es un sitio para mostrar datos de un artista y el calendario de sus shows"
-        >
-          <Button to="singer">Singer App</Button>
-          <img
-            src={imageDefault}
-            class="w-[0%] md:w-[100%] md:shadow-lg md:mt-8"
-          />
-        </HeroGridUnit>
-        <HeroGridUnit
-          title="Multiple Choices de Medicina"
-          description="Practica exámenes de residencias médicas de Argentina, México, Perú y España. Tienes mas de 6000 preguntas disponibles en nuetras extensa base de datos."
-        >
-          <Button to="choices">Multiple Choices</Button>
-          <img
-            src={imageDefault}
-            class="w-[0%] md:w-[100%] md:shadow-lg md:mt-8"
-          />
-        </HeroGridUnit>
-      </div>
+  </div>
+  <div class="max-w-[60rem] m-auto">
+    <div class="mt-2 md:mt-24"></div>
+    <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+      Recomendados
+    </h2>
+    <p class="text-lg mt-4 text-slate-500 text-balance max-w-xl">
+      Navega por estas secciones recomendadas
+    </p>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-12 gap-16">
+      <HeroGridUnit
+        title="Tortutetris"
+        description="Versión del clásico juego de piezas llamado Tetris, creado en 1985 por Alexey Pajitnov, un ingeniero de software Sovietico"
+      >
+        <Button to="games/tortutetris">Tortutetris</Button>
+        <img src={image} class="w-[0%] md:w-[100%] md:shadow-lg md:mt-8" />
+      </HeroGridUnit>
+      <HeroGridUnit
+        title="Mercado App"
+        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis fugiat laudantium alias nam nesciunt molestias numquam"
+      >
+        <Button to="mercado">Mercado App</Button>
+        <img
+          src={imageDefault}
+          class="w-[0%] md:w-[100%] md:shadow-lg md:mt-8"
+        />
+      </HeroGridUnit>
+      <HeroGridUnit
+        title="Singer App"
+        description="App sobre una artista. Utiliza Web Transitions. Es un sitio para mostrar datos de un artista y el calendario de sus shows"
+      >
+        <Button to="singer">Singer App</Button>
+        <img
+          src={imageDefault}
+          class="w-[0%] md:w-[100%] md:shadow-lg md:mt-8"
+        />
+      </HeroGridUnit>
+      <HeroGridUnit
+        title="Multiple Choices de Medicina"
+        description="Practica exámenes de residencias médicas de Argentina, México, Perú y España. Tienes mas de 6000 preguntas disponibles en nuetras extensa base de datos."
+      >
+        <Button to="choices">Multiple Choices</Button>
+        <img
+          src={imageDefault}
+          class="w-[0%] md:w-[100%] md:shadow-lg md:mt-8"
+        />
+      </HeroGridUnit>
     </div>
-    <div class="max-w-[60rem] m-auto mt-16">
-      <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-        Componentes Reutilizables
-      </h2>
-    </div>
-    <VetCareHeroe />
-  </BaseLayout>
+  </div>
+  <div class="max-w-[60rem] m-auto mt-16">
+    <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+      Componentes Reutilizables
+    </h2>
+  </div>
+  <VetCareHeroe />
+</BaseLayout>

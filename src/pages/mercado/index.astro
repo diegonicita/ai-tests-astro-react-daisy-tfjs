@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import EmptyLayout from '../../layouts/EmptyLayout.astro'
 import Card from '../../components/cards/card.astro'
 import { CardsJSX } from '../../components/cards/cardsJSX'
 import Team from '../../components/carrousel/team'
@@ -21,7 +20,6 @@ carrouselData = [...carrouselData, ...carrouselData]
 
 <BaseLayout title="Mercado" max="max-w-[71rem]">
   <div class="container px-8 max-w-[70rem] m-auto">
-    <!-- <GradientTitle client:only withColor={'Bienvenido'} withoutColor={''} /> -->
     <div
       class="mt-16 md:mt-0 lg:max-w-[70rem] max-w-3xl m-auto text-center lg:text-left"
     >

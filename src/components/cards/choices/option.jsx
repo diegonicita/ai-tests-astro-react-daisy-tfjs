@@ -13,25 +13,29 @@ export const Option = ({
   questionNumber,
 }) => {
   useEffect(() => {
-    if (optionAnswered == optionNumber && optionAnswered == correct) {
+    if (optionAnswered === optionNumber && optionAnswered === correct) {
       notifyCorrect(questionNumber)
       confetti()
     }
-    if (optionAnswered == optionNumber && optionAnswered != correct) {
+    if (optionAnswered === optionNumber && optionAnswered !== correct) {
       notifyIncorrect(questionNumber)
     }
   }, [optionAnswered])
 
   let backgroundColor = null
-  if (optionAnswered == optionNumber && optionAnswered == correct) {
+  if (optionAnswered === optionNumber && optionAnswered === correct) {
     backgroundColor =
       'bg-success text-black font-bold hover:bg-success hover:text-black'
   }
-  if (optionAnswered == optionNumber && optionAnswered != correct) {
+  if (optionAnswered === optionNumber && optionAnswered !== correct) {
     backgroundColor =
       'bg-error text-black font-bold  hover:bg-error hover:text-black'
   }
-  if (optionAnswered && optionAnswered != optionNumber && optionNumber == correct) {
+  if (
+    optionAnswered &&
+    optionAnswered !== optionNumber &&
+    optionNumber === correct
+  ) {
     backgroundColor =
       'bg-success text-black font-bold  hover:bg-success hover:text-black'
   }
