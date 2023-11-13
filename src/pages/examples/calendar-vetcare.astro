@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { GradientTitle } from '../../components/gradientTitle'
+import CalendarJSX from '../../components/calendar/calendar'
+---
+
+<BaseLayout title="Webapp">
+  <div class="text-center">
+    <GradientTitle client:only withColor={'Calendar'} withoutColor={''} />
+    <CalendarJSX client:only />
+  </div>
+</BaseLayout>
