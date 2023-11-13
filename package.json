@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "net": "astro dev --host 192.168.0.239"
+    "net": "astro dev --host 192.168.0.239",
+    "test": "vitest"
   },
   "dependencies": {
     "@astrojs/mdx": "^1.0.0",
@@ -38,6 +39,7 @@
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-n": "^16.3.1",
-    "eslint-plugin-promise": "^6.1.1"
+    "eslint-plugin-promise": "^6.1.1",
+    "vitest": "^0.34.6"
   }
 }

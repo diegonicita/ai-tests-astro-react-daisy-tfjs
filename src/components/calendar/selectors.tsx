@@ -1,5 +1,5 @@
 import { type ChangeEvent } from 'react'
-import { months, years } from './helper'
+import { months, years } from './constants'
 
 type Props = {
   monthState: number
@@ -9,7 +9,7 @@ type Props = {
 
 const Selectors = ({ monthState, yearState, handleChangeSelector }: Props) => {
   return (
-    <>      
+    <>
       <div className="flex justify-center gap-4">
         <select
           name="monthSelector"

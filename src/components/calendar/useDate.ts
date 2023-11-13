@@ -1,6 +1,7 @@
-import obtenerDiaInicioMes, {
+import {
+  obtenerPosicionEnSemana,
   obtenerDiasEnMes,
-  agregarDiasAlPrincipio,
+  agregarDiasAlPrincipioDelMes,
 } from './helper'
 import { useState, useEffect } from 'react'
 
@@ -26,9 +27,9 @@ const useDate = () => {
   }
 
   useEffect(() => {
-    const posicionDiaIniciodeMes = obtenerDiaInicioMes(
+    const posicionDiaIniciodeMes = obtenerPosicionEnSemana(
       1,
-      monthState - 1,
+      monthState,
       yearState,
     )
     const mesActual = obtenerDiasEnMes(monthState, yearState)
@@ -36,11 +37,12 @@ const useDate = () => {
     if (monthState > 1)
       diasMesPrevio = obtenerDiasEnMes(monthState - 1, yearState)
     if (monthState === 1) diasMesPrevio = obtenerDiasEnMes(12, yearState - 1)
-    const result = agregarDiasAlPrincipio(
+    const result = agregarDiasAlPrincipioDelMes(
       posicionDiaIniciodeMes,
       diasMesPrevio,
       mesActual,
     )
+
     setArrayMesActual(result)
   }, [monthState, yearState])
 
