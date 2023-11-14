@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Onboard from '../../components/onboarding/onboard'
+---
+
+<BaseLayout title="Webapp" max="max-w-[73rem]">
+  <div class="text-center">
+    <Onboard
+      client:only
+      config={{
+        title: '¡Bienvenid@ a SmartShop!',
+        subtitle:
+          'Te presentamos cómo funciona esta nueva experiencia de compra',
+        skipText: 'Saltar presentacion',
+        size: 'w-12 h-8',
+        image: '/webapp/smartshop.png',
+        imageNav: '/webapp/nav1.png',
+      }}
+    />
+  </div>
+</BaseLayout>

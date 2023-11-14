@@ -5,8 +5,10 @@ const { title, description } = Astro.props
 
 <div class="flex gap-4 items-start flex-col">
   <div>
+    <div class="p-2 bg-base-300 rounded-se-2xl rounded-es-2xl w-fit">
     <Title>{title}</Title>
-    <p class="text-slate-500 mt-2 leading-relaxed">
+    </div>
+    <p class="text-base-300-content mt-2 leading-relaxed p-2">
       {description}
     </p>
     <slot />

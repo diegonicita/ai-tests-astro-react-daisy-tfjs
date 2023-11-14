@@ -17,11 +17,13 @@
     "@astrojs/tailwind": "^5.0.0",
     "@nanostores/persistent": "^0.9.1",
     "@nanostores/react": "^0.7.1",
+    "@pixi/react": "^7.1.1",
     "@types/react": "^18.2.18",
     "@types/react-dom": "^18.2.7",
     "astro": "^3.0.2",
     "canvas-confetti": "^1.6.0",
     "nanostores": "^0.9.3",
+    "pixi.js": "^7.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
@@ -30,6 +32,8 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.1.0",
     "@types/react-slick": "^0.23.11",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
@@ -40,6 +44,7 @@
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-n": "^16.3.1",
     "eslint-plugin-promise": "^6.1.1",
+    "jsdom": "^22.1.0",
     "vitest": "^0.34.6"
   }
 }

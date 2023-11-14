@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Example from '../../components/pixi/example1'
+---
+
+<BaseLayout title="Webapp" max="max-w-[73rem]">
+  <div class="flex flex-col items-center justify-center mx-auto bg-primary p-4 max-w-5xl pb-10">
+    <div class="text-primary-content px-4"> Pixi Example 1</div>
+    <Example client:only/>
+  </div>
+</BaseLayout>
