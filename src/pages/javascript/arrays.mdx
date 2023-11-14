@@ -4,8 +4,9 @@ import BlogLayout from '../../layouts/BlogLayout.astro'
 import Code from '../../components/code.astro'
 import Box from '../../components/box.astro'
 
-<BaseLayout title="Webapp">
+<BaseLayout title="Webapp" max="max-w-[50rem]">
 <BlogLayout>
+<div className="max-w-[50rem] mx-auto">
 
 # **Curso de Javascript: Arrays o arreglos**
 
@@ -126,6 +127,6 @@ Los arreglos son una parte fundamental de la programación y te permiten trabaja
 </Box>
 
 Para conocer más de los Arreglos pueden visitar la página oficial de **mdn web docs**.
-
+</div>
 </BlogLayout>
 </BaseLayout>

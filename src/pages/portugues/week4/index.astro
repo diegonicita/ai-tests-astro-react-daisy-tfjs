@@ -2,32 +2,41 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro'
 ---
 
-<BaseLayout title="Portugues">
-<div class="hero hero-content flex-col m-auto mt-4">
-  <div class="font-bold">Preterito Perfeito Composto</div>
+<BaseLayout title="Portugues" max="max-w-[60rem]">
+  <div
+    class="wrapper text-sm sm:px-12 sm:text-lg max-w-[65rem] mx-auto text-center"
+  >
+    <div class="font-bold">Pretérito Perfeito Composto</div>
 
-  <div class="mb-4">eu tinha falado / tu tinhas falado / voce tinha falado</div>
+    <div>eu tinha falado / tu tinhas falado / você tinha falado</div>
+    <br />
 
-  <div class="font-bold">Preterito Imperfeito</div>
+    <div class="font-bold">Pretérito Imperfeito</div>
 
-  <div class="mb-4">eu tinha / voce tinha</div>
+    <div>eu tinha / você tinha</div>
+    <br />
 
-  <div class="font-bold">Futuro de Presente Composto</div>
+    <div class="font-bold">Futuro do Presente Composto</div>
 
-  <div class="mb-4">
-    Amanha ele tera hiptecado a casa que tanto sonhava Na empresa havera/tera
-    mudancas, mas pequenas
+    <div>
+      Amanhã ele terá hipotecado a casa que tanto sonhava. Na empresa haverá
+      mudanças, mas pequenas.
+    </div>
+    <br />
+
+    <div class="font-bold">Advérbios de Afirmação, Negação e Dúvida</div>
+    <div>Alteram tanto um verbo, um adjetivo ou até mesmo outro advérbio.</div>
+    <br />
+    <div>
+      <span class="font-bold">Afirmação:</span> sim, positivamente, realmente,
+      efetivamente, certamente
+    </div>
+    <div>Eu entendo perfeitamente o que você quer dizer.</div>
+    <div>Eu me importo sim com você (Me importa de verdade).</div>
+    <div>Realmente, este disco é bem caro.</div>
+    <br />
+    <div>
+      <span class="font-bold">Negação:</span> nem, nunca, jamais, tampouco
+    </div>
   </div>
-
-  <div class="font-bold">Adverbios de afirmacao, negacao e duvida</div>
-  <div class="mb-4">
-    Alteram tanto un verbo, um adjetvio o u ate mesmo um outro adverbio
-  </div>
-  <div><span class="font-bold">Afirmacao:</span> sim, positivamente, realmente, efetivamente, certamente</div>
-  <div>Eu entendo perfeitamente o que voce quer dizer</div>
-  <div>Eu me importo sim com voce (Me importa de verdad)</div>
-  <div>Realmente, este disco e bem caro</div>
-  <div><span class="font-bold">Negacao:</span> nem, nunca, jamais, tampouco</div>
-  
-</div>
 </BaseLayout>

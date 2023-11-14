@@ -54,6 +54,7 @@ import VetCareHeroe from '../components/heroes/vetcare'
             <Button to="examples/hero-vetcare">Hero VetCare</Button>
             <Button to="examples/carousel-vetcare">Carousel</Button>
             <Button to="examples/calendar-vetcare">Calendar</Button>
+            <Button to="examples/onboarding">Onboarding</Button>
           </HeroGridUnit>
           <HeroGridUnit
             title="Tensorflow.js"
@@ -80,7 +81,7 @@ import VetCareHeroe from '../components/heroes/vetcare'
       </div>
     </div>
   </div>
-  <div class="max-w-[60rem] m-auto">
+  <div class="max-w-[60rem] m-auto px-4">
     <div class="mt-2 md:mt-24"></div>
     <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
       Recomendados
@@ -93,42 +94,50 @@ import VetCareHeroe from '../components/heroes/vetcare'
         title="Tortutetris"
         description="Versión del clásico juego de piezas llamado Tetris, creado en 1985 por Alexey Pajitnov, un ingeniero de software Sovietico"
       >
-        <Button to="games/tortutetris">Tortutetris</Button>
-        <img src={image} class="w-[0%] md:w-[100%] md:shadow-lg md:mt-8" />
+        <div class="w-full bg-base-300 text-center p-2">
+          <img src={image} class="w-[0%] md:w-[50%] md:shadow-lg mx-auto" />
+          <Button to="games/tortutetris">Tortutetris</Button>
+        </div>
       </HeroGridUnit>
       <HeroGridUnit
         title="Mercado App"
         description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis fugiat laudantium alias nam nesciunt molestias numquam"
       >
-        <Button to="mercado">Mercado App</Button>
-        <img
-          src={imageDefault}
-          class="w-[0%] md:w-[100%] md:shadow-lg md:mt-8"
-        />
+        <div class="w-full bg-base-300 text-center p-2">
+          <img
+            src={imageDefault}
+            class="w-[0%] md:w-[50%] md:shadow-lg md:mt-4 mx-auto"
+          />
+          <Button to="mercado">Mercado App</Button>
+        </div>
       </HeroGridUnit>
       <HeroGridUnit
         title="Singer App"
         description="App sobre una artista. Utiliza Web Transitions. Es un sitio para mostrar datos de un artista y el calendario de sus shows"
       >
-        <Button to="singer">Singer App</Button>
-        <img
-          src={imageDefault}
-          class="w-[0%] md:w-[100%] md:shadow-lg md:mt-8"
-        />
+        <div class="w-full bg-base-300 text-center p-2">
+          <img
+            src={imageDefault}
+            class="w-[0%] md:w-[50%] md:shadow-lg md:mt-4 mx-auto"
+          />
+          <Button to="singer">Singer App</Button>
+        </div>
       </HeroGridUnit>
       <HeroGridUnit
         title="Multiple Choices de Medicina"
         description="Practica exámenes de residencias médicas de Argentina, México, Perú y España. Tienes mas de 6000 preguntas disponibles en nuetras extensa base de datos."
       >
-        <Button to="choices">Multiple Choices</Button>
-        <img
-          src={imageDefault}
-          class="w-[0%] md:w-[100%] md:shadow-lg md:mt-8"
-        />
+        <div class="w-full bg-base-300 text-center p-2">
+          <img
+            src={imageDefault}
+            class="w-[0%] md:w-[50%] md:shadow-lg md:mt-4 mx-auto"
+          />
+          <Button to="choices">Multiple Choice</Button>
+        </div>
       </HeroGridUnit>
     </div>
   </div>
-  <div class="max-w-[60rem] m-auto mt-16">
+  <div class="max-w-[60rem] m-auto mt-16 px-4">
     <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
       Componentes Reutilizables
     </h2>
