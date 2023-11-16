@@ -28,7 +28,7 @@ const Car = ({ x, y, direction }: Props) => {
     } else {
       setPosition((prevPosition) => ({
         ...prevPosition,
-        x: prevPosition.x + direction.x,
+        x: prevPosition.x + direction.x*stageProps.scaleGame,
       }))
     }
   }
@@ -40,7 +40,7 @@ const Car = ({ x, y, direction }: Props) => {
         x={position.x}
         y={position.y}
         anchor={{ x: 0.5, y: 0.5 }}
-        scale={{ x: 0.5, y: 0.5 }}
+        scale={{ x: 0.5*stageProps.scaleGame, y: 0.5*stageProps.scaleGame }}
       />
     </>
   )

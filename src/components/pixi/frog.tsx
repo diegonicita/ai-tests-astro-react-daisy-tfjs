@@ -1,4 +1,5 @@
 import { Sprite } from '@pixi/react'
+import useConfig from './useConfig'
 
 type Props = {
   x: number
@@ -7,6 +8,8 @@ type Props = {
 }
 
 const Frog = ({ x, y, position }: Props) => {
+  const { stageProps } = useConfig()
+
   return (
     <>
       <Sprite
@@ -14,7 +17,10 @@ const Frog = ({ x, y, position }: Props) => {
         x={position.x}
         y={position.y}
         anchor={{ x: 0.5, y: 0.5 }}
-        scale={{ x: 0.25, y: 0.25 }}
+        scale={{
+          x: 0.25 * stageProps.scaleGame,
+          y: 0.25 * stageProps.scaleGame,
+        }}
       />
     </>
   )
