@@ -1,29 +1,19 @@
 import { BlurFilter } from 'pixi.js'
-import { Stage, Container, Sprite, Text } from '@pixi/react'
-import { useMemo, useEffect, useState } from 'react'
-
-const width = 800
-const height = 600
-const stageProps = {
-  height,
-  width,
-  options: {
-    backgroundAlpha: 0,
-    antialias: true,
-  },
-}
+import { Stage, Container, Text } from '@pixi/react'
+import { useMemo, useState } from 'react'
+import Car from './car'
+import Trunk from './trunk'
+import Frog from './frog'
+import useKeyboard from './useKeyboard'
+import useConfig from './useConfig'
 
 const Example = () => {
   const blurFilter = useMemo(() => new BlurFilter(0), [])
-
   const [frogPosition, setFrogPosition] = useState({ x: 400, y: 560 })
-  const [car1Position, setCar1Position] = useState({ x: 100, y: 150 })
-  const [car2Position, setCar2Position] = useState({ x: 400, y: 400 })
-  const [trunk1Position, setTrunk1Position] = useState({ x: 200, y: 250 })
-  const [trunk2Position, setTrunk2Position] = useState({ x: 600, y: 280 })
+  const { stageProps } = useConfig()
 
   // Función para manejar eventos de teclado
-  const handleKeyPress = (event: { key: any }) => {
+  const handleKeyPress = (event: KeyboardEvent) => {
     const speed = 20 // Puedes ajustar la velocidad según tus necesidades
 
     switch (event.key) {
@@ -56,89 +46,16 @@ const Example = () => {
     }
   }
 
-  // Agregar el evento de escucha de teclado cuando se monta el componente
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyPress)
-
-    // Limpiar el evento de escucha al desmontar el componente
-    return () => {
-      window.removeEventListener('keydown', handleKeyPress)
-    }
-  }, []) // La dependencia vacía garantiza que el efecto se ejecute solo una vez al montar
-
-  const moveTrunks = () => {
-    setTrunk1Position((prevPosition) => ({
-      ...prevPosition,
-      x: (prevPosition.x + 2) % width, // Ajusta la velocidad según tus necesidades
-    }))
-
-    setTrunk2Position((prevPosition) => ({
-      ...prevPosition,
-      x: (prevPosition.x - 3 + width) % width, // Ajusta la velocidad según tus necesidades
-    }))
-  }
-
-  const moveCars = () => {
-    setCar1Position((prevPosition) => ({
-      ...prevPosition,
-      x: (prevPosition.x + 5) % width, // Ajusta la velocidad según tus necesidades
-    }))
-    setCar2Position((prevPosition) => ({
-      ...prevPosition,
-      x: (prevPosition.x + 5) % width, // Ajusta la velocidad según tus necesidades
-    }))
-  }
-
-  useEffect(() => {
-    const interval = setInterval(moveTrunks, 16) // Actualiza cada 16 ms (aproximadamente 60 fps)
-    const interval2 = setInterval(moveCars, 16) // Actualiza cada 16 ms (aproximadamente 60 fps)
-    // Limpia el intervalo al desmontar el componente
-    return () => {
-      clearInterval(interval)
-      clearInterval(interval2)
-    }
-  }, [])
+  useKeyboard(handleKeyPress)
 
   return (
     <div className="border border-black m-2">
       <Stage {...stageProps}>
-        <Sprite
-          image="/webapp/car.png"
-          x={car1Position.x}
-          y={car1Position.y}
-          anchor={{ x: 0.5, y: 0.5 }}
-          scale={{ x: 0.5, y: 0.5 }}
-        />
-          <Sprite
-          image="/webapp/car.png"
-          x={car2Position.x}
-          y={car2Position.y}
-          anchor={{ x: 0.5, y: 0.5 }}
-          scale={{ x: 0.5, y: 0.5 }}
-        />
-
-        <Sprite
-          image="/webapp/tronco.png"
-          x={trunk2Position.x}
-          y={trunk2Position.y}
-          anchor={{ x: 0.5, y: 0.5 }}
-          scale={{ x: 0.25, y: 0.25 }}
-        />
-
-        <Sprite
-          image="/webapp/tronco.png"
-          x={trunk1Position.x}
-          y={trunk1Position.y}
-          anchor={{ x: 0.5, y: 0.5 }}
-          scale={{ x: 0.25, y: 0.25 }}
-        />
-        <Sprite
-          image="/webapp/frog.png"
-          x={frogPosition.x}
-          y={frogPosition.y}
-          anchor={{ x: 0.5, y: 0.5 }}
-          scale={{ x: 0.25, y: 0.25 }}
-        />
+        <Car x={150} y={200} direction={{ x: 5, y: 0 }} />
+        <Car x={50} y={350} direction={{ x: 5, y: 0 }} />
+        <Trunk x={150} y={100} direction={{ x: -5, y: 0 }} />
+        <Trunk x={50} y={450} direction={{ x: -5, y: 0 }} />
+        <Frog x={400} y={550} position={frogPosition} />
 
         <Container x={400} y={20}>
           <Text
