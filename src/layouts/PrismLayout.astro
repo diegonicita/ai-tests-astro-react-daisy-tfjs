@@ -1,0 +1,49 @@
+---
+import '../global.css'
+const { title, link, logo, idiomas, max = '' } = Astro.props
+import Navbar from '../components/navbar/navbar.astro'
+import Footer from '../components/footer.astro'
+---
+
+<html lang="en" class="bg-base-100" data-theme="cupcake">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <link href="/themes/prism-coldark-dark.css" rel="stylesheet" />
+  </head>
+  <body tabindex="0">
+    <div class="block">
+      <div class="max-w-[90rem] m-auto">
+        <Navbar
+          title={title}
+          link={link}
+          logo={logo}
+          idiomas={idiomas}
+          max={max}
+        />
+        <slot />
+        <Footer />
+      </div>
+    </div>
+  </body>
+</html>
+
+<script is:inline>
+  const font = localStorage.getItem('fontAtom')
+  var bodyElement = document.body
+  while (bodyElement.classList.length > 0) {
+    bodyElement.classList.remove(bodyElement.classList.item(0))
+  }
+  var stringWithoutQuotes = font.replace(/^"(.*)"$/, '$1')
+  bodyElement.classList.add(stringWithoutQuotes)
+</script>
+
+<script>
+  const t = localStorage.getItem('theme')
+  if (t === null) {
+    document.documentElement.setAttribute('data-theme', 'light')
+  } else {
+    document.documentElement.setAttribute('data-theme', t)
+  }
+</script>

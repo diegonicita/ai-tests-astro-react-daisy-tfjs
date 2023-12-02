@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../../layouts/PrismLayout.astro'
+import { Prism } from '@astrojs/prism'
+---
+
+<script is:inline>
+  const copyContent = async () => {
+    let text = document.querySelector('code')?.innerText
+    let button = document.querySelector('#btn-copy')
+    try {
+      if (text) await navigator.clipboard.writeText(text)
+      console.log('Content copied to clipboard')
+      button.textContent = 'Copiado al Clipboard!'
+      setTimeout(() => {
+        button.textContent = 'Copiar el codigo!'
+      }, 1000)
+    } catch (err) {
+      console.error('Failed to copy: ', err)
+    }
+  }
+</script>
+
+<BaseLayout title="Webapp" max="max-w-[73rem]">
+  <div class="text-start max-w-6xl mx-auto">
+    <div class="flex justify-between bg-base-300 text-base-content pl-8">
+      <h1>Login Component</h1>
+      <button id="btn-copy" class="btn text-start m-2" onclick="copyContent()"
+        >Copiar el codigo!</button
+      >
+    </div>
+    <div class="pt-1 bg-base-300">
+      <Prism
+        lang="jsx"
+        code={`
+// ----------------------------------------------------------- //
+
+import { useState } from 'react'
+import { useLogin } from './useLogin'
+import { Modal } from './modal'
+      
+export const LoginJSX = () => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const { handleSubmitLogin, loginResponse } = useLogin()
+  const [showModal, setShowModal] = useState(false)
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const data = { email, password }
+    handleSubmitLogin(data)
+    setShowModal(true)
+  }
+  
+  return (
+    <div className="hero-content mx-auto max-w-sm">
+      <Modal
+      showModal={showModal}
+      handleShowModal={setShowModal}
+      respObject={loginResponse}
+      />
+      {!showModal && (
+        <form onSubmit={handleSubmit} className="card w-full shadow-2xl bg-base-300">
+        <div className="card-body">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Email</span>
+            </label>
+            <input type="text"
+              placeholder="Ingresa tu email"
+              className="input input-bordered"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+                <span className="label-text">Password</span>
+            </label>
+            <input type="password"
+              placeholder="Ingresa tu contraseña"
+              className="input input-bordered"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <label className="label">
+              <a href="#" className="label-text-alt link link-hover">
+                ¿Olvidaste tu contraseña?
+              </a>
+            </label>
+          </div>
+          <div className="form-control mt-6">
+            <button type="submit" className="btn btn-neutral">
+              Ingresar
+            </button>
+          </div>
+        </div>
+      </form>
+      )}
+    </div>
+  )}
+
+// ----------------------------------------------------------- //
+  
+export const Modal = ({ showModal, handleShowModal, respObject }) => {
+  return (
+    <>
+      {showModal && (
+        <>
+          <div className="bg-gray-900 opacity-50 fixed w-full h-full top-0 right-0 blur-lg z-10"></div>
+          <div className="relative text-start bg-white text-sm px-4 pb-4 rounded-xl 
+                          border border-gray-200 z-20 w-[40rem] max-w-lg">
+            <p className="font-bold"> Respuesta del Servidor: </p>
+            <div className="mt-2 break-words w-full h-30">
+              <div>
+                <span className="font-bold">isError: </span>
+                {respObject?.isError ? 'True' : 'False'}
+              </div>
+              <div>
+                <span className="font-bold">errors: </span>
+                {respObject?.errors &&
+                  respObject?.errors.map((e, index) => (
+                    <div key={index} className="pl-2">
+                      <div>
+                        <span className="font-bold">({index}) campo: </span>
+                        {e.path}
+                      </div>
+                      <div>
+                        <span className="pl-2 font-bold">mensaje: </span> {e.msg}
+                      </div>
+                      <div>
+                        <span className="pl-2 font-bold">valor: </span>
+                        {e.value ? e.value : 'vacio'}
+                      </div>
+                    </div>
+                  ))}
+              </div>
+              <div>
+                <span className="font-bold">message: </span>
+                {respObject?.message}
+              </div>
+              <div>
+                <span className="font-bold">userResponse: </span>
+                {JSON.stringify(respObject?.userResponse)}
+              </div>
+              <div>
+                <span className="font-bold">token: </span>
+                {respObject?.token ? respObject?.token : 'null'}
+              </div>
+            </div>
+            <button
+              className="absolute btn btn-sm top-1 right-1"
+              onClick={() => handleShowModal(false)}
+            > X </button>
+          </div>
+        </>
+      )}
+    </>
+  )
+}      
+
+// ----------------------------------------------------------- //
+ 
+import { useState } from 'react'
+import { loginService } from './loginService'
+
+export const useLogin = () => {
+  const [loginResponse, setLoginResponse] = useState(null)
+
+  const handleSubmitLogin = async (data) => {
+    const resp = await loginService(data)
+    setLoginResponse(resp)
+  }
+
+  return { handleSubmitLogin, loginResponse }
+}
+
+// ----------------------------------------------------------- //
+
+const url = 'http://127.0.0.1:8126/users/login'
+
+export const loginService = async (data) => {
+  try {
+    // Enviar la solicitud POST
+    const resp = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    const responseData = await resp.json()
+    return responseData
+  } catch (error) {
+    return {
+      error: true,
+      errors: null,
+      message: 'Error al enviar la solicitud',
+      token: null,
+      userResponse: {},
+    }
+  }
+}
+
+`
+      
+      
+      
+      }
+      />
+    </div>
+  </div>
+</BaseLayout>
