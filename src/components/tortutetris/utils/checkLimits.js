@@ -32,10 +32,3 @@ const stopX = (pixels) => {
     p.moveUpdate = false
   })
 }
-
-const stopY = (pixels) => {
-  pixels.forEach((p) => {
-    p.moveX = 0
-    p.moveUpdate = false
-  })
-}

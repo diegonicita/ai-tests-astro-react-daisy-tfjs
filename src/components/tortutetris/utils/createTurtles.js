@@ -5,19 +5,19 @@ import { createPieceL } from './pieceL'
 
 export const createTurtles = () => {
   const piezas = []
-  for (var i = 0; i < 240; i++) {
-    var tipoPieza = Math.floor(Math.random() * 4) + 1
-    var id = piezas.length / 4
-    if (tipoPieza == 0) {
+  for (let i = 0; i < 240; i++) {
+    const tipoPieza = Math.floor(Math.random() * 4) + 1
+    const id = piezas.length / 4
+    if (tipoPieza === 0) {
       piezas.push(...createPieceT(id, 5, '🟨', undefined))
     }
-    if (tipoPieza == 1) {
+    if (tipoPieza === 1) {
       piezas.push(...createPieceBox(id, 5, '🐢', undefined))
     }
-    if (tipoPieza == 2) {
+    if (tipoPieza === 2) {
       piezas.push(...createPieceL(id, 5, '🟦', undefined))
     }
-    if (tipoPieza == 3) {
+    if (tipoPieza === 3) {
       piezas.push(...createPieceI(id, 5, '🍄', undefined))
     }
   }

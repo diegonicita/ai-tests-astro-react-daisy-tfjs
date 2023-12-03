@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useKeyboard } from './hooks/useKeyboard'
 import { useTablero } from './hooks/useTablero'
 import { useGameInterval } from './hooks/useGameInterval'
@@ -23,7 +22,7 @@ const config = {
   gameTurtles: null,
 }
 
-var turtlePixels = createTurtles()
+const turtlePixels = createTurtles()
 config.gameTurtlesLength = turtlePixels.length / 4
 const turtlesIdMap = createIdMap(turtlePixels)
 
@@ -52,7 +51,7 @@ export const Game = () => {
   )
 
   const updateGame = () => {
-    if (gameState.current == 1) {
+    if (gameState.current === 1) {
       if (config.actualTurtle < config.gameTurtlesLength)
         turtlesIdMap[config.actualTurtle].forEach((pixel) => {
           gravity(pixel)
@@ -64,7 +63,7 @@ export const Game = () => {
         if (pixel.id === config.actualTurtle) {
           const flag = updateMovement(pixel)
           build(pixel)
-          if (flag == true) updateTablero(config.actualTurtle)
+          if (flag === true) updateTablero(config.actualTurtle)
           if (pixel.status === false) {
             config.actualTurtle++
             if (config.actualTurtle < config.gameTurtlesLength) {
@@ -102,14 +101,14 @@ export const Game = () => {
       ] !== config.emptySpaceChar
 
     if (isOverlap) {
-      if (currentPixel.moveX == 0) {
+      if (currentPixel.moveX === 0) {
         turtlesIdMap[config.actualTurtle].forEach((pixel) => {
           pixel.status = false
           pixel.moveX = 0
           pixel.moveY = 0
           pixel.moveUpdate = false
           updateTableroFijo(pixel)
-          if (pixel.y == 0 && gameState.current == 1) {
+          if (pixel.y === 0 && gameState.current === 1) {
             gameOver()
           }
         })
@@ -166,8 +165,8 @@ export const Game = () => {
   }
 
   const updateMovement = (t) => {
-    var flag = false
-    if (t.rotation.update == true) {
+    let flag = false
+    if (t.rotation.update === true) {
       rotate(t)
       flag = true
     } else {
@@ -178,7 +177,7 @@ export const Game = () => {
   }
 
   const build = (t) => {
-    var indice = t.rotation.index - 1
+    let indice = t.rotation.index - 1
     if (indice < 0) indice = 3
     const tCenter = turtlePixels.find((tt) => tt.id === config.actualTurtle)
     t.x = tCenter.x + t.rotation.positions[indice].x
@@ -217,8 +216,9 @@ export const Game = () => {
       p.gravityCounter = 0
       p.rotation.index = 0
       p.rotation.update = false
+      return null
     })
-    for (var i = 0; i < 4; i++) turtlePixels[i].status = true
+    for (let i = 0; i < 4; i++) turtlePixels[i].status = true
     config.actualTurtle = 0
   }
 
@@ -232,8 +232,7 @@ export const Game = () => {
     <div className="relative flex flex-row">
       <TailwindToaster />
       <div className="flex flex-row">
-        <Board board={tablero} />
-        {/* <Board board={tableroFijo.current} /> */}
+        <Board board={tablero} />        
       </div>
       <div className="absolute sm:relative flex sm:flex-col sm:items-start justify-start sm:justify-start bottom-0 w-full">
         <button className="btn btn-accent btn-sm ml-16 mb-4 sm:ml-2 sm:btn-md w-1/3 sm:w-full opacity-80 sm:opacity-100" onClick={start}>

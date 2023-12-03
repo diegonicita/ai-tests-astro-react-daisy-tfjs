@@ -2,7 +2,6 @@ const UP = -1
 const DOWN = 1
 const LEFT = -1
 const RIGHT = 1
-const Zero = 0
 
 export const rotationDefault = () => ({
   index: 0,

@@ -18,8 +18,7 @@ export const useTablero = (width, height, ch, turtles) => {
   }
 
   const updateTableroFijo = (pixel) => {
-    tableroFijo.current = updatePixel(tableroFijo.current, pixel)
-    //tableroFijo.current = deleteRow(tableroFijo.current, ch)
+    tableroFijo.current = updatePixel(tableroFijo.current, pixel)    
   }
 
   const updateTableroFijoDeleteRows = () => {

@@ -22,8 +22,8 @@ export const useGameState = () => {
   }
 
   const pauseGame = () => {
-    gameState.current = gameState.current == state.playing ? state.paused : state.playing    
-    setPauseLabel(gameState == state.playing ? 'Pause' : 'Continue')
+    gameState.current = gameState.current === state.playing ? state.paused : state.playing    
+    setPauseLabel(gameState === state.playing ? 'Pause' : 'Continue')
   }
 
   return { pauseGame, startGame, gameOver, pauseLabel, startLabel, gameState }

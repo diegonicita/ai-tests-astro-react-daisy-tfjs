@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-var ch = 1
+const ch = 1
 const emptyTablero = [
   [ch, ch, ch, ch, ch, ch, ch, ch, ch, ch],
   [ch, ch, ch, ch, ch, ch, ch, ch, ch, ch],
@@ -14,7 +14,9 @@ const emptyTablero = [
   [ch, ch, ch, ch, ch, ch, ch, ch, ch, ch],
 ]
 
-const updateTablero = () => {
+export const useInitGame = () => {
+  const [tablero, setTablero] = useState(emptyTablero)
+  const updateTablero = (x, y) => {
     const newValue = '🐢' // El nuevo valor que deseas asignar
     const newRow = [...tablero[y]] // Copia la fila en la posición 2
     newRow[x] = newValue // Actualiza el valor en la columna 2
@@ -22,9 +24,6 @@ const updateTablero = () => {
     newTablero[y] = newRow // Actualiza la fila en la posición 2
     setTablero(newTablero)
   }
-
-export const useInitGame = () => {
-  const [tablero, setTablero] = useState(emptyTablero)
 
   useEffect(() => {
     const initGame = () => {

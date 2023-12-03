@@ -3,13 +3,9 @@ import { useEffect } from 'react'
 export const useKeyboard = (turtle, turtles, width, height) => {
   useEffect(() => {
     const handleKeyPress = (event) => {
-      turtles.map((tt, indice) => {
+      turtles.forEach((tt) => {
         if (tt.id === turtle) {
-          if (tt.status == true) {
-            // if (event.key === 'w') {
-            //   tt.moveUpdate = true
-            //   tt.moveY = -1
-            // }
+          if (tt.status === true) {
             if (event.key === 's') {
               tt.moveUpdate = true
               tt.moveY = 1
@@ -23,7 +19,7 @@ export const useKeyboard = (turtle, turtles, width, height) => {
               tt.moveX = 1
             }
 
-            if (event.key === 'k' && tt.rotation.update == false)
+            if (event.key === 'k' && tt.rotation.update === false)
               tt.rotation.update = true
           }
         }
