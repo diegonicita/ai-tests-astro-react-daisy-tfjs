@@ -1,15 +1,14 @@
-// const url = 'http://127.0.0.1:8126/users/login'
-const url = 'https://mercado.webapp.ar/users/login'
-
 export const loginService = async (data) => {
   try {
     // Enviar la solicitud POST
-    const resp = await fetch(url, {
+    const resp = await fetch(import.meta.env.PUBLIC_LOGIN_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
+      credentials: 'include',
+      
     })
     const responseData = await resp.json()
     return responseData
